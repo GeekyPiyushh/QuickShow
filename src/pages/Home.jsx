@@ -3,6 +3,7 @@ import HeroSection from '../components/HeroSection'
 import FeaturedSection from '../components/FeaturedSection'
 import { SearchIcon } from 'lucide-react'
 import { useState } from 'react'
+import CineNews from '../components/CineNews'
 
 const Home = () => {
 
@@ -29,6 +30,7 @@ const Home = () => {
       </form>
       <HeroSection/>
       <FeaturedSection/>
+      <CineNews/>
     </div>
   )
 }

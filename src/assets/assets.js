@@ -363,3 +363,32 @@ export const SLIDES = [
     bgImage: '/backgroundImage.png' // Replace with another image path if available
   }
 ]
+// Dummy data array
+export const NEWS_DATA = [
+  {
+    id: 1,
+    type: 'banner',
+    tag: 'Premiere',
+    title: 'Midnight Premiere Shocks Audiences — Visuals Break the Internet',
+    desc: 'A surprise midnight premiere left fans stunned with groundbreaking VFX and an unforgettable score. Critics call it a new benchmark for cinematic spectacle.',
+    time: '2h ago',
+    date: 'Sep 14, 2025',
+    image: 'https://timesofindia.indiatimes.com/entertainment/tamil/movies/news',
+  },
+  {
+    id: 2,
+    type: 'grid',
+    tag: 'Exclusive',
+    title: 'Director Reveals Secret Cameo — Fans Go Wild',
+    desc: 'An unannounced cameo by a legendary actor briefly appears during an action sequence.',
+    image: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 3,
+    type: 'grid',
+    tag: 'Music',
+    title: 'Composer Drops Teaser — Score Promises Haunting Themes',
+    desc: "A 30-second teaser of the film's score hints at a haunting orchestral motif.",
+    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80',
+  }
+]

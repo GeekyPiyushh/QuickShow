@@ -331,3 +331,35 @@ export const dummyBookingData = [
         "isPaid": true,
     },
 ]
+export const SLIDES = [
+  {
+    id: 1,
+    logo: assets.marvelLogo,
+    title: 'Guardians of the Galaxy',
+    genres: 'Action | Adventure | Sci-Fi',
+    year: '2018',
+    duration: '2h 8m',
+    description: 'In a post-apocalyptic world where cities ride on wheels and consume each other to survive, two people meet in London and try to stop a conspiracy.',
+    bgImage: '/backgroundImage.png'
+  },
+  {
+    id: 2,
+    logo: assets.marvelLogo,
+    title: 'Avengers: Endgame',
+    genres: 'Action | Sci-Fi | Drama',
+    year: '2019',
+    duration: '3h 2m',
+    description: 'After the devastating events of Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more to reverse Thanos actions.',
+    bgImage: '/backgroundImage.png' // Replace with another image path if available
+  },
+  {
+    id: 3,
+    logo: assets.marvelLogo,
+    title: 'Interstellar',
+    genres: 'Adventure | Drama | Sci-Fi',
+    year: '2014',
+    duration: '2h 49m',
+    description: 'When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.',
+    bgImage: '/backgroundImage.png' // Replace with another image path if available
+  }
+]

@@ -5,13 +5,17 @@ import appStore from './appStore.svg'
 import screenImage from './screenImage.svg'
 import profile from './profile.png'
 
+
+export const languages = ["Korean", "Hindi", "Bhojpuri", "Marathi", "Gujrati", "English", "Chinese"];
+export const genres = ["Family", "Comedy", "Adventure", "Fantasy", "Action", "Horror", "Mystery", "Science Fiction", "Crime", "Thriller"]
+
 export const assets = {
     logo,
     marvelLogo,
     googlePlay,
     appStore,
     screenImage,
-    profile
+    profile,
 }
 
 export const dummyTrailers = [
@@ -66,6 +70,11 @@ export const dummyShowsData = [
             { "id": 14, "name": "Fantasy" },
             { "id": 12, "name": "Adventure" }
         ],
+        "languages":[
+            { "id": 2, "name": "Hindi" },
+            { "id": 3, "name": "Bhojpuri" },
+            { "id": 6, "name": "English" }
+        ],
         "casts": dummyCastsData,
         "release_date": "2025-02-27",
         "original_language": "en",
@@ -84,6 +93,11 @@ export const dummyShowsData = [
         "genres": [
             { "id": 27, "name": "Horror" },
             { "id": 9648, "name": "Mystery" }
+        ],
+        "languages":[
+            { "id": 1, "name": "Korean" },
+            { "id": 4, "name": "Marathi" },
+            { "id": 7, "name": "Chinese" }
         ],
         "casts": dummyCastsData,
         "release_date": "2025-04-23",
@@ -105,6 +119,9 @@ export const dummyShowsData = [
             { "id": 35, "name": "Comedy" },
             { "id": 878, "name": "Science Fiction" }
         ],
+        "languages":[
+            { "id": 5, "name": "Gujrati" }
+        ],
         "casts": dummyCastsData,
         "release_date": "2025-05-17",
         "original_language": "en",
@@ -124,6 +141,10 @@ export const dummyShowsData = [
             { "id": 28, "name": "Action" },
             { "id": 80, "name": "Crime" },
             { "id": 53, "name": "Thriller" }
+        ],
+        "languages":[
+            { "id": 3, "name": "Bhojpuri" },
+            { "id": 7, "name": "Chinese" }
         ],
         "casts": dummyCastsData,
         "release_date": "2025-04-25",
@@ -146,6 +167,10 @@ export const dummyShowsData = [
             { "id": 12, "name": "Adventure" },
             { "id": 14, "name": "Fantasy" }
         ],
+        "languages":[
+            { "id": 1, "name": "Korean" },
+            { "id": 2, "name": "Hindi" }
+        ],
         "casts": dummyCastsData,
         "release_date": "2025-03-31",
         "original_language": "en",
@@ -166,6 +191,11 @@ export const dummyShowsData = [
             { "id": 12, "name": "Adventure" },
             { "id": 53, "name": "Thriller" }
         ],
+        "languages":[
+            { "id": 3, "name": "Bhojpuri" },
+            { "id": 6, "name": "English" },
+            { "id": 4, "name": "Marathi" }
+        ],
         "casts": dummyCastsData,
         "release_date": "2025-05-17",
         "original_language": "en",
@@ -185,6 +215,10 @@ export const dummyShowsData = [
             { "id": 28, "name": "Action" },
             { "id": 878, "name": "Science Fiction" },
             { "id": 12, "name": "Adventure" }
+        ],
+        "languages":[
+            { "id": 7, "name": "Chinese" },
+            { "id": 2, "name": "Hindi" }
         ],
         "casts": dummyCastsData,
         "release_date": "2025-04-30",
@@ -350,17 +384,17 @@ export const SLIDES = [
     year: '2019',
     duration: '3h 2m',
     description: 'After the devastating events of Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more to reverse Thanos actions.',
-    bgImage: '/backgroundImage.png' // Replace with another image path if available
+    bgImage: 'https://wallpaperaccess.com/full/1089104.png' // Replace with another image path if available
   },
   {
     id: 3,
-    logo: assets.marvelLogo,
+    logo: '',
     title: 'Interstellar',
     genres: 'Adventure | Drama | Sci-Fi',
     year: '2014',
     duration: '2h 49m',
     description: 'When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.',
-    bgImage: '/backgroundImage.png' // Replace with another image path if available
+    bgImage: 'https://images.wallpapersden.com/image/download/interstellar-art_bWdnZmuUmZqaraWkpJRobWllrWdma2U.jpg' // Replace with another image path if available
   }
 ]
 // Dummy data array
@@ -373,7 +407,7 @@ export const NEWS_DATA = [
     desc: 'A surprise midnight premiere left fans stunned with groundbreaking VFX and an unforgettable score. Critics call it a new benchmark for cinematic spectacle.',
     time: '2h ago',
     date: 'Sep 14, 2025',
-    image: 'https://timesofindia.indiatimes.com/entertainment/tamil/movies/news',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyEo7xxkrH0dj3B8Mj4gNxBotAJmos5RnloNqrrtBEjWelonwVZDYVKqBD&s=10',
   },
   {
     id: 2,
@@ -382,6 +416,14 @@ export const NEWS_DATA = [
     title: 'Director Reveals Secret Cameo — Fans Go Wild',
     desc: 'An unannounced cameo by a legendary actor briefly appears during an action sequence.',
     image: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=500&q=80',
+  },
+  {
+    id: 3,
+    type: 'grid',
+    tag: 'Music',
+    title: 'Composer Drops Teaser — Score Promises Haunting Themes',
+    desc: "A 30-second teaser of the film's score hints at a haunting orchestral motif.",
+    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80',
   },
   {
     id: 3,

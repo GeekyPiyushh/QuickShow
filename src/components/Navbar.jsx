@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { BookmarkIcon, MenuIcon, SearchIcon, TicketPlus, XIcon } from 'lucide-react'
 import { SignInButton, SignUpButton, useClerk, UserButton, useUser } from '@clerk/react'
+import { HashLink } from 'react-router-hash-link'
 
 const Navbar = () => {
 
@@ -22,7 +23,7 @@ const Navbar = () => {
         <XIcon className='md:hidden absolute top-6 right-6 w-6 h-6 cursor-pointer' onClick={() => setIsOpen(false)}/>
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to='/'>Home</Link>
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to='/movies'>Movies</Link>
-        <a href='#CineNews'>CineNews</a>
+        <HashLink smooth to="/#CineNews" onClick={() => setIsOpen(false)}>CineNews</HashLink>
 
       </div>
 

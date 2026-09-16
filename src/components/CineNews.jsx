@@ -7,17 +7,17 @@ const CineNews = () => {
   const gridNews = NEWS_DATA.filter((item) => item.type === 'grid')
 
   return (
-    <div id='CineNews' className="text-white min-h-screen py-12 px-6 md:px-16 lg:px-3">
+    <div id='CineNews' className="text-white min-h-screen py-12 px-6 md:px-16 lg:px-36">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-5">
+      <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
         <div>
-          <h1 className="text-xl font-extrabold tracking-wider text-primary">
+          <h1 className="text-xl sm:text-2xl font-extrabold tracking-wider text-primary">
             CINE<span className="text-white">NEWS</span>
           </h1>
           <p className="text-xs text-gray-400 mt-1">Latest • Curated • Cinematic</p>
         </div>
-        <button className="flex items-center gap-2 text-gray-200 text-sm px-4 py-2">
-          <Sparkles className="w-4 h-4" /> Latest News
+        <button className="flex items-center gap-2 text-gray-200 text-sm px-4 py-2 hover:text-white transition">
+          <Sparkles className="w-4 h-4 text-primary" /> Latest News
         </button>
       </div>
 
@@ -28,7 +28,7 @@ const CineNews = () => {
         <div className="lg:col-span-2 space-y-6">
           {/* Featured Hero Banner */}
           {featured && (
-            <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-96 border border-white/10 shadow-2xl">
+            <div className="max-w-[80%] relative rounded-2xl overflow-hidden group cursor-pointer h-80 sm:h-96 border border-white/10 shadow-2xl">
               <img
                 src={featured.image}
                 alt={featured.title}
@@ -53,13 +53,13 @@ const CineNews = () => {
           )}
 
           {/* Sub Grid Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {gridNews.map((item) => (
               <div
                 key={item.id}
-                className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-rose-500/50 hover:bg-white/10 transition duration-300 cursor-pointer group"
+                className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 hover:bg-white/10 transition duration-300 cursor-pointer group"
               >
-                <div className="relative h-32 overflow-hidden">
+                <div className="relative h-36 sm:h-32 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -80,23 +80,25 @@ const CineNews = () => {
           </div>
         </div>
 
+        {/* Sidebar Column */}
         <div className="space-y-4">
           {/* Newsletter Box */}
-          <div className="bg-gradient-to-br from-rose-950/40 to-slate-900 border border-rose-500/20 rounded-xl p-5 mt-3 max-w-1/2">
+          <div className="bg-gradient-to-br from-rose-950/40 to-slate-900 border border-primary/20 rounded-xl p-5 w-full">
             <h4 className="text-sm font-bold text-white mb-1">Join CineNews</h4>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-xs sm:text-sm text-gray-400 mb-4">
               Get curated cinematic updates delivered straight to your inbox.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className=" flex gap-2 items-center">
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row items-center gap-3">
               <input
                 type="email"
                 placeholder="Email address"
-                className="max-w-1/2 text-xs px-3 py-2 border border-white/10 rounded-lg outline-none focus:border-rose-500 bg-white/5 text-white placeholder-gray-500"
+                className="w-full text-xs px-3 py-2.5 border border-white/10 rounded-lg outline-none focus:border-primary bg-white/5 text-white placeholder-gray-500"
               />
               <button
                 type="submit"
-                className="w-30 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold py-2 rounded-lg transition active:scale-95"
-              > Subscribe
+                className="w-full sm:w-auto shrink-0 bg-primary hover:bg-primary-dull text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition active:scale-95"
+              >
+                Subscribe
               </button>
             </form>
           </div>

@@ -1,0 +1,791 @@
+{
+  "users": [
+    {
+      "_id": "usr_admin",
+      "name": "Administrator",
+      "email": "admin@example.com",
+      "password": "$2b$10$F7lQj12nnNS9ccrrbNd2ce.mIE3aRiUstqDGIKYfyc.N5qBHqcsvG",
+      "role": "admin",
+      "createdAt": "2026-09-28T16:11:15.217Z"
+    },
+    {
+      "_id": "usr_piyush",
+      "name": "Piyush Tehalani",
+      "email": "piyush@example.com",
+      "password": "$2b$10$OZ02NisBhzFwRp.K4rVa2.2hkI/vDk4blcAC84VPy6vEVNh128cHm",
+      "role": "user",
+      "createdAt": "2026-09-28T16:11:15.217Z"
+    },
+    {
+      "_id": "usr_1790611919037l775",
+      "name": "Alice Tester",
+      "email": "alice@example.com",
+      "password": "$2b$10$SKJyZsxM4OrN93Wv.eB8IeABsFYO6DttYI9Xn1Q/Uu045VzXNiITa",
+      "role": "user",
+      "createdAt": "2026-09-28T16:11:59.037Z"
+    },
+    {
+      "_id": "usr_179061244817703fi",
+      "name": "Test User",
+      "email": "user_1790612448115@test.com",
+      "password": "$2b$10$ZdqUBPtD3NJEa/r2nDireuNEjx8sw5IxUp1yh.z3zXRXqHUaiEOKa",
+      "role": "user",
+      "createdAt": "2026-09-28T16:20:48.177Z"
+    }
+  ],
+  "movies": [
+    {
+      "_id": "1790612448312",
+      "id": 1790612448312,
+      "title": "Interstellar 2026 Remaster",
+      "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+      "overview": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Science Fiction"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Adventure"
+        },
+        {
+          "id": 2,
+          "name": "Drama"
+        },
+        {
+          "id": 3,
+          "name": "Science Fiction"
+        }
+      ],
+      "language": "English",
+      "duration": 169,
+      "runtime": 169,
+      "releaseDate": "2026-10-01",
+      "release_date": "2026-10-01",
+      "poster": "https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+      "rating": 8.7,
+      "vote_average": 8.7,
+      "status": "now_showing",
+      "createdAt": "2026-09-28T16:20:48.312Z"
+    },
+    {
+      "_id": "324544",
+      "id": 324544,
+      "title": "In the Lost Lands",
+      "overview": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+      "description": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+      "poster": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+      "genre": [
+        "Action",
+        "Fantasy",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 28,
+          "name": "Action"
+        },
+        {
+          "id": 14,
+          "name": "Fantasy"
+        },
+        {
+          "id": 12,
+          "name": "Adventure"
+        }
+      ],
+      "language": "English",
+      "duration": 102,
+      "runtime": 102,
+      "rating": 6.4,
+      "vote_average": 6.4,
+      "releaseDate": "2025-02-27",
+      "status": "now_showing"
+    },
+    {
+      "_id": "1232546",
+      "id": 1232546,
+      "title": "Until Dawn",
+      "overview": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+      "description": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+      "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+      "genre": [
+        "Horror",
+        "Mystery"
+      ],
+      "genres": [
+        {
+          "id": 27,
+          "name": "Horror"
+        },
+        {
+          "id": 9648,
+          "name": "Mystery"
+        }
+      ],
+      "language": "English",
+      "duration": 98,
+      "runtime": 98,
+      "rating": 7.2,
+      "vote_average": 7.2,
+      "releaseDate": "2025-03-10",
+      "status": "now_showing"
+    },
+    {
+      "_id": "558449",
+      "id": 558449,
+      "title": "Gladiator II",
+      "overview": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+      "description": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+      "poster": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/euYIwmwkmz95mnExvufwn49Scu6.jpg",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "genres": [
+        {
+          "id": 28,
+          "name": "Action"
+        },
+        {
+          "id": 12,
+          "name": "Adventure"
+        },
+        {
+          "id": 18,
+          "name": "Drama"
+        }
+      ],
+      "language": "English",
+      "duration": 148,
+      "runtime": 148,
+      "rating": 7.8,
+      "vote_average": 7.8,
+      "releaseDate": "2024-11-22",
+      "status": "now_showing"
+    },
+    {
+      "_id": "693134",
+      "id": 693134,
+      "title": "Dune: Part Two",
+      "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+      "description": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+      "poster": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s520044.jpg",
+      "genre": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 878,
+          "name": "Science Fiction"
+        },
+        {
+          "id": 12,
+          "name": "Adventure"
+        }
+      ],
+      "language": "English",
+      "duration": 166,
+      "runtime": 166,
+      "rating": 8.5,
+      "vote_average": 8.5,
+      "releaseDate": "2024-03-01",
+      "status": "now_showing"
+    }
+  ],
+  "theatres": [
+    {
+      "_id": "th_01",
+      "name": "SnapSeat Grand Multiplex",
+      "city": "Downtown",
+      "location": "Downtown Plaza, 4th Floor"
+    },
+    {
+      "_id": "th_02",
+      "name": "CineStar IMAX & Dolby",
+      "city": "Metro",
+      "location": "Metro Heights Mall, Level 3"
+    }
+  ],
+  "screens": [
+    {
+      "_id": "sc_01",
+      "name": "Screen 1 (Dolby Atmos)",
+      "theatre": {
+        "_id": "th_01",
+        "name": "SnapSeat Grand Multiplex",
+        "city": "Downtown",
+        "location": "Downtown Plaza, 4th Floor"
+      },
+      "totalSeats": 90
+    },
+    {
+      "_id": "sc_02",
+      "name": "Screen 2 (Gold Class)",
+      "theatre": {
+        "_id": "th_01",
+        "name": "SnapSeat Grand Multiplex",
+        "city": "Downtown",
+        "location": "Downtown Plaza, 4th Floor"
+      },
+      "totalSeats": 60
+    },
+    {
+      "_id": "sc_03",
+      "name": "IMAX Laser Hall",
+      "theatre": {
+        "_id": "th_02",
+        "name": "CineStar IMAX & Dolby",
+        "city": "Metro",
+        "location": "Metro Heights Mall, Level 3"
+      },
+      "totalSeats": 120
+    }
+  ],
+  "shows": [
+    {
+      "_id": "sh_01",
+      "movie": {
+        "_id": "324544",
+        "id": 324544,
+        "title": "In the Lost Lands",
+        "overview": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+        "description": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+        "poster": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+        "genre": [
+          "Action",
+          "Fantasy",
+          "Adventure"
+        ],
+        "genres": [
+          {
+            "id": 28,
+            "name": "Action"
+          },
+          {
+            "id": 14,
+            "name": "Fantasy"
+          },
+          {
+            "id": 12,
+            "name": "Adventure"
+          }
+        ],
+        "language": "English",
+        "duration": 102,
+        "runtime": 102,
+        "rating": 6.4,
+        "vote_average": 6.4,
+        "releaseDate": "2025-02-27",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_01",
+        "name": "SnapSeat Grand Multiplex",
+        "city": "Downtown",
+        "location": "Downtown Plaza, 4th Floor"
+      },
+      "screen": {
+        "_id": "sc_01",
+        "name": "Screen 1 (Dolby Atmos)",
+        "theatre": {
+          "_id": "th_01",
+          "name": "SnapSeat Grand Multiplex",
+          "city": "Downtown",
+          "location": "Downtown Plaza, 4th Floor"
+        },
+        "totalSeats": 90
+      },
+      "showDate": "2026-09-28",
+      "showDateTime": "2026-09-28T10:00:00.000Z",
+      "startTime": "10:00 AM",
+      "endTime": "11:42 AM",
+      "price": 250,
+      "showPrice": 250,
+      "bookedSeats": [
+        "A3",
+        "A4",
+        "B2",
+        "F1",
+        "F2"
+      ]
+    },
+    {
+      "_id": "sh_02",
+      "movie": {
+        "_id": "1232546",
+        "id": 1232546,
+        "title": "Until Dawn",
+        "overview": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+        "description": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+        "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+        "genre": [
+          "Horror",
+          "Mystery"
+        ],
+        "genres": [
+          {
+            "id": 27,
+            "name": "Horror"
+          },
+          {
+            "id": 9648,
+            "name": "Mystery"
+          }
+        ],
+        "language": "English",
+        "duration": 98,
+        "runtime": 98,
+        "rating": 7.2,
+        "vote_average": 7.2,
+        "releaseDate": "2025-03-10",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_01",
+        "name": "SnapSeat Grand Multiplex",
+        "city": "Downtown",
+        "location": "Downtown Plaza, 4th Floor"
+      },
+      "screen": {
+        "_id": "sc_02",
+        "name": "Screen 2 (Gold Class)",
+        "theatre": {
+          "_id": "th_01",
+          "name": "SnapSeat Grand Multiplex",
+          "city": "Downtown",
+          "location": "Downtown Plaza, 4th Floor"
+        },
+        "totalSeats": 60
+      },
+      "showDate": "2026-09-28",
+      "showDateTime": "2026-09-28T14:30:00.000Z",
+      "startTime": "02:30 PM",
+      "endTime": "04:08 PM",
+      "price": 300,
+      "showPrice": 300,
+      "bookedSeats": [
+        "C5",
+        "D1",
+        "D2"
+      ]
+    },
+    {
+      "_id": "sh_03",
+      "movie": {
+        "_id": "558449",
+        "id": 558449,
+        "title": "Gladiator II",
+        "overview": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+        "description": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+        "poster": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/euYIwmwkmz95mnExvufwn49Scu6.jpg",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Drama"
+        ],
+        "genres": [
+          {
+            "id": 28,
+            "name": "Action"
+          },
+          {
+            "id": 12,
+            "name": "Adventure"
+          },
+          {
+            "id": 18,
+            "name": "Drama"
+          }
+        ],
+        "language": "English",
+        "duration": 148,
+        "runtime": 148,
+        "rating": 7.8,
+        "vote_average": 7.8,
+        "releaseDate": "2024-11-22",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_02",
+        "name": "CineStar IMAX & Dolby",
+        "city": "Metro",
+        "location": "Metro Heights Mall, Level 3"
+      },
+      "screen": {
+        "_id": "sc_03",
+        "name": "IMAX Laser Hall",
+        "theatre": {
+          "_id": "th_02",
+          "name": "CineStar IMAX & Dolby",
+          "city": "Metro",
+          "location": "Metro Heights Mall, Level 3"
+        },
+        "totalSeats": 120
+      },
+      "showDate": "2026-09-28",
+      "showDateTime": "2026-09-28T18:00:00.000Z",
+      "startTime": "06:00 PM",
+      "endTime": "08:28 PM",
+      "price": 450,
+      "showPrice": 450,
+      "bookedSeats": [
+        "E8",
+        "F3",
+        "G6"
+      ]
+    },
+    {
+      "_id": "sh_04",
+      "movie": {
+        "_id": "693134",
+        "id": 693134,
+        "title": "Dune: Part Two",
+        "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+        "description": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+        "poster": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s520044.jpg",
+        "genre": [
+          "Science Fiction",
+          "Adventure"
+        ],
+        "genres": [
+          {
+            "id": 878,
+            "name": "Science Fiction"
+          },
+          {
+            "id": 12,
+            "name": "Adventure"
+          }
+        ],
+        "language": "English",
+        "duration": 166,
+        "runtime": 166,
+        "rating": 8.5,
+        "vote_average": 8.5,
+        "releaseDate": "2024-03-01",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_02",
+        "name": "CineStar IMAX & Dolby",
+        "city": "Metro",
+        "location": "Metro Heights Mall, Level 3"
+      },
+      "screen": {
+        "_id": "sc_03",
+        "name": "IMAX Laser Hall",
+        "theatre": {
+          "_id": "th_02",
+          "name": "CineStar IMAX & Dolby",
+          "city": "Metro",
+          "location": "Metro Heights Mall, Level 3"
+        },
+        "totalSeats": 120
+      },
+      "showDate": "2026-09-29",
+      "showDateTime": "2026-09-29T20:00:00.000Z",
+      "startTime": "08:00 PM",
+      "endTime": "10:46 PM",
+      "price": 450,
+      "showPrice": 450,
+      "bookedSeats": []
+    }
+  ],
+  "bookings": [
+    {
+      "_id": "BK1790612448321",
+      "bookingId": "BK1790612448321",
+      "user": {
+        "_id": "usr_179061244817703fi",
+        "name": "Test User",
+        "email": "user_1790612448115@test.com"
+      },
+      "userId": "usr_179061244817703fi",
+      "show": {
+        "_id": "sh_01",
+        "movie": {
+          "_id": "324544",
+          "id": 324544,
+          "title": "In the Lost Lands",
+          "overview": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+          "description": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+          "poster": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+          "poster_path": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+          "backdrop_path": "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+          "genre": [
+            "Action",
+            "Fantasy",
+            "Adventure"
+          ],
+          "genres": [
+            {
+              "id": 28,
+              "name": "Action"
+            },
+            {
+              "id": 14,
+              "name": "Fantasy"
+            },
+            {
+              "id": 12,
+              "name": "Adventure"
+            }
+          ],
+          "language": "English",
+          "duration": 102,
+          "runtime": 102,
+          "rating": 6.4,
+          "vote_average": 6.4,
+          "releaseDate": "2025-02-27",
+          "status": "now_showing"
+        },
+        "theatre": {
+          "_id": "th_01",
+          "name": "SnapSeat Grand Multiplex",
+          "city": "Downtown",
+          "location": "Downtown Plaza, 4th Floor"
+        },
+        "screen": {
+          "_id": "sc_01",
+          "name": "Screen 1 (Dolby Atmos)",
+          "theatre": {
+            "_id": "th_01",
+            "name": "SnapSeat Grand Multiplex",
+            "city": "Downtown",
+            "location": "Downtown Plaza, 4th Floor"
+          },
+          "totalSeats": 90
+        },
+        "showDate": "2026-09-28",
+        "showDateTime": "2026-09-28T10:00:00.000Z",
+        "startTime": "10:00 AM",
+        "endTime": "11:42 AM",
+        "price": 250,
+        "showPrice": 250,
+        "bookedSeats": [
+          "A3",
+          "A4",
+          "B2"
+        ]
+      },
+      "seats": [
+        {
+          "seatNumber": "F1"
+        },
+        {
+          "seatNumber": "F2"
+        }
+      ],
+      "bookedSeats": [
+        "F1",
+        "F2"
+      ],
+      "totalAmount": 500,
+      "amount": 500,
+      "isPaid": true,
+      "bookedAt": "2026-09-28T16:20:48.321Z",
+      "createdAt": "2026-09-28T16:20:48.321Z"
+    },
+    {
+      "_id": "BK17275001",
+      "bookingId": "BK17275001",
+      "user": {
+        "_id": "usr_piyush",
+        "name": "Piyush Tehalani",
+        "email": "piyush@example.com"
+      },
+      "show": {
+        "_id": "sh_01",
+        "movie": {
+          "_id": "324544",
+          "id": 324544,
+          "title": "In the Lost Lands",
+          "overview": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+          "description": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+          "poster": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+          "poster_path": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+          "backdrop_path": "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+          "genre": [
+            "Action",
+            "Fantasy",
+            "Adventure"
+          ],
+          "genres": [
+            {
+              "id": 28,
+              "name": "Action"
+            },
+            {
+              "id": 14,
+              "name": "Fantasy"
+            },
+            {
+              "id": 12,
+              "name": "Adventure"
+            }
+          ],
+          "language": "English",
+          "duration": 102,
+          "runtime": 102,
+          "rating": 6.4,
+          "vote_average": 6.4,
+          "releaseDate": "2025-02-27",
+          "status": "now_showing"
+        },
+        "theatre": {
+          "_id": "th_01",
+          "name": "SnapSeat Grand Multiplex",
+          "city": "Downtown",
+          "location": "Downtown Plaza, 4th Floor"
+        },
+        "screen": {
+          "_id": "sc_01",
+          "name": "Screen 1 (Dolby Atmos)",
+          "theatre": {
+            "_id": "th_01",
+            "name": "SnapSeat Grand Multiplex",
+            "city": "Downtown",
+            "location": "Downtown Plaza, 4th Floor"
+          },
+          "totalSeats": 90
+        },
+        "showDate": "2026-09-28",
+        "showDateTime": "2026-09-28T10:00:00.000Z",
+        "startTime": "10:00 AM",
+        "endTime": "11:42 AM",
+        "price": 250,
+        "showPrice": 250,
+        "bookedSeats": [
+          "A3",
+          "A4",
+          "B2",
+          "F1",
+          "F2"
+        ]
+      },
+      "seats": [
+        {
+          "seatNumber": "A3"
+        },
+        {
+          "seatNumber": "A4"
+        }
+      ],
+      "bookedSeats": [
+        "A3",
+        "A4"
+      ],
+      "totalAmount": 500,
+      "amount": 500,
+      "isPaid": true,
+      "bookedAt": "2026-09-28T15:11:15.217Z",
+      "createdAt": "2026-09-28T15:11:15.217Z"
+    },
+    {
+      "_id": "BK17275002",
+      "bookingId": "BK17275002",
+      "user": {
+        "_id": "usr_guest",
+        "name": "Rahul Verma",
+        "email": "rahul@example.com"
+      },
+      "show": {
+        "_id": "sh_02",
+        "movie": {
+          "_id": "1232546",
+          "id": 1232546,
+          "title": "Until Dawn",
+          "overview": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+          "description": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+          "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+          "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+          "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+          "genre": [
+            "Horror",
+            "Mystery"
+          ],
+          "genres": [
+            {
+              "id": 27,
+              "name": "Horror"
+            },
+            {
+              "id": 9648,
+              "name": "Mystery"
+            }
+          ],
+          "language": "English",
+          "duration": 98,
+          "runtime": 98,
+          "rating": 7.2,
+          "vote_average": 7.2,
+          "releaseDate": "2025-03-10",
+          "status": "now_showing"
+        },
+        "theatre": {
+          "_id": "th_01",
+          "name": "SnapSeat Grand Multiplex",
+          "city": "Downtown",
+          "location": "Downtown Plaza, 4th Floor"
+        },
+        "screen": {
+          "_id": "sc_02",
+          "name": "Screen 2 (Gold Class)",
+          "theatre": {
+            "_id": "th_01",
+            "name": "SnapSeat Grand Multiplex",
+            "city": "Downtown",
+            "location": "Downtown Plaza, 4th Floor"
+          },
+          "totalSeats": 60
+        },
+        "showDate": "2026-09-28",
+        "showDateTime": "2026-09-28T14:30:00.000Z",
+        "startTime": "02:30 PM",
+        "endTime": "04:08 PM",
+        "price": 300,
+        "showPrice": 300,
+        "bookedSeats": [
+          "C5",
+          "D1",
+          "D2"
+        ]
+      },
+      "seats": [
+        {
+          "seatNumber": "C5"
+        }
+      ],
+      "bookedSeats": [
+        "C5"
+      ],
+      "totalAmount": 300,
+      "amount": 300,
+      "isPaid": true,
+      "bookedAt": "2026-09-28T14:11:15.217Z",
+      "createdAt": "2026-09-28T14:11:15.217Z"
+    }
+  ]
+}

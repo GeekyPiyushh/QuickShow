@@ -1,17 +1,19 @@
 import React from 'react'
 import { assets } from '../../assets/assets'
-import { LayoutDashboardIcon, ListCollapseIcon, ListIcon, PlusSquareIcon, User } from 'lucide-react'
+import { LayoutDashboardIcon, ListCollapseIcon, ListIcon, PlusSquareIcon, Film } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import { getCurrentUser } from '../../lib/api'
 
 const AdminSidebar = () => {
-
+    const currentUser = getCurrentUser()
     const user = {
-        firstName: 'Admin',
-        lastName: 'User',
+        firstName: currentUser?.name?.split(' ')[0] || 'Admin',
+        lastName: currentUser?.name?.split(' ').slice(1).join(' ') || 'Portal',
         imageURL : assets.profile
     }
     const adminNavlinks = [
         {name: 'Dashboard', path: '/admin', icon: LayoutDashboardIcon},
+        {name: 'Add Movie', path: '/admin/add-movie', icon: Film},
         {name: 'Add Shows', path: '/admin/add-shows', icon: PlusSquareIcon},
         {name: 'List Shows', path: '/admin/list-shows', icon: ListIcon},
         {name: 'List Bookings', path: '/admin/list-bookings', icon: ListCollapseIcon}

@@ -426,7 +426,7 @@ export const NEWS_DATA = [
     image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80',
   },
   {
-    id: 3,
+    id: 4,
     type: 'grid',
     tag: 'Music',
     title: 'Composer Drops Teaser — Score Promises Haunting Themes',

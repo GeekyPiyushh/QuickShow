@@ -1,5 +1,5 @@
 // API service for connecting SnapSeat frontend to the Express/MongoDB backend
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000/api';
 
 // Helper for making JSON requests
 async function request(endpoint, options = {}) {
@@ -115,11 +115,16 @@ export async function login(email, password) {
   return res;
 }
 
-export async function register(name, email, password) {
+export async function register(name, email, password, extraData = {}) {
   const res = await request('/auth/register', {
     method: 'POST',
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify({ name, email, password, ...extraData }),
   });
+  if (res && res.success && res.token) {
+    localStorage.setItem('token', res.token);
+    localStorage.setItem('user', JSON.stringify(res.user));
+    window.dispatchEvent(new Event('auth-change'));
+  }
   return res;
 }
 

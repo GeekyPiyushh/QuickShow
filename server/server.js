@@ -8,6 +8,7 @@ const theatresRoutes = require('./routes/theatres');
 const showsRoutes = require('./routes/shows');
 const bookingsRoutes = require('./routes/bookings');
 const usersRoutes = require('./routes/users');
+const { connectDB } = require('./config/db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -62,9 +63,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`=========================================`);
   console.log(` SnapSeat API Server running on port ${PORT}`);
   console.log(` Base URL: http://localhost:${PORT}/api`);
   console.log(`=========================================`);
+  await connectDB();
 });

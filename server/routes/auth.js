@@ -9,7 +9,7 @@ const router = express.Router();
 // Register: POST /api/auth/register
 router.post('/register', (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, role, theatreName, city, location, screenName, totalSeats } = req.body;
     if (!name || !email || !password) {
       return res.status(400).json({
         success: false,
@@ -25,23 +25,52 @@ router.post('/register', (req, res) => {
       });
     }
 
+    const isAdmin = role === 'admin';
+    let newTheatre = null;
+    let newScreen = null;
+
+    if (isAdmin && theatreName && theatreName.trim()) {
+      newTheatre = store.createTheatre({
+        name: theatreName.trim(),
+        city: city ? city.trim() : 'Downtown',
+        location: location ? location.trim() : '',
+      });
+
+      newScreen = store.createScreen({
+        name: screenName ? screenName.trim() : `${theatreName.trim()} - Audi 1`,
+        theatre: newTheatre,
+        totalSeats: Number(totalSeats) || 90,
+      });
+    }
+
     const hashedPassword = bcrypt.hashSync(password, 10);
     const newUser = store.createUser({
       name: name.trim(),
       email: email.trim().toLowerCase(),
       password: hashedPassword,
-      role: 'user',
+      role: isAdmin ? 'admin' : 'user',
+      theatreId: newTheatre ? newTheatre._id : null,
+      theatreName: newTheatre ? newTheatre.name : null,
     });
+
+    const payload = {
+      _id: newUser._id,
+      name: newUser.name,
+      email: newUser.email,
+      role: newUser.role,
+      theatre: newTheatre,
+      theatreId: newTheatre ? newTheatre._id : null,
+    };
+
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
 
     return res.status(201).json({
       success: true,
-      message: 'User registered successfully',
-      user: {
-        _id: newUser._id,
-        name: newUser.name,
-        email: newUser.email,
-        role: newUser.role,
-      },
+      message: isAdmin ? 'Admin & Theatre registered successfully!' : 'User registered successfully!',
+      token,
+      user: payload,
+      theatre: newTheatre,
+      screen: newScreen,
     });
   } catch (err) {
     console.error('Registration error:', err);

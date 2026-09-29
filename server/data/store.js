@@ -246,11 +246,11 @@ class Store {
   // Users
   findUserByEmail(email) {
     if (!email) return null;
-    return this.data.users.find(u => u.email.toLowerCase() === email.toLowerCase());
+    return this.data.users.find(u => u.email && u.email.toLowerCase() === email.toLowerCase());
   }
 
   findUserById(id) {
-    return this.data.users.find(u => u._id === id);
+    return this.data.users.find(u => u._id === id || String(u.id) === String(id));
   }
 
   createUser(userData) {
@@ -261,6 +261,24 @@ class Store {
     };
     this.data.users.push(newUser);
     this.save();
+
+    // Async sync to MongoDB
+    try {
+      const User = require('../models/User');
+      User.create({
+        _id: newUser._id,
+        name: newUser.name,
+        email: newUser.email.toLowerCase(),
+        password: newUser.password,
+        role: newUser.role || 'user',
+        theatreId: newUser.theatreId || null,
+        theatreName: newUser.theatreName || null,
+        createdAt: newUser.createdAt,
+      }).catch(e => console.warn('[MongoDB] User sync notice:', e.message));
+    } catch (e) {
+      // Ignored if offline
+    }
+
     return newUser;
   }
 
@@ -287,6 +305,33 @@ class Store {
     };
     this.data.movies.unshift(newMovie);
     this.save();
+
+    // Async sync to MongoDB
+    try {
+      const Movie = require('../models/Movie');
+      Movie.create({
+        id: newMovie.id,
+        title: newMovie.title,
+        overview: newMovie.overview || newMovie.description || '',
+        description: newMovie.description || newMovie.overview || '',
+        poster: newMovie.poster || newMovie.poster_path || '',
+        poster_path: newMovie.poster_path || newMovie.poster || '',
+        backdrop_path: newMovie.backdrop_path || '',
+        genre: newMovie.genre || [],
+        genres: newMovie.genres || [],
+        language: newMovie.language || 'English',
+        duration: newMovie.duration || 120,
+        runtime: newMovie.runtime || 120,
+        rating: newMovie.rating || 7.0,
+        vote_average: newMovie.vote_average || 7.0,
+        releaseDate: newMovie.releaseDate || '2025-01-01',
+        release_date: newMovie.release_date || '2025-01-01',
+        status: newMovie.status || 'now_showing',
+      }).catch(e => console.warn('[MongoDB] Movie sync notice:', e.message));
+    } catch (e) {
+      // Ignored if offline
+    }
+
     return newMovie;
   }
 
@@ -295,8 +340,52 @@ class Store {
     return this.data.theatres;
   }
 
+  createTheatre(theatreData) {
+    const newTheatre = {
+      _id: 'th_' + Date.now(),
+      name: theatreData.name,
+      city: theatreData.city || 'Downtown',
+      location: theatreData.location || '',
+      createdAt: new Date().toISOString(),
+    };
+    this.data.theatres.unshift(newTheatre);
+    this.save();
+
+    // Async sync to MongoDB
+    try {
+      const Theatre = require('../models/Theatre');
+      Theatre.create(newTheatre).catch(e => console.warn('[MongoDB] Theatre sync notice:', e.message));
+    } catch (e) {
+      // Ignored if offline
+    }
+
+    return newTheatre;
+  }
+
   getScreens() {
     return this.data.screens;
+  }
+
+  createScreen(screenData) {
+    const newScreen = {
+      _id: 'sc_' + Date.now(),
+      name: screenData.name || 'Screen 1 (Dolby Atmos)',
+      theatre: screenData.theatre,
+      totalSeats: Number(screenData.totalSeats) || 90,
+      createdAt: new Date().toISOString(),
+    };
+    this.data.screens.unshift(newScreen);
+    this.save();
+
+    // Async sync to MongoDB
+    try {
+      const Screen = require('../models/Screen');
+      Screen.create(newScreen).catch(e => console.warn('[MongoDB] Screen sync notice:', e.message));
+    } catch (e) {
+      // Ignored if offline
+    }
+
+    return newScreen;
   }
 
   // Shows
@@ -329,6 +418,26 @@ class Store {
     };
     this.data.shows.unshift(newShow);
     this.save();
+
+    // Async sync to MongoDB
+    try {
+      const Show = require('../models/Show');
+      Show.create({
+        movie: newShow.movie,
+        theatre: newShow.theatre,
+        screen: newShow.screen,
+        showDate: newShow.showDate,
+        showDateTime: newShow.showDateTime,
+        startTime: newShow.startTime,
+        endTime: newShow.endTime,
+        price: newShow.price,
+        showPrice: newShow.showPrice,
+        bookedSeats: [],
+      }).catch(e => console.warn('[MongoDB] Show sync notice:', e.message));
+    } catch (e) {
+      // Ignored if offline
+    }
+
     return newShow;
   }
 
@@ -347,16 +456,45 @@ class Store {
     // Update booked seats on the show
     const showId = bookingData.show?._id || bookingData.show;
     const show = this.getShowById(showId);
+    const newSeatIds = Array.isArray(bookingData.seats)
+      ? bookingData.seats.map(s => (typeof s === 'object' ? s.seatNumber : s))
+      : (bookingData.bookedSeats || []);
+
     if (show) {
       if (!Array.isArray(show.bookedSeats)) show.bookedSeats = [];
-      const newSeatIds = Array.isArray(bookingData.seats)
-        ? bookingData.seats.map(s => (typeof s === 'object' ? s.seatNumber : s))
-        : (bookingData.bookedSeats || []);
       show.bookedSeats.push(...newSeatIds);
     }
 
     this.data.bookings.unshift(newBooking);
     this.save();
+
+    // Async sync to MongoDB
+    try {
+      const Booking = require('../models/Booking');
+      Booking.create({
+        bookingId: newBooking.bookingId,
+        user: newBooking.user,
+        userId: newBooking.userId || (newBooking.user && newBooking.user._id),
+        show: newBooking.show,
+        seats: newBooking.seats || [],
+        bookedSeats: newBooking.bookedSeats || newSeatIds,
+        totalAmount: newBooking.totalAmount || newBooking.amount || 0,
+        amount: newBooking.amount || newBooking.totalAmount || 0,
+        isPaid: true,
+        bookedAt: newBooking.bookedAt,
+      }).catch(e => console.warn('[MongoDB] Booking sync notice:', e.message));
+
+      if (show) {
+        const Show = require('../models/Show');
+        Show.updateOne(
+          { $or: [{ _id: show._id }, { 'movie.title': show.movie?.title }] },
+          { $addToSet: { bookedSeats: { $each: newSeatIds } } }
+        ).catch(e => console.warn('[MongoDB] Show seat update notice:', e.message));
+      }
+    } catch (e) {
+      // Ignored if offline
+    }
+
     return newBooking;
   }
 
@@ -371,3 +509,4 @@ class Store {
 
 const store = new Store();
 module.exports = store;
+

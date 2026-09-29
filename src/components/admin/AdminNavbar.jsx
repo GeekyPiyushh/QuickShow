@@ -54,8 +54,11 @@ const AdminNavbar = () => {
   return (
     <div className='flex items-center justify-between px-6 md:px-10 h-16 border-b border-gray-300/30'>
       <div className='flex items-center gap-4 sm:gap-6'>
-        <Link to='/'>
-          <img src={assets.logo} alt="logo" className='w-32 sm:w-36 h-auto' />
+        <Link to='/' className='flex flex-col group shrink-0'>
+          <img src={assets.logo} alt="logo" className='w-28 sm:w-32 h-auto' />
+          <span className='text-[8px] sm:text-[9px] tracking-wider uppercase font-semibold text-gray-400 group-hover:text-primary transition-colors pl-0.5 -mt-0.5'>
+            Web Booking Application
+          </span>
         </Link>
         <Link
           to='/'

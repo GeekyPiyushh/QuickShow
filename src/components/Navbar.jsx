@@ -45,8 +45,11 @@ const Navbar = () => {
       />
 
       <div className='fixed top-0 left-0 z-50 w-full flex items-center justify-between px-4 sm:px-6 md:px-16 lg:px-36 py-4 md:py-5 gap-3 sm:gap-5 md:bg-transparent backdrop-blur-md md:backdrop-blur-none'>
-        <Link to='/' className='max-md:flex-1'>
-          <img src={assets.logo} alt='' className='w-32 sm:w-40 h-auto' />
+        <Link to='/' className='max-md:flex-1 flex flex-col group shrink-0'>
+          <img src={assets.logo} alt='QuickShow' className='w-28 sm:w-36 h-auto' />
+          <span className='text-[8.5px] sm:text-[10px] tracking-wider uppercase font-semibold text-gray-400 group-hover:text-primary transition-colors pl-0.5 -mt-0.5'>
+            Web Booking Application
+          </span>
         </Link>
 
         <div

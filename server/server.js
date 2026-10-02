@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+// QuickShow Express Backend Server - 21 Seeded Movies across all Languages & Genres
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');

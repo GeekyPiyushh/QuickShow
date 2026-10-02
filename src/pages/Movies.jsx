@@ -7,22 +7,33 @@ import { useSearchParams } from 'react-router-dom'
 
 import { getMovies } from '../lib/api'
 
-const normalizeMovie = (m) => ({
-  _id: m._id,
-  id: m.id || m._id,
-  title: m.title,
-  overview: m.description || m.overview || '',
-  poster_path: m.poster || m.poster_path || '',
-  backdrop_path: m.backdrop_path || m.poster || m.poster_path || '',
-  genres: Array.isArray(m.genre)
+const normalizeMovie = (m) => {
+  const normalizedGenres = Array.isArray(m.genre)
     ? m.genre.map((g) => (typeof g === 'string' ? { id: g, name: g } : g))
-    : (m.genres || []),
-  languages: m.languages || [{ id: 1, name: m.language || 'English' }],
-  casts: m.casts || [],
-  release_date: m.releaseDate ? new Date(m.releaseDate).toISOString().split('T')[0] : (m.release_date || '2025-01-01'),
-  vote_average: m.rating ?? m.vote_average ?? 7.0,
-  runtime: m.duration || m.runtime || 120,
-})
+    : Array.isArray(m.genres)
+      ? m.genres.map((g) => (typeof g === 'string' ? { id: g, name: g } : g))
+      : []
+
+  const rawLanguages = m.languages || (Array.isArray(m.language) ? m.language : [m.language || 'English'])
+  const normalizedLanguages = Array.isArray(rawLanguages)
+    ? rawLanguages.map((l, i) => (typeof l === 'string' ? { id: i + 1, name: l } : l))
+    : [{ id: 1, name: 'English' }]
+
+  return {
+    _id: m._id,
+    id: m.id || m._id,
+    title: m.title,
+    overview: m.description || m.overview || '',
+    poster_path: m.poster || m.poster_path || '',
+    backdrop_path: m.backdrop_path || m.poster || m.poster_path || '',
+    genres: normalizedGenres,
+    languages: normalizedLanguages,
+    casts: m.casts || [],
+    release_date: m.releaseDate ? new Date(m.releaseDate).toISOString().split('T')[0] : (m.release_date || '2025-01-01'),
+    vote_average: m.rating ?? m.vote_average ?? 7.0,
+    runtime: m.duration || m.runtime || 120,
+  }
+}
 
 const Movies = () => {
   const [moviesList, setMoviesList] = useState(dummyShowsData.map(normalizeMovie))

@@ -8,21 +8,37 @@ import { genres as availableGenres, languages as availableLanguages } from '../.
 // Quick poster suggestions for demo convenience
 const POSTER_PRESETS = [
   {
-    name: 'Gladiator II',
-    url: 'https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg',
+    name: 'Jawan (Action/Thriller)',
+    url: 'https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
   },
   {
-    name: 'Dune: Part Two',
-    url: 'https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg',
+    name: 'Stree 2 (Horror/Comedy)',
+    url: 'https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg',
   },
   {
-    name: 'Deadpool & Wolverine',
+    name: 'Parasite (Korean/Thriller)',
+    url: 'https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg',
+  },
+  {
+    name: 'Deadpool & Wolverine (Action/Comedy)',
     url: 'https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg',
   },
   {
-    name: 'Oppenheimer',
+    name: 'Oppenheimer (Drama/Thriller)',
     url: 'https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
   },
+  {
+    name: 'Dune: Part Two (Sci-Fi/Adventure)',
+    url: 'https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg',
+  },
+  {
+    name: 'Spider-Man (Family/Adventure)',
+    url: 'https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg',
+  },
+  {
+    name: 'Chaal Jeevi Laiye (Family/Comedy)',
+    url: 'https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg',
+  }
 ]
 
 const AddMovie = () => {

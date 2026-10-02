@@ -115,10 +115,30 @@ export async function login(email, password) {
   return res;
 }
 
-export async function register(name, email, password, extraData = {}) {
+export async function sendOtp(email, type = 'register') {
+  const res = await request('/auth/send-otp', {
+    method: 'POST',
+    body: JSON.stringify({ email, type }),
+  });
+  return res;
+}
+
+export async function verifyOtp(email, otp) {
+  const res = await request('/auth/verify-otp', {
+    method: 'POST',
+    body: JSON.stringify({ email, otp }),
+  });
+  return res;
+}
+
+export async function register(name, email, password, extraData = {}, otp = '') {
+  const otpCode = typeof extraData === 'string' ? extraData : (otp || extraData?.otp || '');
+  const cleanExtra = typeof extraData === 'object' ? { ...extraData } : {};
+  delete cleanExtra.otp;
+
   const res = await request('/auth/register', {
     method: 'POST',
-    body: JSON.stringify({ name, email, password, ...extraData }),
+    body: JSON.stringify({ name, email, password, otp: otpCode, ...cleanExtra }),
   });
   if (res && res.success && res.token) {
     localStorage.setItem('token', res.token);

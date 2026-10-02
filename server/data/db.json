@@ -31,6 +31,36 @@
       "password": "$2b$10$ZdqUBPtD3NJEa/r2nDireuNEjx8sw5IxUp1yh.z3zXRXqHUaiEOKa",
       "role": "user",
       "createdAt": "2026-09-28T16:20:48.177Z"
+    },
+    {
+      "_id": "usr_1790930860060rxwm",
+      "name": "OTP Tester",
+      "email": "otp_user_1790930859834@quickshow.com",
+      "password": "$2b$10$Z6.Mo0A5o1bbrqPimSHa2OpbTBjkel8JXbTGHtP3DKC/cjKTucN.C",
+      "role": "user",
+      "theatreId": null,
+      "theatreName": null,
+      "createdAt": "2026-10-02T08:47:40.060Z"
+    },
+    {
+      "_id": "usr_1790931224307yceo",
+      "name": "Piyush Tehalani",
+      "email": "baap22823@gmail.com",
+      "password": "$2b$10$ZB9n8rISD9TsSo62OZAgju6fVHYVyWuSe4CS.PpzhJrOt1jXMU4Ai",
+      "role": "user",
+      "theatreId": null,
+      "theatreName": null,
+      "createdAt": "2026-10-02T08:53:44.307Z"
+    },
+    {
+      "_id": "usr_1790932212117ky10",
+      "name": "Piyush Tehalani",
+      "email": "piyushacad29@gmail.com",
+      "password": "$2b$10$YVXtou0lu.mb3GFJr6FenOIwdWFAc2LujQ.dOaXNE2lM/HM6wjeO2",
+      "role": "user",
+      "theatreId": null,
+      "theatreName": null,
+      "createdAt": "2026-10-02T09:10:12.118Z"
     }
   ],
   "movies": [
@@ -203,6 +233,694 @@
       "rating": 8.5,
       "vote_average": 8.5,
       "releaseDate": "2024-03-01",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_hn_01",
+      "id": "mov_hn_01",
+      "title": "Jawan: Extended Cut",
+      "overview": "A high-octane action thriller following a prison warden and his squad of women taking down corruption in high places.",
+      "description": "A high-octane action thriller following a prison warden and his squad of women taking down corruption in high places.",
+      "genre": [
+        "Action",
+        "Thriller",
+        "Crime"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action"
+        },
+        {
+          "id": 2,
+          "name": "Thriller"
+        },
+        {
+          "id": 3,
+          "name": "Crime"
+        }
+      ],
+      "language": "Hindi",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Hindi"
+        }
+      ],
+      "duration": 169,
+      "runtime": 169,
+      "rating": 8.2,
+      "vote_average": 8.2,
+      "releaseDate": "2025-01-15",
+      "release_date": "2025-01-15",
+      "poster": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_hn_02",
+      "id": "mov_hn_02",
+      "title": "Stree 2: Chanderi Returns",
+      "overview": "The town of Chanderi is terrorized once more, this time by a headless apparition known as Sarkate abducting young women.",
+      "description": "The town of Chanderi is terrorized once more, this time by a headless apparition known as Sarkate abducting young women.",
+      "genre": [
+        "Comedy",
+        "Horror",
+        "Mystery"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Comedy"
+        },
+        {
+          "id": 2,
+          "name": "Horror"
+        },
+        {
+          "id": 3,
+          "name": "Mystery"
+        }
+      ],
+      "language": "Hindi",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Hindi"
+        }
+      ],
+      "duration": 147,
+      "runtime": 147,
+      "rating": 8,
+      "vote_average": 8,
+      "releaseDate": "2025-02-10",
+      "release_date": "2025-02-10",
+      "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_hn_03",
+      "id": "mov_hn_03",
+      "title": "3 Idiots: Friendship Unlimited",
+      "overview": "Two college friends embark on a nostalgic road trip to track down their lost companion who transformed their lives.",
+      "description": "Two college friends embark on a nostalgic road trip to track down their lost companion who transformed their lives.",
+      "genre": [
+        "Comedy",
+        "Family",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Comedy"
+        },
+        {
+          "id": 2,
+          "name": "Family"
+        },
+        {
+          "id": 3,
+          "name": "Adventure"
+        }
+      ],
+      "language": "Hindi",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Hindi"
+        }
+      ],
+      "duration": 170,
+      "runtime": 170,
+      "rating": 8.5,
+      "vote_average": 8.5,
+      "releaseDate": "2024-12-25",
+      "release_date": "2024-12-25",
+      "poster": "https://image.tmdb.org/t/p/original/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_kr_01",
+      "id": "mov_kr_01",
+      "title": "Parasite: Director Cut",
+      "overview": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+      "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+      "genre": [
+        "Thriller",
+        "Comedy",
+        "Crime"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Thriller"
+        },
+        {
+          "id": 2,
+          "name": "Comedy"
+        },
+        {
+          "id": 3,
+          "name": "Crime"
+        }
+      ],
+      "language": "Korean",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Korean"
+        }
+      ],
+      "duration": 132,
+      "runtime": 132,
+      "rating": 8.6,
+      "vote_average": 8.6,
+      "releaseDate": "2025-01-20",
+      "release_date": "2025-01-20",
+      "poster": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_kr_02",
+      "id": "mov_kr_02",
+      "title": "Train to Busan: Outbreak",
+      "overview": "As a catastrophic virus ravages South Korea, a father and daughter desperately fight for survival inside a speeding bullet train.",
+      "description": "As a catastrophic virus ravages South Korea, a father and daughter desperately fight for survival inside a speeding bullet train.",
+      "genre": [
+        "Horror",
+        "Action",
+        "Thriller"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Horror"
+        },
+        {
+          "id": 2,
+          "name": "Action"
+        },
+        {
+          "id": 3,
+          "name": "Thriller"
+        }
+      ],
+      "language": "Korean",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Korean"
+        }
+      ],
+      "duration": 118,
+      "runtime": 118,
+      "rating": 8.1,
+      "vote_average": 8.1,
+      "releaseDate": "2025-03-01",
+      "release_date": "2025-03-01",
+      "poster": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_mr_01",
+      "id": "mov_mr_01",
+      "title": "Sairat: Symphony of Hearts",
+      "overview": "Two courageous college youth defy oppressive caste boundaries to defend their eternal love across Maharashtra.",
+      "description": "Two courageous college youth defy oppressive caste boundaries to defend their eternal love across Maharashtra.",
+      "genre": [
+        "Family",
+        "Crime",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Family"
+        },
+        {
+          "id": 2,
+          "name": "Crime"
+        },
+        {
+          "id": 3,
+          "name": "Adventure"
+        }
+      ],
+      "language": "Marathi",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Marathi"
+        }
+      ],
+      "duration": 174,
+      "runtime": 174,
+      "rating": 8.3,
+      "vote_average": 8.3,
+      "releaseDate": "2025-02-14",
+      "release_date": "2025-02-14",
+      "poster": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_mr_02",
+      "id": "mov_mr_02",
+      "title": "Baipan Bhaari Deva",
+      "overview": "Six estranged sisters discover healing, laughter, and sisterhood when they reunite for an energetic Mangala Gaur contest.",
+      "description": "Six estranged sisters discover healing, laughter, and sisterhood when they reunite for an energetic Mangala Gaur contest.",
+      "genre": [
+        "Family",
+        "Comedy"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Family"
+        },
+        {
+          "id": 2,
+          "name": "Comedy"
+        }
+      ],
+      "language": "Marathi",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Marathi"
+        }
+      ],
+      "duration": 142,
+      "runtime": 142,
+      "rating": 8.1,
+      "vote_average": 8.1,
+      "releaseDate": "2025-01-05",
+      "release_date": "2025-01-05",
+      "poster": "https://image.tmdb.org/t/p/original/mKKqV23MQ0uakJS8OCE2TfV5jNS.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/mKKqV23MQ0uakJS8OCE2TfV5jNS.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_gj_01",
+      "id": "mov_gj_01",
+      "title": "Chaal Jeevi Laiye! (Live Life)",
+      "overview": "A father-son duo takes a spontaneous Himalayan expedition, uncovering humor, life lessons, and emotional bonding.",
+      "description": "A father-son duo takes a spontaneous Himalayan expedition, uncovering humor, life lessons, and emotional bonding.",
+      "genre": [
+        "Family",
+        "Comedy",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Family"
+        },
+        {
+          "id": 2,
+          "name": "Comedy"
+        },
+        {
+          "id": 3,
+          "name": "Adventure"
+        }
+      ],
+      "language": "Gujrati",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Gujrati"
+        }
+      ],
+      "duration": 153,
+      "runtime": 153,
+      "rating": 8.7,
+      "vote_average": 8.7,
+      "releaseDate": "2025-02-01",
+      "release_date": "2025-02-01",
+      "poster": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_gj_02",
+      "id": "mov_gj_02",
+      "title": "Hellaro: Desert Drums",
+      "overview": "Suppressed women in a drought-ridden village find an uplifting path to freedom through the power of folk dance and percussion.",
+      "description": "Suppressed women in a drought-ridden village find an uplifting path to freedom through the power of folk dance and percussion.",
+      "genre": [
+        "Family",
+        "Mystery",
+        "Fantasy"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Family"
+        },
+        {
+          "id": 2,
+          "name": "Mystery"
+        },
+        {
+          "id": 3,
+          "name": "Fantasy"
+        }
+      ],
+      "language": "Gujrati",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Gujrati"
+        }
+      ],
+      "duration": 121,
+      "runtime": 121,
+      "rating": 8.4,
+      "vote_average": 8.4,
+      "releaseDate": "2024-11-15",
+      "release_date": "2024-11-15",
+      "poster": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_bj_01",
+      "id": "mov_bj_01",
+      "title": "Sasura Bada Paisawala",
+      "overview": "A charismatic village hero falls for a wealthy heiress, triggering hilarious antics and family drama in rural Bihar.",
+      "description": "A charismatic village hero falls for a wealthy heiress, triggering hilarious antics and family drama in rural Bihar.",
+      "genre": [
+        "Comedy",
+        "Family",
+        "Action"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Comedy"
+        },
+        {
+          "id": 2,
+          "name": "Family"
+        },
+        {
+          "id": 3,
+          "name": "Action"
+        }
+      ],
+      "language": "Bhojpuri",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Bhojpuri"
+        }
+      ],
+      "duration": 145,
+      "runtime": 145,
+      "rating": 7.5,
+      "vote_average": 7.5,
+      "releaseDate": "2025-01-10",
+      "release_date": "2025-01-10",
+      "poster": "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_bj_02",
+      "id": "mov_bj_02",
+      "title": "Sher Singh: Roar of Bihar",
+      "overview": "A fearless champion fights back against corrupt mafia bosses to safeguard farmland and bring peace to the town.",
+      "description": "A fearless champion fights back against corrupt mafia bosses to safeguard farmland and bring peace to the town.",
+      "genre": [
+        "Action",
+        "Thriller",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action"
+        },
+        {
+          "id": 2,
+          "name": "Thriller"
+        },
+        {
+          "id": 3,
+          "name": "Adventure"
+        }
+      ],
+      "language": "Bhojpuri",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Bhojpuri"
+        }
+      ],
+      "duration": 152,
+      "runtime": 152,
+      "rating": 7.3,
+      "vote_average": 7.3,
+      "releaseDate": "2025-03-05",
+      "release_date": "2025-03-05",
+      "poster": "https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_ch_01",
+      "id": "mov_ch_01",
+      "title": "Kung Fu Hustle: Dragon Masters",
+      "overview": "In 1940s Shanghai, an aspiring mobster accidentally unleashes retired kung fu grandmasters living in hiding.",
+      "description": "In 1940s Shanghai, an aspiring mobster accidentally unleashes retired kung fu grandmasters living in hiding.",
+      "genre": [
+        "Action",
+        "Comedy",
+        "Fantasy"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action"
+        },
+        {
+          "id": 2,
+          "name": "Comedy"
+        },
+        {
+          "id": 3,
+          "name": "Fantasy"
+        }
+      ],
+      "language": "Chinese",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Chinese"
+        }
+      ],
+      "duration": 99,
+      "runtime": 99,
+      "rating": 8,
+      "vote_average": 8,
+      "releaseDate": "2025-01-28",
+      "release_date": "2025-01-28",
+      "poster": "https://image.tmdb.org/t/p/original/65MVgDa6YjSdqzh7YOA04mYkioo.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/65MVgDa6YjSdqzh7YOA04mYkioo.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/65MVgDa6YjSdqzh7YOA04mYkioo.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_ch_02",
+      "id": "mov_ch_02",
+      "title": "The Wandering Earth II",
+      "overview": "As the sun approaches extinction, human nations construct planetary thrusters in a perilous interstellar relocation mission.",
+      "description": "As the sun approaches extinction, human nations construct planetary thrusters in a perilous interstellar relocation mission.",
+      "genre": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Science Fiction"
+        },
+        {
+          "id": 2,
+          "name": "Action"
+        },
+        {
+          "id": 3,
+          "name": "Adventure"
+        }
+      ],
+      "language": "Chinese",
+      "languages": [
+        {
+          "id": 1,
+          "name": "Chinese"
+        }
+      ],
+      "duration": 173,
+      "runtime": 173,
+      "rating": 7.7,
+      "vote_average": 7.7,
+      "releaseDate": "2025-02-18",
+      "release_date": "2025-02-18",
+      "poster": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_en_01",
+      "id": "mov_en_01",
+      "title": "Deadpool & Wolverine",
+      "overview": "The Time Variance Authority pulls Wade Wilson out of his quiet life into a chaotic mission alongside a grumpy Wolverine.",
+      "description": "The Time Variance Authority pulls Wade Wilson out of his quiet life into a chaotic mission alongside a grumpy Wolverine.",
+      "genre": [
+        "Action",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action"
+        },
+        {
+          "id": 2,
+          "name": "Comedy"
+        },
+        {
+          "id": 3,
+          "name": "Science Fiction"
+        }
+      ],
+      "language": "English",
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "duration": 128,
+      "runtime": 128,
+      "rating": 7.9,
+      "vote_average": 7.9,
+      "releaseDate": "2025-01-25",
+      "release_date": "2025-01-25",
+      "poster": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_en_02",
+      "id": "mov_en_02",
+      "title": "Oppenheimer: The Secret Tests",
+      "overview": "The psychological and ethical odyssey of J. Robert Oppenheimer as he leads the Manhattan Project to change world history.",
+      "description": "The psychological and ethical odyssey of J. Robert Oppenheimer as he leads the Manhattan Project to change world history.",
+      "genre": [
+        "Thriller",
+        "Mystery",
+        "Crime"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Thriller"
+        },
+        {
+          "id": 2,
+          "name": "Mystery"
+        },
+        {
+          "id": 3,
+          "name": "Crime"
+        }
+      ],
+      "language": "English",
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "duration": 180,
+      "runtime": 180,
+      "rating": 8.3,
+      "vote_average": 8.3,
+      "releaseDate": "2024-12-01",
+      "release_date": "2024-12-01",
+      "poster": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "status": "now_showing"
+    },
+    {
+      "_id": "mov_en_03",
+      "id": "mov_en_03",
+      "title": "Spider-Man: Beyond the Multiverse",
+      "overview": "Miles Morales traverses kaleidoscopic dimensions across alternate Earths, defying a council of Spider-Heroes to save his family.",
+      "description": "Miles Morales traverses kaleidoscopic dimensions across alternate Earths, defying a council of Spider-Heroes to save his family.",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Family",
+        "Science Fiction"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action"
+        },
+        {
+          "id": 2,
+          "name": "Adventure"
+        },
+        {
+          "id": 3,
+          "name": "Family"
+        },
+        {
+          "id": 4,
+          "name": "Science Fiction"
+        }
+      ],
+      "language": "English",
+      "languages": [
+        {
+          "id": 1,
+          "name": "English"
+        }
+      ],
+      "duration": 140,
+      "runtime": 140,
+      "rating": 8.6,
+      "vote_average": 8.6,
+      "releaseDate": "2025-03-20",
+      "release_date": "2025-03-20",
+      "poster": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
       "status": "now_showing"
     }
   ],

@@ -5,7 +5,27 @@ const { authenticate, requireAdmin } = require('../middleware/auth');
 const router = express.Router();
 
 // GET /api/bookings/my (Logged-in user bookings)
-router.get('/my', authenticate, (req, res) => {
+router.get('/my', authenticate, async (req, res) => {
+  try {
+    const Booking = require('../models/Booking');
+    const userBookings = await Booking.find({
+      $or: [
+        { userId: req.user._id },
+        { 'user._id': req.user._id },
+        { 'user.email': req.user.email?.toLowerCase() },
+      ]
+    }).sort({ createdAt: -1 }).lean();
+
+    if (userBookings && userBookings.length > 0) {
+      return res.json({
+        success: true,
+        bookings: userBookings,
+      });
+    }
+  } catch (err) {
+    // Fallback to store
+  }
+
   try {
     const userBookings = store.getUserBookings(req.user._id);
     return res.json({
@@ -22,7 +42,20 @@ router.get('/my', authenticate, (req, res) => {
 });
 
 // GET /api/bookings (Admin only - all bookings)
-router.get('/', authenticate, requireAdmin, (req, res) => {
+router.get('/', authenticate, requireAdmin, async (req, res) => {
+  try {
+    const Booking = require('../models/Booking');
+    const allBookings = await Booking.find().sort({ createdAt: -1 }).lean();
+    if (allBookings && allBookings.length > 0) {
+      return res.json({
+        success: true,
+        bookings: allBookings,
+      });
+    }
+  } catch (err) {
+    // Fallback to store
+  }
+
   try {
     const allBookings = store.getAllBookings();
     return res.json({

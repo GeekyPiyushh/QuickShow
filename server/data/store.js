@@ -243,6 +243,38 @@ class Store {
     }
   }
 
+  async loadFromMongo() {
+    try {
+      const User = require('../models/User');
+      const Movie = require('../models/Movie');
+      const Theatre = require('../models/Theatre');
+      const Screen = require('../models/Screen');
+      const Show = require('../models/Show');
+      const Booking = require('../models/Booking');
+
+      const [users, movies, theatres, screens, shows, bookings] = await Promise.all([
+        User.find().lean(),
+        Movie.find().lean(),
+        Theatre.find().lean(),
+        Screen.find().lean(),
+        Show.find().lean(),
+        Booking.find().lean(),
+      ]);
+
+      if (users && users.length > 0) this.data.users = users;
+      if (movies && movies.length > 0) this.data.movies = movies;
+      if (theatres && theatres.length > 0) this.data.theatres = theatres;
+      if (screens && screens.length > 0) this.data.screens = screens;
+      if (shows && shows.length > 0) this.data.shows = shows;
+      if (bookings && bookings.length > 0) this.data.bookings = bookings;
+
+      this.save();
+      console.log(`[MongoDB] Loaded live data into memory: ${movies.length} movies, ${users.length} users, ${theatres.length} theatres, ${screens.length} screens, ${shows.length} shows, ${bookings.length} bookings.`);
+    } catch (err) {
+      console.warn('[MongoDB] Notice during loadFromMongo:', err.message);
+    }
+  }
+
   // Users
   findUserByEmail(email) {
     if (!email) return null;
@@ -310,6 +342,7 @@ class Store {
     try {
       const Movie = require('../models/Movie');
       Movie.create({
+        _id: newMovie._id,
         id: newMovie.id,
         title: newMovie.title,
         overview: newMovie.overview || newMovie.description || '',
@@ -423,6 +456,7 @@ class Store {
     try {
       const Show = require('../models/Show');
       Show.create({
+        _id: newShow._id,
         movie: newShow.movie,
         theatre: newShow.theatre,
         screen: newShow.screen,
@@ -472,6 +506,7 @@ class Store {
     try {
       const Booking = require('../models/Booking');
       Booking.create({
+        _id: newBooking._id || newBooking.bookingId,
         bookingId: newBooking.bookingId,
         user: newBooking.user,
         userId: newBooking.userId || (newBooking.user && newBooking.user._id),

@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { ArrowLeft, Calendar, Clock, MapPin, Ticket } from 'lucide-react'
+import { ArrowLeft, Calendar, Clock, MapPin, Ticket, Loader2 } from 'lucide-react'
 import dateFormat from '../lib/dateFormat'
 import timeFormat from '../lib/timeFormat'
 import { createBooking } from '../lib/api'
+import AuthModal from '../components/AuthModal'
+import toast from 'react-hot-toast'
 
 const BookingSummary = () => {
   const { state } = useLocation()
   const navigate = useNavigate()
   const currency = import.meta.env.VITE_CURRENCY
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   // If someone navigates here directly without data, send them back
   if (!state) {
@@ -21,6 +25,14 @@ const BookingSummary = () => {
   const totalAmount = selectedSeats.length * showPrice
 
   const handleConfirm = async () => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      toast('Please login to confirm and save your booking to database!', { icon: '🔐' })
+      setIsAuthModalOpen(true)
+      return
+    }
+
+    setIsSubmitting(true)
     // Generate fallback booking ID
     const bookingId = 'BK' + Date.now()
     let savedBooking = {
@@ -37,26 +49,26 @@ const BookingSummary = () => {
     }
 
     try {
-      const token = localStorage.getItem('token')
-      if (token) {
-        const apiRes = await createBooking({
-          show: {
-            movie: movie,
-            showDateTime: new Date(`${showDate}T00:00:00`).toISOString(),
-            price: showPrice,
-            showPrice: showPrice,
-          },
-          seats: selectedSeats,
-        })
-        if (apiRes && apiRes.success && apiRes.booking) {
-          savedBooking = {
-            ...savedBooking,
-            _id: apiRes.booking._id || bookingId,
-          }
+      const apiRes = await createBooking({
+        show: {
+          movie: movie,
+          showDateTime: new Date(`${showDate}T00:00:00`).toISOString(),
+          price: showPrice,
+          showPrice: showPrice,
+        },
+        seats: selectedSeats,
+      })
+      if (apiRes && apiRes.success && apiRes.booking) {
+        savedBooking = {
+          ...savedBooking,
+          _id: apiRes.booking._id || bookingId,
         }
+        toast.success('Booking saved to database & confirmed!')
       }
-    } catch {
-      // Fallback works seamlessly
+    } catch (err) {
+      console.warn('Booking sync notice:', err)
+    } finally {
+      setIsSubmitting(false)
     }
 
     // Always preserve locally so MyBookings works seamlessly
@@ -149,17 +161,34 @@ const BookingSummary = () => {
 
           <button
             onClick={handleConfirm}
-            className='w-full mt-6 py-3 bg-primary hover:bg-primary-dull rounded-lg font-medium transition cursor-pointer active:scale-95'
+            disabled={isSubmitting}
+            className='w-full mt-6 py-3 bg-primary hover:bg-primary-dull disabled:opacity-50 rounded-lg font-medium transition cursor-pointer active:scale-95 flex items-center justify-center gap-2'
           >
-            Confirm Booking
+            {isSubmitting ? (
+              <>
+                <Loader2 className='w-5 h-5 animate-spin' />
+                Confirming Booking...
+              </>
+            ) : (
+              'Confirm Booking'
+            )}
           </button>
 
           <p className='text-xs text-emerald-400 text-center mt-3'>
-            ✓ Instant Booking Confirmation
+            ✓ Instant Booking Confirmation & Database Sync
           </p>
         </div>
 
       </div>
+
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onAuthSuccess={() => {
+          setIsAuthModalOpen(false)
+          handleConfirm()
+        }}
+      />
     </div>
   )
 }

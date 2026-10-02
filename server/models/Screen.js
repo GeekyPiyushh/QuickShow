@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const screenSchema = new mongoose.Schema({
-  _id: { type: String },
+  _id: { type: String, default: () => 'sc_' + Date.now() },
   name: { type: String, required: true },
   theatre: { type: mongoose.Schema.Types.Mixed },
   totalSeats: { type: Number, default: 90 },

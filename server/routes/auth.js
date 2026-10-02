@@ -194,7 +194,7 @@ router.post('/register', (req, res) => {
 });
 
 // Login: POST /api/auth/login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -204,7 +204,16 @@ router.post('/login', (req, res) => {
       });
     }
 
-    const user = store.findUserByEmail(email);
+    let user = null;
+    try {
+      const User = require('../models/User');
+      user = await User.findOne({ email: email.trim().toLowerCase() }).lean();
+    } catch (e) {}
+
+    if (!user) {
+      user = store.findUserByEmail(email);
+    }
+
     if (!user) {
       return res.status(401).json({
         success: false,
@@ -245,8 +254,19 @@ router.post('/login', (req, res) => {
 });
 
 // Current User: GET /api/auth/me
-router.get('/me', authenticate, (req, res) => {
-  const user = store.findUserById(req.user._id);
+router.get('/me', authenticate, async (req, res) => {
+  let user = null;
+  try {
+    const User = require('../models/User');
+    user = await User.findOne({
+      $or: [{ _id: req.user._id }, { email: req.user.email?.toLowerCase() }]
+    }).lean();
+  } catch (e) {}
+
+  if (!user) {
+    user = store.findUserById(req.user._id);
+  }
+
   if (!user) {
     return res.status(404).json({ success: false, message: 'User not found' });
   }

@@ -5,7 +5,19 @@ const { authenticate, requireAdmin } = require('../middleware/auth');
 const router = express.Router();
 
 // GET /api/shows
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  try {
+    const Show = require('../models/Show');
+    const shows = await Show.find().lean();
+    if (shows && shows.length > 0) {
+      return res.json({
+        success: true,
+        shows,
+      });
+    }
+  } catch (err) {
+    // Fallback to in-memory store
+  }
   const shows = store.getShows();
   return res.json({
     success: true,
@@ -14,7 +26,22 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/shows/:id/seats
-router.get('/:id/seats', (req, res) => {
+router.get('/:id/seats', async (req, res) => {
+  try {
+    const Show = require('../models/Show');
+    const show = await Show.findOne({
+      $or: [{ _id: req.params.id }, { id: req.params.id }]
+    }).lean();
+    if (show) {
+      return res.json({
+        success: true,
+        show,
+        bookedSeats: show.bookedSeats || [],
+      });
+    }
+  } catch (err) {
+    // Fallback to in-memory store
+  }
   const show = store.getShowById(req.params.id);
   if (!show) {
     return res.status(404).json({

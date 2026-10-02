@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const theatreSchema = new mongoose.Schema({
-  _id: { type: String },
+  _id: { type: String, default: () => 'th_' + Date.now() },
   name: { type: String, required: true },
   city: { type: String, default: '' },
   location: { type: String, default: '' },

@@ -5,7 +5,19 @@ const { authenticate, requireAdmin } = require('../middleware/auth');
 const router = express.Router();
 
 // GET /api/movies
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  try {
+    const Movie = require('../models/Movie');
+    const movies = await Movie.find().lean();
+    if (movies && movies.length > 0) {
+      return res.json({
+        success: true,
+        movies,
+      });
+    }
+  } catch (err) {
+    // Fallback to in-memory store
+  }
   const movies = store.getMovies();
   return res.json({
     success: true,
@@ -14,7 +26,21 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/movies/:id
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
+  try {
+    const Movie = require('../models/Movie');
+    const movie = await Movie.findOne({
+      $or: [{ _id: req.params.id }, { id: req.params.id }, { id: Number(req.params.id) }]
+    }).lean();
+    if (movie) {
+      return res.json({
+        success: true,
+        movie,
+      });
+    }
+  } catch (err) {
+    // Fallback to in-memory store
+  }
   const movie = store.getMovieById(req.params.id);
   if (!movie) {
     return res.status(404).json({

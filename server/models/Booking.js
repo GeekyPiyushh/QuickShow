@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  _id: { type: String },
+  _id: { type: String, default: () => 'BK' + Date.now() },
   bookingId: { type: String, required: true },
   user: { type: mongoose.Schema.Types.Mixed },
   userId: { type: String },

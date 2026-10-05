@@ -5,7 +5,6 @@ import appStore from './appStore.svg'
 import screenImage from './screenImage.svg'
 import profile from './profile.png'
 
-
 export const languages = ["Korean", "Hindi", "Bhojpuri", "Marathi", "Gujrati", "English", "Chinese"];
 export const genres = ["Family", "Comedy", "Adventure", "Fantasy", "Action", "Horror", "Mystery", "Science Fiction", "Crime", "Thriller"]
 
@@ -323,7 +322,6 @@ export const dummyDashboardData = {
     ]
 }
 
-
 export const dummyBookingData = [
     {
         "_id": "68396334fb83252d82e17295",
@@ -384,7 +382,7 @@ export const SLIDES = [
     year: '2019',
     duration: '3h 2m',
     description: 'After the devastating events of Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more to reverse Thanos actions.',
-    bgImage: 'https://wallpaperaccess.com/full/1089104.png' // Replace with another image path if available
+    bgImage: 'https://wallpaperaccess.com/full/1089104.png'
   },
   {
     id: 3,
@@ -394,10 +392,9 @@ export const SLIDES = [
     year: '2014',
     duration: '2h 49m',
     description: 'When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.',
-    bgImage: 'https://images.wallpapersden.com/image/download/interstellar-art_bWdnZmuUmZqaraWkpJRobWllrWdma2U.jpg' // Replace with another image path if available
+    bgImage: 'https://images.wallpapersden.com/image/download/interstellar-art_bWdnZmuUmZqaraWkpJRobWllrWdma2U.jpg'
   }
 ]
-// Dummy data array
 export const NEWS_DATA = [
   {
     id: 1,

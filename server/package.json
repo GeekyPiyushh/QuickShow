@@ -1,7 +1,7 @@
 {
   "name": "snap-seat-server",
   "version": "1.0.0",
-  "description": "Express backend server for SnapSeat cinema booking",
+  "description": "Express backend server for QuickShow cinema booking",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

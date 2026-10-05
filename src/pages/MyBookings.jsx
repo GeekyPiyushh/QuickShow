@@ -4,11 +4,6 @@ import timeFormat from '../lib/timeFormat'
 import dateFormat from '../lib/dateFormat'
 import { Ticket } from 'lucide-react'
 
-// When backend is connected:
-// Replace localStorage.getItem('myBookings') with an API call:
-//   const response = await axios.get('/api/bookings/my')
-//   setBookings(response.data.bookings)
-
 import { getMyBookings as fetchApiBookings } from '../lib/api'
 
 const MyBookings = () => {
@@ -21,7 +16,6 @@ const MyBookings = () => {
     try {
       const apiData = await fetchApiBookings()
       if (apiData && Array.isArray(apiData) && apiData.length > 0) {
-        // Format API bookings to match UI format
         const formattedApi = apiData.map((b) => ({
           _id: b.bookingId || b._id,
           show: {
@@ -35,7 +29,6 @@ const MyBookings = () => {
           bookedSeats: Array.isArray(b.seats) ? b.seats.map((s) => s.seatNumber || s) : (b.bookedSeats || []),
           amount: b.totalAmount ?? b.amount ?? 0,
         }))
-        // Combine API and local bookings without duplicates
         const combined = [...formattedApi, ...stored.filter(s => !formattedApi.some(a => a._id === s._id))]
         setBookings(combined)
       } else {

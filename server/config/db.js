@@ -19,7 +19,6 @@ async function seedFromDbJson() {
     const rawData = fs.readFileSync(dbJsonPath, 'utf-8');
     const data = JSON.parse(rawData);
 
-    // 1. Users
     if (data.users && data.users.length > 0) {
       for (const u of data.users) {
         await User.updateOne(
@@ -41,7 +40,6 @@ async function seedFromDbJson() {
       }
     }
 
-    // 2. Movies
     if (data.movies && data.movies.length > 0) {
       for (const m of data.movies) {
         const id = m.id || m._id;
@@ -71,7 +69,6 @@ async function seedFromDbJson() {
       }
     }
 
-    // 3. Theatres
     if (data.theatres && data.theatres.length > 0) {
       for (const t of data.theatres) {
         const exists = await Theatre.findOne({ $or: [{ _id: t._id }, { name: t.name }] });
@@ -86,7 +83,6 @@ async function seedFromDbJson() {
       }
     }
 
-    // 4. Screens
     if (data.screens && data.screens.length > 0) {
       for (const sc of data.screens) {
         const exists = await Screen.findOne({ $or: [{ _id: sc._id }, { name: sc.name }] });
@@ -101,7 +97,6 @@ async function seedFromDbJson() {
       }
     }
 
-    // 5. Shows
     if (data.shows && data.shows.length > 0) {
       for (const s of data.shows) {
         const sId = s._id || ('sh_' + Date.now());
@@ -124,7 +119,6 @@ async function seedFromDbJson() {
       }
     }
 
-    // 6. Bookings
     if (data.bookings && data.bookings.length > 0) {
       for (const b of data.bookings) {
         const bId = b.bookingId || b._id;

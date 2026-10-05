@@ -8,7 +8,6 @@ const { sendOtpEmail } = require('../utils/emailService');
 
 const router = express.Router();
 
-// Send OTP: POST /api/auth/send-otp
 router.post('/send-otp', async (req, res) => {
   try {
     const { email, type = 'register' } = req.body;
@@ -22,7 +21,6 @@ router.post('/send-otp', async (req, res) => {
 
     const normalizedEmail = email.trim().toLowerCase();
 
-    // If type is register, ensure email is not already taken
     if (type === 'register') {
       const existingUser = store.findUserByEmail(normalizedEmail);
       if (existingUser) {
@@ -33,7 +31,6 @@ router.post('/send-otp', async (req, res) => {
       }
     }
 
-    // Cooldown check (prevent spamming)
     const cooldown = canResendOtp(normalizedEmail);
     if (!cooldown.allowed) {
       return res.status(429).json({
@@ -43,11 +40,9 @@ router.post('/send-otp', async (req, res) => {
       });
     }
 
-    // Generate & store OTP
     const otp = generateOtp();
     storeOtp(normalizedEmail, otp);
 
-    // Send email via Nodemailer / console fallback
     const result = await sendOtpEmail(normalizedEmail, otp);
 
     return res.json({
@@ -67,7 +62,6 @@ router.post('/send-otp', async (req, res) => {
   }
 });
 
-// Verify OTP: POST /api/auth/verify-otp
 router.post('/verify-otp', (req, res) => {
   try {
     const { email, otp } = req.body;
@@ -99,7 +93,6 @@ router.post('/verify-otp', (req, res) => {
   }
 });
 
-// Register: POST /api/auth/register
 router.post('/register', (req, res) => {
   try {
     const { name, email, password, otp, role, theatreName, city, location, screenName, totalSeats } = req.body;
@@ -112,7 +105,6 @@ router.post('/register', (req, res) => {
 
     const normalizedEmail = email.trim().toLowerCase();
 
-    // Verify OTP
     if (otp) {
       const otpCheck = verifyOtp(normalizedEmail, otp);
       if (!otpCheck.valid) {
@@ -193,7 +185,6 @@ router.post('/register', (req, res) => {
   }
 });
 
-// Login: POST /api/auth/login
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -253,7 +244,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Current User: GET /api/auth/me
 router.get('/me', authenticate, async (req, res) => {
   let user = null;
   try {

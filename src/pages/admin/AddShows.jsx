@@ -112,7 +112,6 @@ const AddShows = () => {
     const theatreId = currentScreen.theatre?._id || currentScreen.theatre
     const screenId = currentScreen._id
 
-    // Find movie duration
     const movieObj = nowPlayingMovies.find((m) => (m._id || m.id) === selectedMovie)
     const duration = movieObj?.duration || movieObj?.runtime || 120
 
@@ -144,7 +143,6 @@ const AddShows = () => {
 
       if (createdCount > 0) {
         toast.success(`Successfully added ${createdCount} show(s)!`)
-        // Reset form
         setSelectedMovie(null)
         setDateTimeSelection({})
         setShowPrice('')
@@ -217,7 +215,6 @@ const AddShows = () => {
         </div>
       </div>
 
-      {/* Show price input */}
       <div className='mt-8'>
         <label className='block text-sm font-medium mb-2'>Show Price</label>
         <div className='inline-flex items-center gap-2 border border-gray-600 px-3 py-2 rounded-md'>
@@ -233,7 +230,6 @@ const AddShows = () => {
         </div>
       </div>
 
-      {/* Date & Time selection */}
       <div className='mt-6'>
         <label className='block text-sm font-medium mb-2'>Select Date and Time</label>
         <div className='inline-flex gap-5 border border-gray-600 p-1 pl-3 rounded-lg'>
@@ -253,7 +249,6 @@ const AddShows = () => {
         </div>
       </div>
 
-      {/* Display selected Times */}
       {Object.keys(dateTimeSelection).length > 0 && (
         <div className='mt-6'>
           <h2 className='mb-2 text-sm font-medium'>Selected Date-Time</h2>

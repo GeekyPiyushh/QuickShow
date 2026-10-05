@@ -1,7 +1,5 @@
-// API service for connecting SnapSeat frontend to the Express/MongoDB backend
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000/api';
 
-// Helper for making JSON requests
 async function request(endpoint, options = {}) {
   const token = localStorage.getItem('token');
   const headers = {
@@ -27,7 +25,6 @@ async function request(endpoint, options = {}) {
   }
 }
 
-// 1. Movies
 export async function getMovies() {
   const res = await request('/movies');
   return res && res.success ? res.movies : null;
@@ -46,7 +43,6 @@ export async function createMovie(movieData) {
   return res;
 }
 
-// 2. Theatres & Screens
 export async function getTheatres() {
   const res = await request('/theatres');
   return res && res.success ? res.theatres : [];
@@ -57,7 +53,6 @@ export async function getScreens() {
   return res && res.success ? res.screens : [];
 }
 
-// 3. Shows & Seats
 export async function getShows() {
   const res = await request('/shows');
   return res;
@@ -76,7 +71,6 @@ export async function createShow(showData) {
   return res;
 }
 
-// 4. Bookings
 export async function createBooking({ show, seats }) {
   const res = await request('/bookings', {
     method: 'POST',
@@ -95,13 +89,11 @@ export async function getAllBookings() {
   return res;
 }
 
-// 5. Users (Admin)
 export async function getUsers() {
   const res = await request('/users');
   return res;
 }
 
-// 6. Auth
 export async function login(email, password) {
   const res = await request('/auth/login', {
     method: 'POST',

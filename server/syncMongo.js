@@ -13,7 +13,6 @@ async function run() {
   const Movie = require('./models/Movie');
   const User = require('./models/User');
 
-  // Upsert all 21 movies
   for (const m of dbJson.movies) {
     await Movie.updateOne(
       { title: m.title },
@@ -42,7 +41,6 @@ async function run() {
     );
   }
 
-  // Upsert all users
   for (const u of dbJson.users) {
     await User.updateOne(
       { email: u.email.toLowerCase() },

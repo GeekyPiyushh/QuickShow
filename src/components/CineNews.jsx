@@ -8,7 +8,6 @@ const CineNews = () => {
 
   return (
     <div id='CineNews' className="text-white min-h-screen py-12 px-6 md:px-16 lg:px-36">
-      {/* Header */}
       <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-8">
         <div>
           <h1 className="text-xl sm:text-2xl font-extrabold tracking-wider text-primary">
@@ -21,12 +20,9 @@ const CineNews = () => {
         </button>
       </div>
 
-      {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* Main Content Column */}
         <div className="lg:col-span-2 space-y-6">
-          {/* Featured Hero Banner */}
           {featured && (
             <div className="max-w-[80%] relative rounded-2xl overflow-hidden group cursor-pointer h-80 sm:h-96 border border-white/10 shadow-2xl">
               <img
@@ -52,7 +48,6 @@ const CineNews = () => {
             </div>
           )}
 
-          {/* Sub Grid Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {gridNews.map((item) => (
               <div
@@ -80,9 +75,7 @@ const CineNews = () => {
           </div>
         </div>
 
-        {/* Sidebar Column */}
         <div className="space-y-4">
-          {/* Newsletter Box */}
           <div className="bg-gradient-to-br from-rose-950/40 to-slate-900 border border-primary/20 rounded-xl p-5 w-full">
             <h4 className="text-sm font-bold text-white mb-1">Join CineNews</h4>
             <p className="text-xs sm:text-sm text-gray-400 mb-4">

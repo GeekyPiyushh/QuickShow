@@ -4,7 +4,6 @@ const { authenticate, requireAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
-// GET /api/users (Admin only)
 router.get('/', authenticate, requireAdmin, async (req, res) => {
   try {
     const User = require('../models/User');
@@ -17,7 +16,6 @@ router.get('/', authenticate, requireAdmin, async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to store
   }
 
   try {

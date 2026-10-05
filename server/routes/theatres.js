@@ -3,7 +3,6 @@ const store = require('../data/store');
 
 const router = express.Router();
 
-// GET /api/theatres
 router.get('/theatres', async (req, res) => {
   try {
     const Theatre = require('../models/Theatre');
@@ -15,7 +14,6 @@ router.get('/theatres', async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to in-memory store
   }
   const theatres = store.getTheatres();
   return res.json({
@@ -24,7 +22,6 @@ router.get('/theatres', async (req, res) => {
   });
 });
 
-// GET /api/screens
 router.get('/screens', async (req, res) => {
   try {
     const Screen = require('../models/Screen');
@@ -36,7 +33,6 @@ router.get('/screens', async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to in-memory store
   }
   const screens = store.getScreens();
   return res.json({

@@ -10,7 +10,6 @@ const Layout = () => {
   const [adminUser, setAdminUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  // Auth gate form state
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoggingIn, setIsLoggingIn] = useState(false)
@@ -85,7 +84,6 @@ const Layout = () => {
     return null
   }
 
-  // Unauthorized view: Render access gate
   if (!adminUser) {
     const currentUser = getCurrentUser()
     return (

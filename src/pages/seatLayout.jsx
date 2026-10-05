@@ -7,10 +7,8 @@ import isoTimeFormat from '../lib/isoTimeFormat'
 import toast from 'react-hot-toast'
 import { getMovieById } from '../lib/api'
 
-// Default show price when not provided by backend
 const DEFAULT_SHOW_PRICE = 200
 
-// Some pre-booked seats to demonstrate unavailable seats
 const SAMPLE_BOOKED_SEATS = ['A3', 'A4', 'B2', 'C5', 'D1', 'D2', 'E8', 'F3', 'G6']
 
 const SeatLayout = () => {
@@ -18,11 +16,10 @@ const SeatLayout = () => {
   const { id, date } = useParams()
   const [selectedSeats, setSelectedSeats] = useState([])
   const [selectedTime, setSelectedTime] = useState(null)
-  const [selectedTimeRaw, setSelectedTimeRaw] = useState(null) // ISO string for passing to summary
+  const [selectedTimeRaw, setSelectedTimeRaw] = useState(null)
   const [show, setShow] = useState(null)
   const navigate = useNavigate()
 
-  // Rows grouped: first 2 rows together (A, B), then pairs (C-D, E-F, G-H, I-J)
   const groupRows = [['A', 'B'], ['C', 'D'], ['E', 'F'], ['G', 'H'], ['I', 'J']]
 
   const getShow = async () => {
@@ -41,12 +38,14 @@ const SeatLayout = () => {
       if (apiMovie) {
         setShow({
           movie: {
-            _id: apiMovie._id,
-            id: apiMovie._id,
+            _id: apiMovie._id || apiMovie.id,
+            id: apiMovie.id || apiMovie._id,
             title: apiMovie.title,
-            poster_path: apiMovie.poster || '',
-            runtime: apiMovie.duration || 120,
-            genres: Array.isArray(apiMovie.genre) ? apiMovie.genre.map((g) => ({ name: g })) : [],
+            poster_path: apiMovie.poster_path || apiMovie.poster || '',
+            runtime: apiMovie.runtime || apiMovie.duration || 120,
+            genres: Array.isArray(apiMovie.genres) && apiMovie.genres.length > 0
+              ? apiMovie.genres.map((g) => (typeof g === 'string' ? { name: g } : g))
+              : (Array.isArray(apiMovie.genre) ? apiMovie.genre.map((g) => ({ name: g })) : []),
           },
           dateTime: dummyDateTimeData,
           showPrice: DEFAULT_SHOW_PRICE,
@@ -54,10 +53,8 @@ const SeatLayout = () => {
         return
       }
     } catch {
-      // Fallback
     }
 
-    // Default fallback to first movie if not matched
     if (dummyShowsData.length > 0) {
       setShow({
         movie: dummyShowsData[0],
@@ -141,7 +138,6 @@ const SeatLayout = () => {
   return show ? (
     <div className='flex flex-col xl:flex-row px-4 sm:px-6 md:px-16 lg:px-40 pt-24 md:pt-32 pb-10'>
 
-      {/* Available timings */}
       <div className='w-full xl:w-60 bg-primary/10 border border-primary/20 rounded-lg py-6 xl:py-10 h-max'>
         <p className='text-lg font-semibold px-6'>Available Timings</p>
         <div className='mt-5 space-y-1'>
@@ -151,7 +147,7 @@ const SeatLayout = () => {
               onClick={() => {
                 setSelectedTime(isoTimeFormat(item.time))
                 setSelectedTimeRaw(item.time)
-                setSelectedSeats([]) // reset seats when time changes
+                setSelectedSeats([])
               }}
               className={`flex items-center gap-2 px-6 py-2 w-max rounded-r-md cursor-pointer transition
                 ${selectedTime === isoTimeFormat(item.time)
@@ -166,12 +162,10 @@ const SeatLayout = () => {
         </div>
       </div>
 
-      {/* Seat Layout */}
       <div className='relative flex-1 flex flex-col items-center max-md:mt-16 w-full min-w-0'>
 
         <h1 className='text-2xl font-semibold mb-4'>Select Your Seat</h1>
 
-        {/* Seat Legend */}
         <div className='flex items-center gap-5 text-xs text-gray-400 mb-6'>
           <span className='flex items-center gap-1'>
             <span className='h-4 w-4 rounded border border-primary/60 inline-block' /> Available
@@ -184,19 +178,16 @@ const SeatLayout = () => {
           </span>
         </div>
 
-        {/* Screen + Seats scroll together */}
         <div className='w-full overflow-x-auto'>
           <div className='w-max min-w-full flex flex-col items-center'>
             <img src={assets.screenImage} alt='Screen' />
             <p className='text-gray-400 text-sm mb-6'>SCREEN SIDE</p>
 
             <div className='flex flex-col items-center mt-10 text-xs text-gray-300'>
-              {/* A & B — premium/front rows */}
               <div className='gap-2 mb-6'>
                 {groupRows[0].map((row) => renderSeats(row))}
               </div>
 
-              {/* C-J — side-by-side groups */}
               <div className='grid grid-cols-2 gap-11'>
                 {groupRows.slice(1).map((group, idx) => (
                   <div key={idx}>
@@ -208,7 +199,6 @@ const SeatLayout = () => {
           </div>
         </div>
 
-        {/* Selection summary */}
         {selectedSeats.length > 0 && (
           <div className='mt-8 w-full max-w-md bg-primary/10 border border-primary/20 rounded-lg px-5 py-4 text-sm'>
             <div className='flex justify-between mb-2'>

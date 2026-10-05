@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
-  _id: { type: String, default: () => String(Date.now()) },
+  _id: { type: mongoose.Schema.Types.Mixed, default: () => String(Date.now()) },
   id: { type: mongoose.Schema.Types.Mixed },
   title: { type: String, required: true },
   overview: { type: String, default: '' },
@@ -9,6 +9,8 @@ const movieSchema = new mongoose.Schema({
   poster: { type: String, default: '' },
   poster_path: { type: String, default: '' },
   backdrop_path: { type: String, default: '' },
+  trailer: { type: String, default: '' },
+  trailerUrl: { type: String, default: '' },
   genre: [{ type: String }],
   genres: [{ id: mongoose.Schema.Types.Mixed, name: String }],
   language: { type: String, default: 'English' },

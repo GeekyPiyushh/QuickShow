@@ -14,7 +14,6 @@ const BookingSummary = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // If someone navigates here directly without data, send them back
   if (!state) {
     navigate('/')
     return null
@@ -33,7 +32,6 @@ const BookingSummary = () => {
     }
 
     setIsSubmitting(true)
-    // Generate fallback booking ID
     const bookingId = 'BK' + Date.now()
     let savedBooking = {
       _id: bookingId,
@@ -71,7 +69,6 @@ const BookingSummary = () => {
       setIsSubmitting(false)
     }
 
-    // Always preserve locally so MyBookings works seamlessly
     const existingBookings = JSON.parse(localStorage.getItem('myBookings') || '[]')
     existingBookings.unshift(savedBooking)
     localStorage.setItem('myBookings', JSON.stringify(existingBookings))
@@ -96,7 +93,6 @@ const BookingSummary = () => {
 
       <div className='flex flex-col lg:flex-row gap-8 max-w-4xl'>
 
-        {/* Movie Info */}
         <div className='flex-1 bg-primary/8 border border-primary/20 rounded-xl p-6'>
           <div className='flex gap-5'>
             <img
@@ -128,7 +124,7 @@ const BookingSummary = () => {
             </div>
             <div className='flex items-center gap-3'>
               <MapPin className='w-4 h-4 text-primary shrink-0' />
-              <span className='text-gray-300'>SnapSeat Cinemas</span>
+              <span className='text-gray-300'>QuickShow Cinemas</span>
             </div>
             <div className='flex items-start gap-3'>
               <Ticket className='w-4 h-4 text-primary shrink-0 mt-0.5' />
@@ -140,7 +136,6 @@ const BookingSummary = () => {
           </div>
         </div>
 
-        {/* Price Breakdown */}
         <div className='w-full lg:w-72 bg-primary/8 border border-primary/20 rounded-xl p-6 h-max'>
           <h3 className='text-lg font-semibold mb-5'>Price Details</h3>
 

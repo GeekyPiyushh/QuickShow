@@ -11,9 +11,13 @@ const MovieCard = ({movie}) => {
 
       <img 
         onClick={() => {navigate(`/movies/${movie._id || movie.id}`); scrollTo(0,0)}} 
-        src={movie.backdrop_path || movie.poster_path || movie.poster || 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&auto=format&fit=crop&q=60'} 
+        src={movie.poster_path || movie.poster || movie.backdrop_path || 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&auto=format&fit=crop&q=60'} 
         alt={movie.title}
-        className='rounded-lg h-52 w-full object-cover object-right-bottom cursor-pointer hover:opacity-90 transition'
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = movie.poster || movie.poster_path || 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&auto=format&fit=crop&q=60';
+        }}
+        className='rounded-lg h-52 w-full object-cover object-center cursor-pointer hover:opacity-90 transition'
       />
 
       <p className='font-semibold mt-2 truncate text-white'>{movie.title}</p>

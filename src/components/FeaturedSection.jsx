@@ -34,7 +34,6 @@ const FeaturedSection = () => {
           setMovies(live.slice(0, 4).map(normalizeMovie))
         }
       } catch {
-        // Fallback to dummy
       }
     }
     load()

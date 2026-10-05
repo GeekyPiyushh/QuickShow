@@ -7,10 +7,9 @@ import { SLIDES } from '../assets/assets'
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(1) // 1 for Next, -1 for Prev
+  const [direction, setDirection] = useState(1)
   const navigate = useNavigate()
 
-  // Auto-play slide timer
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext()
@@ -30,7 +29,6 @@ const HeroSection = () => {
 
   const currentSlide = SLIDES[currentIndex]
 
-  // Animation variants
   const slideVariants = {
     initial: (direction) => ({
       x: direction > 0 ? 100 : -100,
@@ -56,7 +54,6 @@ const HeroSection = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black text-white">
-      {/* Background Image Crossfade Animation */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide.id + '-bg'}
@@ -67,13 +64,11 @@ const HeroSection = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url("${currentSlide.bgImage}")` }}
         >
-          {/* Gradient Overlay for Text Readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/25 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Slide Content */}
       <div className="relative z-10 flex flex-col justify-center h-full px-6 md:px-16 lg:px-36">
         <AnimatePresence custom={direction} mode="wait">
           <motion.div
@@ -85,7 +80,6 @@ const HeroSection = () => {
             exit="exit"
             className="flex flex-col items-start gap-4 max-w-2xl"
           >
-            {/* Logo */}
             {currentSlide.logo && (
               <img
                 src={currentSlide.logo}
@@ -94,12 +88,10 @@ const HeroSection = () => {
               />
             )}
 
-            {/* Title */}
             <h1 className="text-4xl sm:text-6xl md:text-[70px] md:leading-[1.1] font-semibold tracking-tight">
               {currentSlide.title}
             </h1>
 
-            {/* Movie Meta Information */}
             <div className="flex items-center gap-4 text-gray-300 text-sm sm:text-base font-medium">
               <span>{currentSlide.genres}</span>
               <span className="text-gray-500">•</span>
@@ -114,12 +106,10 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base line-clamp-3 max-w-md leading-relaxed">
               {currentSlide.description}
             </p>
 
-            {/* CTA Button */}
             <button
               onClick={() => navigate('/movies')}
               className="mt-2 flex items-center gap-2 px-6 py-3 text-sm sm:text-base bg-primary hover:bg-primary-dull rounded-full transition-all font-semibold shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
@@ -130,7 +120,6 @@ const HeroSection = () => {
         </AnimatePresence>
       </div>
 
-      {/* Navigation Arrows */}
       <button
         onClick={handlePrev}
         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/40 hover:bg-black/70 border border-white/20 text-white backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
@@ -147,7 +136,6 @@ const HeroSection = () => {
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* Carousel Dots Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
         {SLIDES.map((_, index) => (
           <button

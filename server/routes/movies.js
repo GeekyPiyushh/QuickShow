@@ -4,7 +4,6 @@ const { authenticate, requireAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
-// GET /api/movies
 router.get('/', async (req, res) => {
   try {
     const Movie = require('../models/Movie');
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to in-memory store
   }
   const movies = store.getMovies();
   return res.json({
@@ -25,13 +23,29 @@ router.get('/', async (req, res) => {
   });
 });
 
-// GET /api/movies/:id
 router.get('/:id', async (req, res) => {
   try {
     const Movie = require('../models/Movie');
-    const movie = await Movie.findOne({
-      $or: [{ _id: req.params.id }, { id: req.params.id }, { id: Number(req.params.id) }]
-    }).lean();
+    const mongoose = require('mongoose');
+    const id = req.params.id;
+    let objId = null;
+    try {
+      if (mongoose.Types.ObjectId.isValid(id) && String(new mongoose.Types.ObjectId(id)) === id) {
+        objId = new mongoose.Types.ObjectId(id);
+      }
+    } catch (_) {}
+
+    const conditions = [
+      { _id: id },
+      { id: id },
+      ...(objId ? [{ _id: objId }] : []),
+    ];
+    const numId = Number(id);
+    if (!isNaN(numId)) {
+      conditions.push({ id: numId });
+    }
+
+    const movie = await Movie.findOne({ $or: conditions }).lean();
     if (movie) {
       return res.json({
         success: true,
@@ -39,7 +53,6 @@ router.get('/:id', async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to in-memory store
   }
   const movie = store.getMovieById(req.params.id);
   if (!movie) {
@@ -54,7 +67,6 @@ router.get('/:id', async (req, res) => {
   });
 });
 
-// POST /api/movies (Admin only)
 router.post('/', authenticate, requireAdmin, (req, res) => {
   try {
     const { title, description, genre, language, duration, releaseDate, poster, rating, status } = req.body;

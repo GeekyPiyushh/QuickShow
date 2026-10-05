@@ -5,7 +5,6 @@ import toast from 'react-hot-toast'
 import { Film, Image as ImageIcon, Calendar, Clock, Star, Globe, Tag, PlusCircle } from 'lucide-react'
 import { genres as availableGenres, languages as availableLanguages } from '../../assets/assets'
 
-// Quick poster suggestions for demo convenience
 const POSTER_PRESETS = [
   {
     name: 'Jawan (Action/Thriller)',
@@ -102,7 +101,6 @@ const AddMovie = () => {
 
       if (res && res.success) {
         toast.success(`"${title}" has been successfully added to the database!`)
-        // Reset form
         setTitle('')
         setDescription('')
         setSelectedGenres(['Action'])
@@ -127,7 +125,6 @@ const AddMovie = () => {
 
       <form onSubmit={handleSubmit} className='space-y-6'>
         
-        {/* Title */}
         <div>
           <label className='block text-xs font-medium text-gray-300 mb-1.5'>Movie Title *</label>
           <div className='flex items-center bg-primary/10 border border-primary/20 rounded-xl px-4 py-2.5 focus-within:border-primary transition'>
@@ -143,7 +140,6 @@ const AddMovie = () => {
           </div>
         </div>
 
-        {/* Description */}
         <div>
           <label className='block text-xs font-medium text-gray-300 mb-1.5'>Overview / Synopsis *</label>
           <textarea
@@ -156,7 +152,6 @@ const AddMovie = () => {
           />
         </div>
 
-        {/* Poster Image URL with Preset Suggestions */}
         <div>
           <label className='block text-xs font-medium text-gray-300 mb-1.5'>Poster Image URL</label>
           <div className='flex items-center bg-primary/10 border border-primary/20 rounded-xl px-4 py-2.5 focus-within:border-primary transition'>
@@ -170,7 +165,6 @@ const AddMovie = () => {
             />
           </div>
 
-          {/* Quick preset selector */}
           <div className='flex flex-wrap items-center gap-2 mt-2.5'>
             <span className='text-[11px] text-gray-400'>Presets:</span>
             {POSTER_PRESETS.map((preset) => (
@@ -193,7 +187,6 @@ const AddMovie = () => {
           </div>
         </div>
 
-        {/* Genres Selection */}
         <div>
           <label className='block text-xs font-medium text-gray-300 mb-2'>
             Select Genres * ({selectedGenres.join(', ')})
@@ -219,9 +212,7 @@ const AddMovie = () => {
           </div>
         </div>
 
-        {/* Grid for Language, Duration, Rating, Status */}
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'>
-          {/* Language */}
           <div>
             <label className='block text-xs font-medium text-gray-300 mb-1.5'>Language</label>
             <div className='flex items-center bg-primary/10 border border-primary/20 rounded-xl px-3 py-2'>
@@ -240,7 +231,6 @@ const AddMovie = () => {
             </div>
           </div>
 
-          {/* Duration */}
           <div>
             <label className='block text-xs font-medium text-gray-300 mb-1.5'>Duration (mins)</label>
             <div className='flex items-center bg-primary/10 border border-primary/20 rounded-xl px-3 py-2'>
@@ -257,7 +247,6 @@ const AddMovie = () => {
             </div>
           </div>
 
-          {/* Rating */}
           <div>
             <label className='block text-xs font-medium text-gray-300 mb-1.5'>Rating (0 - 10)</label>
             <div className='flex items-center bg-primary/10 border border-primary/20 rounded-xl px-3 py-2'>
@@ -275,7 +264,6 @@ const AddMovie = () => {
             </div>
           </div>
 
-          {/* Status */}
           <div>
             <label className='block text-xs font-medium text-gray-300 mb-1.5'>Catalog Status</label>
             <div className='flex items-center bg-primary/10 border border-primary/20 rounded-xl px-3 py-2'>
@@ -292,7 +280,6 @@ const AddMovie = () => {
           </div>
         </div>
 
-        {/* Release Date */}
         <div className='max-w-xs'>
           <label className='block text-xs font-medium text-gray-300 mb-1.5'>Release Date</label>
           <div className='flex items-center bg-primary/10 border border-primary/20 rounded-xl px-3 py-2'>
@@ -307,7 +294,6 @@ const AddMovie = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
         <div className='pt-4'>
           <button
             type='submit'

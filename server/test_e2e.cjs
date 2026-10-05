@@ -5,7 +5,6 @@ const BASE_URL = 'http://localhost:3000/api';
 async function runTests() {
   console.log('--- STARTING COMPREHENSIVE END-TO-END TESTS ---');
 
-  // Test 1: Invalid Login
   console.log('\n[Test 1] Testing invalid credentials handling...');
   const invRes = await fetch(`${BASE_URL}/auth/login`, {
     method: 'POST',
@@ -17,7 +16,6 @@ async function runTests() {
   assert.strictEqual(invData.success, false, 'Invalid login response success should be false');
   console.log('✓ Invalid login correctly rejected with 401 and success: false');
 
-  // Test 2: Normal User Registration
   const testEmail = `user_${Date.now()}@test.com`;
   console.log(`\n[Test 2] Testing normal user registration for ${testEmail}...`);
   const regRes = await fetch(`${BASE_URL}/auth/register`, {
@@ -30,7 +28,6 @@ async function runTests() {
   assert.strictEqual(regData.success, true, 'Registration response should be success');
   console.log('✓ Normal user registration succeeded:', regData.user);
 
-  // Test 3: Normal User Login
   console.log('\n[Test 3] Testing normal user login...');
   const loginRes = await fetch(`${BASE_URL}/auth/login`, {
     method: 'POST',
@@ -45,7 +42,6 @@ async function runTests() {
   const userToken = loginData.token;
   console.log('✓ User login successful. Token acquired. Role: user');
 
-  // Test 4: Refresh / Verify user session via /auth/me
   console.log('\n[Test 4] Testing session persistence via /auth/me...');
   const meRes = await fetch(`${BASE_URL}/auth/me`, {
     headers: { Authorization: `Bearer ${userToken}` },
@@ -55,7 +51,6 @@ async function runTests() {
   assert.strictEqual(meData.user.email, testEmail);
   console.log('✓ Session verification succeeded for user:', meData.user.name);
 
-  // Test 5: Unauthorized access to Admin endpoint by normal user
   console.log('\n[Test 5] Testing unauthorized access to admin endpoints by normal user...');
   const unauthRes = await fetch(`${BASE_URL}/bookings`, {
     headers: { Authorization: `Bearer ${userToken}` },
@@ -63,7 +58,6 @@ async function runTests() {
   assert.strictEqual(unauthRes.status, 403, 'Normal user must receive 403 Forbidden for admin endpoint');
   console.log('✓ Normal user correctly blocked from admin endpoint with 403 Forbidden');
 
-  // Test 6: Admin Login
   console.log('\n[Test 6] Testing administrator login (admin@example.com)...');
   const adminLoginRes = await fetch(`${BASE_URL}/auth/login`, {
     method: 'POST',
@@ -77,7 +71,6 @@ async function runTests() {
   const adminToken = adminData.token;
   console.log('✓ Admin login successful. Role: admin');
 
-  // Test 7: Admin access to Admin Endpoints
   console.log('\n[Test 7] Testing admin access to /bookings and /users...');
   const adminBookingsRes = await fetch(`${BASE_URL}/bookings`, {
     headers: { Authorization: `Bearer ${adminToken}` },
@@ -94,7 +87,6 @@ async function runTests() {
   const adminUsersData = await adminUsersRes.json();
   console.log(`✓ Admin users list accessed. Total registered users: ${adminUsersData.count}`);
 
-  // Test 8: Admin creates a new Movie
   console.log('\n[Test 8] Testing admin adding a new movie...');
   const newMoviePayload = {
     title: 'Interstellar 2026 Remaster',
@@ -121,7 +113,6 @@ async function runTests() {
   const createdMovieId = addMovieData.movie._id;
   console.log(`✓ Movie created successfully by admin: "${addMovieData.movie.title}" (ID: ${createdMovieId})`);
 
-  // Test 9: Public movie listing
   console.log('\n[Test 9] Testing public movie retrieval...');
   const moviesRes = await fetch(`${BASE_URL}/movies`);
   const moviesData = await moviesRes.json();
@@ -129,7 +120,6 @@ async function runTests() {
   assert.ok(foundMovie, 'Newly added movie must appear in public movies list');
   console.log('✓ Newly added movie verified in public movie catalog');
 
-  // Test 10: User Books a Ticket
   console.log('\n[Test 10] Testing user booking tickets...');
   const showsRes = await fetch(`${BASE_URL}/shows`);
   const showsData = await showsRes.json();
@@ -153,7 +143,6 @@ async function runTests() {
   assert.strictEqual(bookData.success, true);
   console.log(`✓ Booking confirmed for user: Booking ID: ${bookData.booking._id}, Amount: ₹${bookData.booking.totalAmount}`);
 
-  // Test 11: User My Bookings
   console.log('\n[Test 11] Testing retrieval of user-specific bookings via /bookings/my...');
   const myBookingsRes = await fetch(`${BASE_URL}/bookings/my`, {
     headers: { Authorization: `Bearer ${userToken}` }
@@ -163,7 +152,6 @@ async function runTests() {
   assert.ok(myBookingsData.bookings.some(b => b._id === bookData.booking._id));
   console.log(`✓ User personal booking list includes new booking (${myBookingsData.bookings.length} booking(s))`);
 
-  // Test 12: Admin sees updated bookings
   console.log('\n[Test 12] Testing updated admin bookings list...');
   const updatedAdminBookingsRes = await fetch(`${BASE_URL}/bookings`, {
     headers: { Authorization: `Bearer ${adminToken}` }

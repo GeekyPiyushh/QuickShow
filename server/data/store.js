@@ -84,7 +84,7 @@ const INITIAL_MOVIES = [
 ];
 
 const INITIAL_THEATRES = [
-  { _id: "th_01", name: "SnapSeat Grand Multiplex", city: "Downtown", location: "Downtown Plaza, 4th Floor" },
+  { _id: "th_01", name: "QuickShow Grand Multiplex", city: "Downtown", location: "Downtown Plaza, 4th Floor" },
   { _id: "th_02", name: "CineStar IMAX & Dolby", city: "Metro", location: "Metro Heights Mall, Level 3" }
 ];
 
@@ -275,14 +275,15 @@ class Store {
     }
   }
 
-  // Users
   findUserByEmail(email) {
     if (!email) return null;
     return this.data.users.find(u => u.email && u.email.toLowerCase() === email.toLowerCase());
   }
 
   findUserById(id) {
-    return this.data.users.find(u => u._id === id || String(u.id) === String(id));
+    if (!id) return null;
+    const target = String(id);
+    return this.data.users.find(u => String(u._id) === target || String(u.id) === target);
   }
 
   createUser(userData) {
@@ -294,7 +295,6 @@ class Store {
     this.data.users.push(newUser);
     this.save();
 
-    // Async sync to MongoDB
     try {
       const User = require('../models/User');
       User.create({
@@ -308,7 +308,6 @@ class Store {
         createdAt: newUser.createdAt,
       }).catch(e => console.warn('[MongoDB] User sync notice:', e.message));
     } catch (e) {
-      // Ignored if offline
     }
 
     return newUser;
@@ -318,13 +317,14 @@ class Store {
     return this.data.users.map(({ password, ...rest }) => rest);
   }
 
-  // Movies
   getMovies() {
     return this.data.movies;
   }
 
   getMovieById(id) {
-    return this.data.movies.find(m => m._id === id || String(m.id) === String(id));
+    if (!id) return null;
+    const target = String(id);
+    return this.data.movies.find(m => String(m._id) === target || String(m.id) === target);
   }
 
   createMovie(movieData) {
@@ -338,7 +338,6 @@ class Store {
     this.data.movies.unshift(newMovie);
     this.save();
 
-    // Async sync to MongoDB
     try {
       const Movie = require('../models/Movie');
       Movie.create({
@@ -362,13 +361,11 @@ class Store {
         status: newMovie.status || 'now_showing',
       }).catch(e => console.warn('[MongoDB] Movie sync notice:', e.message));
     } catch (e) {
-      // Ignored if offline
     }
 
     return newMovie;
   }
 
-  // Theatres & Screens
   getTheatres() {
     return this.data.theatres;
   }
@@ -384,12 +381,10 @@ class Store {
     this.data.theatres.unshift(newTheatre);
     this.save();
 
-    // Async sync to MongoDB
     try {
       const Theatre = require('../models/Theatre');
       Theatre.create(newTheatre).catch(e => console.warn('[MongoDB] Theatre sync notice:', e.message));
     } catch (e) {
-      // Ignored if offline
     }
 
     return newTheatre;
@@ -410,24 +405,23 @@ class Store {
     this.data.screens.unshift(newScreen);
     this.save();
 
-    // Async sync to MongoDB
     try {
       const Screen = require('../models/Screen');
       Screen.create(newScreen).catch(e => console.warn('[MongoDB] Screen sync notice:', e.message));
     } catch (e) {
-      // Ignored if offline
     }
 
     return newScreen;
   }
 
-  // Shows
   getShows() {
     return this.data.shows;
   }
 
   getShowById(id) {
-    return this.data.shows.find(s => s._id === id || String(s.id) === String(id));
+    if (!id) return null;
+    const target = String(id);
+    return this.data.shows.find(s => String(s._id) === target || String(s.id) === target);
   }
 
   createShow(showData) {
@@ -452,7 +446,6 @@ class Store {
     this.data.shows.unshift(newShow);
     this.save();
 
-    // Async sync to MongoDB
     try {
       const Show = require('../models/Show');
       Show.create({
@@ -469,13 +462,11 @@ class Store {
         bookedSeats: [],
       }).catch(e => console.warn('[MongoDB] Show sync notice:', e.message));
     } catch (e) {
-      // Ignored if offline
     }
 
     return newShow;
   }
 
-  // Bookings
   createBooking(bookingData) {
     const bookingId = 'BK' + Date.now();
     const newBooking = {
@@ -487,7 +478,6 @@ class Store {
       createdAt: new Date().toISOString(),
     };
 
-    // Update booked seats on the show
     const showId = bookingData.show?._id || bookingData.show;
     const show = this.getShowById(showId);
     const newSeatIds = Array.isArray(bookingData.seats)
@@ -502,7 +492,6 @@ class Store {
     this.data.bookings.unshift(newBooking);
     this.save();
 
-    // Async sync to MongoDB
     try {
       const Booking = require('../models/Booking');
       Booking.create({
@@ -527,7 +516,6 @@ class Store {
         ).catch(e => console.warn('[MongoDB] Show seat update notice:', e.message));
       }
     } catch (e) {
-      // Ignored if offline
     }
 
     return newBooking;

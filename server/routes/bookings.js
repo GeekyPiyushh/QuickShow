@@ -4,7 +4,6 @@ const { authenticate, requireAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
-// GET /api/bookings/my (Logged-in user bookings)
 router.get('/my', authenticate, async (req, res) => {
   try {
     const Booking = require('../models/Booking');
@@ -23,7 +22,6 @@ router.get('/my', authenticate, async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to store
   }
 
   try {
@@ -41,7 +39,6 @@ router.get('/my', authenticate, async (req, res) => {
   }
 });
 
-// GET /api/bookings (Admin only - all bookings)
 router.get('/', authenticate, requireAdmin, async (req, res) => {
   try {
     const Booking = require('../models/Booking');
@@ -53,7 +50,6 @@ router.get('/', authenticate, requireAdmin, async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to store
   }
 
   try {
@@ -71,7 +67,6 @@ router.get('/', authenticate, requireAdmin, async (req, res) => {
   }
 });
 
-// POST /api/bookings (Create new booking)
 router.post('/', authenticate, (req, res) => {
   try {
     const { show, seats } = req.body;

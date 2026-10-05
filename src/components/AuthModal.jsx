@@ -5,22 +5,19 @@ import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
 const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
-  const [activeTab, setActiveTab] = useState('user') // 'user' | 'admin'
+  const [activeTab, setActiveTab] = useState('user')
   const [isRegister, setIsRegister] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // OTP Step for Registration
   const [otpStep, setOtpStep] = useState(false)
   const [otp, setOtp] = useState('')
   const [resendCooldown, setResendCooldown] = useState(0)
   const [devOtpHint, setDevOtpHint] = useState('')
 
-  // User & Admin core credentials
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  // Extended Admin & Theatre fields
   const [theatreName, setTheatreName] = useState('')
   const [city, setCity] = useState('')
   const [location, setLocation] = useState('')
@@ -29,7 +26,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
 
   const navigate = useNavigate()
 
-  // Resend cooldown timer
   useEffect(() => {
     if (resendCooldown <= 0) return
     const timer = setInterval(() => {
@@ -69,7 +65,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
     setTotalSeats('90')
   }
 
-  // Step 1 Submit: For Login OR Sending OTP for Registration
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -77,7 +72,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
       return toast.error('Please enter both email and password.')
     }
 
-    // Login Flow
     if (!isRegister) {
       setLoading(true)
       try {
@@ -107,7 +101,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
       return
     }
 
-    // Registration Flow - Step 1: Send OTP
     if (!name.trim()) {
       return toast.error('Please enter your full name.')
     }
@@ -141,7 +134,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
     }
   }
 
-  // Step 2: Resend OTP
   const handleResendOtp = async () => {
     if (resendCooldown > 0 || loading) return
     setLoading(true)
@@ -163,7 +155,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
     }
   }
 
-  // Step 2: Verify OTP & Complete Registration
   const handleVerifyAndRegister = async (e) => {
     e.preventDefault()
 
@@ -213,7 +204,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
     <div className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm'>
       <div className='relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-stone-900 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl animate-in fade-in zoom-in duration-200 scrollbar-thin scrollbar-thumb-white/10'>
         
-        {/* Close Button */}
         <button
           onClick={() => {
             resetForm()
@@ -224,7 +214,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
           <X className='w-5 h-5' />
         </button>
 
-        {/* Modal Header */}
         <div className='text-center mb-6'>
           <h2 className='text-2xl font-bold tracking-tight text-white flex items-center justify-center gap-2'>
             {otpStep ? (
@@ -261,7 +250,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
           </p>
         </div>
 
-        {/* Role Selector Tabs (Only on Step 1) */}
         {!otpStep && (
           <div className='grid grid-cols-2 gap-2 bg-black/40 p-1 rounded-xl mb-5 border border-white/5'>
             <button
@@ -296,7 +284,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
           </div>
         )}
 
-        {/* Quick Demo Fill Buttons (Only visible in Sign In mode) */}
         {!isRegister && !otpStep && (
           <div className='mb-5'>
             {activeTab === 'user' ? (
@@ -319,13 +306,9 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
           </div>
         )}
 
-        {/* ============================================================ */}
-        {/* STEP 2: OTP VERIFICATION VIEW */}
-        {/* ============================================================ */}
         {otpStep ? (
           <form onSubmit={handleVerifyAndRegister} className='space-y-4 animate-in fade-in slide-in-from-right-4 duration-200'>
             
-            {/* Dev Mode Banner (If SMTP is not configured or in fallback mode) */}
             {devOtpHint && (
               <div className='bg-primary/10 border border-primary/30 rounded-xl p-3 text-center text-xs text-rose-300'>
                 <span className='font-medium'>Dev Mode Code:</span>{' '}
@@ -340,7 +323,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
               </div>
             )}
 
-            {/* OTP Input */}
             <div>
               <label className='block text-xs font-medium text-gray-300 mb-2 text-center'>
                 Enter 6-Digit OTP Code
@@ -359,7 +341,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
               </div>
             </div>
 
-            {/* Countdown / Resend Option */}
             <div className='flex items-center justify-between text-xs text-gray-400 px-1 pt-1'>
               <button
                 type='button'
@@ -383,7 +364,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
               )}
             </div>
 
-            {/* Submit Button */}
             <button
               type='submit'
               disabled={loading || otp.length < 6}
@@ -404,12 +384,8 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
             </button>
           </form>
         ) : (
-          /* ============================================================ */
-          /* STEP 1: LOGIN & REGISTRATION DETAILS VIEW */
-          /* ============================================================ */
           <form onSubmit={handleSubmit} className='space-y-4'>
             
-            {/* Full Name (if registering) */}
             {isRegister && (
               <div>
                 <label className='block text-xs font-medium text-gray-300 mb-1.5'>
@@ -429,7 +405,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
               </div>
             )}
 
-            {/* Email */}
             <div>
               <label className='block text-xs font-medium text-gray-300 mb-1.5'>
                 {activeTab === 'admin' ? 'Admin Work Email' : 'Email Address'}
@@ -447,7 +422,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
               </div>
             </div>
 
-            {/* Password */}
             <div>
               <label className='block text-xs font-medium text-gray-300 mb-1.5'>Password</label>
               <div className='flex items-center bg-black/50 border border-white/10 rounded-xl px-3.5 py-2.5 focus-within:border-primary transition'>
@@ -463,9 +437,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
               </div>
             </div>
 
-            {/* ============================================================ */}
-            {/* EXTENDED SECTION: THEATRE & CINEMA DETAILS (FOR ADMIN REGISTER) */}
-            {/* ============================================================ */}
             {activeTab === 'admin' && isRegister && (
               <div className='pt-3 pb-1 border-t border-white/10 space-y-3.5 animate-in fade-in slide-in-from-top-2 duration-300'>
                 
@@ -476,7 +447,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
                   <span className='text-[11px] text-gray-400'>Enter your theatre details</span>
                 </div>
 
-                {/* Theatre Name */}
                 <div>
                   <label className='block text-xs font-medium text-gray-300 mb-1.5'>
                     Theatre / Cinema Name <span className='text-rose-500'>*</span>
@@ -494,7 +464,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
                   </div>
                 </div>
 
-                {/* City & Location Grid */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
                   <div>
                     <label className='block text-xs font-medium text-gray-300 mb-1.5'>
@@ -528,7 +497,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
                   </div>
                 </div>
 
-                {/* Primary Screen & Capacity Grid */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
                   <div>
                     <label className='block text-xs font-medium text-gray-300 mb-1.5'>Primary Screen / Audi Name</label>
@@ -564,7 +532,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
               </div>
             )}
 
-            {/* Submit Button */}
             <button
               type='submit'
               disabled={loading}
@@ -603,7 +570,6 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
           </form>
         )}
 
-        {/* Bottom Toggle Footer */}
         {!otpStep && (
           <div className='mt-6 text-center text-xs text-gray-400 border-t border-white/5 pt-4'>
             {activeTab === 'admin' ? (

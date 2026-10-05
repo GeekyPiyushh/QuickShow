@@ -4,7 +4,6 @@ const { authenticate, requireAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
-// GET /api/shows
 router.get('/', async (req, res) => {
   try {
     const Show = require('../models/Show');
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to in-memory store
   }
   const shows = store.getShows();
   return res.json({
@@ -25,13 +23,25 @@ router.get('/', async (req, res) => {
   });
 });
 
-// GET /api/shows/:id/seats
 router.get('/:id/seats', async (req, res) => {
   try {
     const Show = require('../models/Show');
-    const show = await Show.findOne({
-      $or: [{ _id: req.params.id }, { id: req.params.id }]
-    }).lean();
+    const mongoose = require('mongoose');
+    const id = req.params.id;
+    let objId = null;
+    try {
+      if (mongoose.Types.ObjectId.isValid(id) && String(new mongoose.Types.ObjectId(id)) === id) {
+        objId = new mongoose.Types.ObjectId(id);
+      }
+    } catch (_) {}
+
+    const conditions = [
+      { _id: id },
+      { id: id },
+      ...(objId ? [{ _id: objId }] : []),
+    ];
+
+    const show = await Show.findOne({ $or: conditions }).lean();
     if (show) {
       return res.json({
         success: true,
@@ -40,7 +50,6 @@ router.get('/:id/seats', async (req, res) => {
       });
     }
   } catch (err) {
-    // Fallback to in-memory store
   }
   const show = store.getShowById(req.params.id);
   if (!show) {
@@ -56,7 +65,6 @@ router.get('/:id/seats', async (req, res) => {
   });
 });
 
-// POST /api/shows (Admin only)
 router.post('/', authenticate, requireAdmin, (req, res) => {
   try {
     const { movie, theatre, screen, showDate, startTime, endTime, price } = req.body;

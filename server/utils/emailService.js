@@ -12,7 +12,7 @@ function getTransporter() {
     service: process.env.EMAIL_SERVICE || 'gmail',
     auth: {
       user: user.trim(),
-      pass: pass.trim().replace(/\s+/g, ''), // strip spaces from app password
+      pass: pass.trim().replace(/\s+/g, ''),
     },
   });
 }
@@ -69,10 +69,9 @@ function generateEmailHtml(otp, recipientEmail) {
               </td>
             </tr>
 
-            <!-- Footer -->
             <tr>
               <td style="padding: 16px 24px; background-color: #0b0b0e; border-top: 1px solid #1f1f28; text-align: center; font-size: 11px; color: #6b7280;">
-                © ${new Date().getFullYear()} QuickShow (SnapSeat). All rights reserved.<br>
+                © ${new Date().getFullYear()} QuickShow. All rights reserved.<br>
                 Instant, secure cinema ticket reservations.
               </td>
             </tr>
@@ -89,7 +88,6 @@ async function sendOtpEmail(recipientEmail, otp) {
   const normalizedEmail = String(recipientEmail).trim().toLowerCase();
   const transporter = getTransporter();
 
-  // If no credentials configured in .env, log to console
   if (!transporter) {
     console.log('\n============================================================');
     console.log(' [QuickShow OTP Service - DEV MODE / NO SMTP CONFIGURED]');
@@ -123,7 +121,6 @@ async function sendOtpEmail(recipientEmail, otp) {
     };
   } catch (error) {
     console.error(`[QuickShow OTP] Error sending email via SMTP:`, error.message);
-    // Console fallback on SMTP error so testing is not blocked
     console.log('\n============================================================');
     console.log(' [QuickShow OTP Service - SMTP FALLBACK]');
     console.log(` Target Email : ${normalizedEmail}`);

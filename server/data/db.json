@@ -8,7 +8,7 @@
       "name": "Administrator",
       "password": "$2b$10$F7lQj12nnNS9ccrrbNd2ce.mIE3aRiUstqDGIKYfyc.N5qBHqcsvG",
       "role": "admin",
-      "updatedAt": "2026-10-02T10:29:37.839Z",
+      "updatedAt": "2026-10-05T19:28:02.978Z",
       "theatreId": null,
       "theatreName": null
     },
@@ -20,7 +20,7 @@
       "name": "Piyush Tehalani",
       "password": "$2b$10$OZ02NisBhzFwRp.K4rVa2.2hkI/vDk4blcAC84VPy6vEVNh128cHm",
       "role": "user",
-      "updatedAt": "2026-10-02T10:29:37.849Z",
+      "updatedAt": "2026-10-05T19:28:02.990Z",
       "theatreId": null,
       "theatreName": null
     },
@@ -32,7 +32,7 @@
       "name": "Alice Tester",
       "password": "$2b$10$SKJyZsxM4OrN93Wv.eB8IeABsFYO6DttYI9Xn1Q/Uu045VzXNiITa",
       "role": "user",
-      "updatedAt": "2026-10-02T10:29:37.850Z",
+      "updatedAt": "2026-10-05T19:28:02.995Z",
       "theatreId": null,
       "theatreName": null
     },
@@ -44,7 +44,7 @@
       "name": "Test User",
       "password": "$2b$10$ZdqUBPtD3NJEa/r2nDireuNEjx8sw5IxUp1yh.z3zXRXqHUaiEOKa",
       "role": "user",
-      "updatedAt": "2026-10-02T10:29:37.851Z",
+      "updatedAt": "2026-10-05T19:28:02.997Z",
       "theatreId": null,
       "theatreName": null
     },
@@ -55,29 +55,29 @@
       "password": "$2b$10$3yM6zUZnekvkgxlcqaxXIuYERMSOBy8V8UBLuNiqkDzkR54Xn3ELW",
       "role": "user",
       "createdAt": "2026-09-29T10:46:13.368Z",
-      "updatedAt": "2026-09-29T10:46:13.368Z",
+      "updatedAt": "2026-10-05T19:28:03.000Z",
       "__v": 0
     },
     {
       "_id": "6abb9a54ff54c909ca4af7bf",
       "name": "Piyush CineMaster",
-      "email": "piyush.cinemas@snapseat.com",
+      "email": "piyush.cinemas@quickshow.com",
       "password": "$2b$10$v2eOscoe3qh9ZQV1nylPGeBjpmrTgDXYluwC9m.USUzdta.haV/46",
       "role": "admin",
       "createdAt": "2026-09-29T11:00:36.997Z",
-      "updatedAt": "2026-09-29T11:00:36.997Z",
+      "updatedAt": "2026-10-05T19:28:03.002Z",
       "__v": 0
     },
     {
       "_id": "usr_1790680776072est9",
       "name": "Rohan Partner",
-      "email": "rohan.theatre@snapseat.com",
+      "email": "rohan.theatre@quickshow.com",
       "password": "$2b$10$peEyKbzBi/Uf.ZhygswP5.haN7XygUZzNUsNFwisGg1toylnZklUC",
       "role": "admin",
       "theatreId": "th_1790680776010",
       "theatreName": "INOX Megaplex",
       "createdAt": "2026-09-29T11:19:36.072Z",
-      "updatedAt": "2026-09-29T11:19:36.072Z",
+      "updatedAt": "2026-10-05T19:28:03.004Z",
       "__v": 0
     },
     {
@@ -89,7 +89,7 @@
       "theatreId": "th_1790680884992",
       "theatreName": "TEST",
       "createdAt": "2026-09-29T11:21:25.073Z",
-      "updatedAt": "2026-09-29T11:21:25.073Z",
+      "updatedAt": "2026-10-05T19:28:03.005Z",
       "__v": 0
     },
     {
@@ -101,7 +101,7 @@
       "theatreId": null,
       "theatreName": null,
       "createdAt": "2026-10-02T08:47:40.060Z",
-      "updatedAt": "2026-10-02T10:29:37.852Z",
+      "updatedAt": "2026-10-05T19:28:03.006Z",
       "__v": 0
     },
     {
@@ -113,7 +113,7 @@
       "theatreId": null,
       "theatreName": null,
       "createdAt": "2026-10-02T08:53:44.307Z",
-      "updatedAt": "2026-10-02T10:29:37.853Z",
+      "updatedAt": "2026-10-05T19:28:03.007Z",
       "__v": 0
     },
     {
@@ -125,7 +125,7 @@
       "theatreId": null,
       "theatreName": null,
       "createdAt": "2026-10-02T09:41:16.288Z",
-      "updatedAt": "2026-10-02T10:29:37.855Z",
+      "updatedAt": "2026-10-05T19:28:03.009Z",
       "__v": 0
     },
     {
@@ -138,7 +138,7 @@
       "role": "user",
       "theatreId": null,
       "theatreName": null,
-      "updatedAt": "2026-10-02T10:29:37.854Z"
+      "updatedAt": "2026-10-05T19:28:03.010Z"
     },
     {
       "_id": "usr_1790935506697elq8",
@@ -150,204 +150,45 @@
       "role": "user",
       "theatreId": null,
       "theatreName": null,
-      "updatedAt": "2026-10-02T10:29:37.855Z"
+      "updatedAt": "2026-10-05T19:28:03.011Z"
+    },
+    {
+      "_id": "usr_17911121808897yaw",
+      "name": "Rishi11",
+      "email": "sharmarishi02008@gmail.com",
+      "password": "$2b$10$r6sQFQJ3PxvgqLIYixHvXOwWrAEYOnCR0xLP2FNZJdpqkYgUhe1/i",
+      "role": "user",
+      "theatreId": null,
+      "theatreName": null,
+      "createdAt": "2026-10-04T11:09:40.889Z",
+      "updatedAt": "2026-10-05T19:28:03.012Z",
+      "__v": 0
+    },
+    {
+      "_id": "usr_17912119143862i4n",
+      "name": "Prarthana",
+      "email": "prathanatejwani77@gmail.com",
+      "password": "$2b$10$UDeh1izcxU/ZjROQtW6VIea4TTnB8JjZpC9EwUIzwBd7CED2OJIhe",
+      "role": "user",
+      "theatreId": null,
+      "theatreName": null,
+      "createdAt": "2026-10-05T14:51:54.386Z",
+      "updatedAt": "2026-10-05T19:28:03.013Z",
+      "__v": 0
     }
   ],
   "movies": [
     {
-      "_id": "6abb939eb943103a2d8918ca",
-      "id": 1790660084635,
-      "title": "TEST2",
-      "overview": "sdfgm,.",
-      "description": "sdfgm,.",
-      "poster": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
-      "backdrop_path": "",
-      "genre": [
-        "Action"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Action",
-          "_id": "6abb939eb943103a2d8918cb"
-        }
-      ],
-      "language": "English",
-      "duration": 120,
-      "runtime": 120,
-      "rating": 7.5,
-      "vote_average": 7.5,
-      "releaseDate": "2026-09-29T00:00:00.000Z",
-      "release_date": "2026-09-29T00:00:00.000Z",
-      "status": "now_showing",
-      "createdAt": "2026-09-29T10:31:58.819Z",
-      "updatedAt": "2026-09-29T10:31:58.819Z",
-      "__v": 0
-    },
-    {
-      "_id": "6abb939eb943103a2d8918cc",
-      "id": 1790660059391,
-      "title": "FJSP",
-      "overview": "azxcvb",
-      "description": "azxcvb",
-      "poster": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
-      "backdrop_path": "",
-      "genre": [
-        "Action"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Action",
-          "_id": "6abb939eb943103a2d8918cd"
-        }
-      ],
-      "language": "English",
-      "duration": 120,
-      "runtime": 120,
-      "rating": 7.5,
-      "vote_average": 7.5,
-      "releaseDate": "2026-09-29T00:00:00.000Z",
-      "release_date": "2026-09-29T00:00:00.000Z",
-      "status": "now_showing",
-      "createdAt": "2026-09-29T10:31:58.825Z",
-      "updatedAt": "2026-09-29T10:31:58.825Z",
-      "__v": 0
-    },
-    {
-      "_id": "6abb939eb943103a2d8918ce",
-      "id": 1790612448312,
-      "title": "Interstellar 2026 Remaster",
-      "overview": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-      "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-      "poster": "https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
-      "backdrop_path": "",
-      "genre": [
-        "Adventure",
-        "Drama",
-        "Science Fiction"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6a7"
-        },
-        {
-          "id": 2,
-          "name": "Drama",
-          "_id": "6abf814773f9779ecaa2a6a8"
-        },
-        {
-          "id": 3,
-          "name": "Science Fiction",
-          "_id": "6abf814773f9779ecaa2a6a9"
-        }
-      ],
-      "language": "English",
-      "duration": 169,
-      "runtime": 169,
-      "rating": 8.7,
-      "vote_average": 8.7,
-      "releaseDate": "2026-10-01",
-      "release_date": "2026-10-01",
-      "status": "now_showing",
-      "createdAt": "2026-09-29T10:31:58.826Z",
-      "updatedAt": "2026-10-02T10:02:47.434Z",
-      "__v": 0
-    },
-    {
-      "_id": "6abb939eb943103a2d8918d2",
-      "id": 324544,
-      "title": "In the Lost Lands",
-      "overview": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
-      "description": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
-      "poster": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
-      "genre": [
-        "Action",
-        "Fantasy",
-        "Adventure"
-      ],
-      "genres": [
-        {
-          "id": 28,
-          "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6aa"
-        },
-        {
-          "id": 14,
-          "name": "Fantasy",
-          "_id": "6abf814773f9779ecaa2a6ab"
-        },
-        {
-          "id": 12,
-          "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6ac"
-        }
-      ],
-      "language": "English",
-      "duration": 102,
-      "runtime": 102,
-      "rating": 6.4,
-      "vote_average": 6.4,
-      "releaseDate": "2025-02-27",
-      "release_date": "2025-02-27",
-      "status": "now_showing",
-      "createdAt": "2026-09-29T10:31:58.828Z",
-      "updatedAt": "2026-10-02T10:02:47.451Z",
-      "__v": 0
-    },
-    {
-      "_id": "6abb939eb943103a2d8918d6",
-      "id": 1232546,
-      "title": "Until Dawn",
-      "overview": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
-      "description": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
-      "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
-      "genre": [
-        "Horror",
-        "Mystery"
-      ],
-      "genres": [
-        {
-          "id": 27,
-          "name": "Horror",
-          "_id": "6abf814773f9779ecaa2a6ad"
-        },
-        {
-          "id": 9648,
-          "name": "Mystery",
-          "_id": "6abf814773f9779ecaa2a6ae"
-        }
-      ],
-      "language": "English",
-      "duration": 98,
-      "runtime": 98,
-      "rating": 7.2,
-      "vote_average": 7.2,
-      "releaseDate": "2025-03-10",
-      "release_date": "2025-03-10",
-      "status": "now_showing",
-      "createdAt": "2026-09-29T10:31:58.830Z",
-      "updatedAt": "2026-10-02T10:02:47.452Z",
-      "__v": 0
-    },
-    {
-      "_id": "6abb939eb943103a2d8918d9",
-      "id": 558449,
+      "_id": "100001",
+      "id": 100001,
       "title": "Gladiator II",
-      "overview": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
-      "description": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+      "overview": "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after his home is conquered by tyrannical Emperors.",
+      "description": "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after his home is conquered by tyrannical Emperors.",
       "poster": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
       "poster_path": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
       "backdrop_path": "https://image.tmdb.org/t/p/original/euYIwmwkmz95mnExvufwn49Scu6.jpg",
+      "trailer": "https://www.youtube.com/watch?v=4rgYUipGJNo",
+      "trailerUrl": "https://www.youtube.com/watch?v=4rgYUipGJNo",
       "genre": [
         "Action",
         "Adventure",
@@ -355,19 +196,19 @@
       ],
       "genres": [
         {
-          "id": 28,
+          "id": 1,
           "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6af"
+          "_id": "6ac3f32a45bb80c77193f506"
         },
         {
-          "id": 12,
+          "id": 2,
           "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6b0"
+          "_id": "6ac3f32a45bb80c77193f507"
         },
         {
-          "id": 18,
+          "id": 3,
           "name": "Drama",
-          "_id": "6abf814773f9779ecaa2a6b1"
+          "_id": "6ac3f32a45bb80c77193f508"
         }
       ],
       "language": "English",
@@ -378,33 +219,35 @@
       "releaseDate": "2024-11-22",
       "release_date": "2024-11-22",
       "status": "now_showing",
-      "createdAt": "2026-09-29T10:31:58.831Z",
-      "updatedAt": "2026-10-02T10:02:47.453Z",
-      "__v": 0
+      "createdAt": "2026-10-05T18:57:46.289Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.304Z"
     },
     {
-      "_id": "6abb939eb943103a2d8918dd",
-      "id": 693134,
+      "_id": "100002",
+      "id": 100002,
       "title": "Dune: Part Two",
-      "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
-      "description": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+      "overview": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+      "description": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
       "poster": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
       "poster_path": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s520044.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+      "trailer": "https://www.youtube.com/watch?v=Way9Dexny3w",
+      "trailerUrl": "https://www.youtube.com/watch?v=Way9Dexny3w",
       "genre": [
         "Science Fiction",
         "Adventure"
       ],
       "genres": [
         {
-          "id": 878,
+          "id": 1,
           "name": "Science Fiction",
-          "_id": "6abf814773f9779ecaa2a6b2"
+          "_id": "6ac3f32a45bb80c77193f509"
         },
         {
-          "id": 12,
+          "id": 2,
           "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6b3"
+          "_id": "6ac3f32a45bb80c77193f50a"
         }
       ],
       "language": "English",
@@ -415,528 +258,555 @@
       "releaseDate": "2024-03-01",
       "release_date": "2024-03-01",
       "status": "now_showing",
-      "createdAt": "2026-09-29T10:31:58.832Z",
-      "updatedAt": "2026-10-02T10:02:47.454Z",
-      "__v": 0
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
     },
     {
-      "_id": "6abf81473491cf9e100f49ba",
-      "title": "Jawan: Extended Cut",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-      "createdAt": "2026-10-02T10:02:47.455Z",
-      "description": "A high-octane action thriller following a prison warden and his squad of women taking down corruption in high places.",
+      "_id": "100003",
+      "id": 100003,
+      "title": "Interstellar",
+      "overview": "When Earth becomes uninhabitable, a team of ex-NASA pilots travels through a wormhole across the galaxy in search of a new home.",
+      "description": "When Earth becomes uninhabitable, a team of ex-NASA pilots travels through a wormhole across the galaxy in search of a new home.",
+      "poster": "https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg",
+      "trailer": "https://www.youtube.com/watch?v=zSWdZVtXT7E",
+      "trailerUrl": "https://www.youtube.com/watch?v=zSWdZVtXT7E",
+      "genre": [
+        "Science Fiction",
+        "Drama",
+        "Adventure"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Science Fiction",
+          "_id": "6ac3f32a45bb80c77193f50b"
+        },
+        {
+          "id": 2,
+          "name": "Drama",
+          "_id": "6ac3f32a45bb80c77193f50c"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "_id": "6ac3f32a45bb80c77193f50d"
+        }
+      ],
+      "language": "English",
       "duration": 169,
+      "runtime": 169,
+      "rating": 8.7,
+      "vote_average": 8.7,
+      "releaseDate": "2024-12-06",
+      "release_date": "2024-12-06",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100004",
+      "id": 100004,
+      "title": "In the Lost Lands",
+      "overview": "A queen sends the powerful sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power.",
+      "description": "A queen sends the powerful sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power.",
+      "poster": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+      "trailer": "https://www.youtube.com/watch?v=WpW36ldAqnM",
+      "trailerUrl": "https://www.youtube.com/watch?v=WpW36ldAqnM",
       "genre": [
         "Action",
-        "Thriller",
-        "Crime"
+        "Fantasy",
+        "Adventure"
       ],
       "genres": [
         {
           "id": 1,
           "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6b4"
+          "_id": "6ac3f32a45bb80c77193f50e"
         },
         {
           "id": 2,
-          "name": "Thriller",
-          "_id": "6abf814773f9779ecaa2a6b5"
+          "name": "Fantasy",
+          "_id": "6ac3f32a45bb80c77193f50f"
         },
         {
           "id": 3,
-          "name": "Crime",
-          "_id": "6abf814773f9779ecaa2a6b6"
+          "name": "Adventure",
+          "_id": "6ac3f32a45bb80c77193f510"
         }
       ],
-      "id": "mov_hn_01",
-      "language": "Hindi",
-      "overview": "A high-octane action thriller following a prison warden and his squad of women taking down corruption in high places.",
-      "poster": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-      "rating": 8.2,
-      "releaseDate": "2025-01-15",
-      "release_date": "2025-01-15",
-      "runtime": 169,
+      "language": "English",
+      "duration": 102,
+      "runtime": 102,
+      "rating": 6.4,
+      "vote_average": 6.4,
+      "releaseDate": "2025-02-27",
+      "release_date": "2025-02-27",
       "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.455Z",
-      "vote_average": 8.2
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
     },
     {
-      "_id": "6abf81473491cf9e100f49bb",
-      "title": "Stree 2: Chanderi Returns",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
-      "createdAt": "2026-10-02T10:02:47.466Z",
-      "description": "The town of Chanderi is terrorized once more, this time by a headless apparition known as Sarkate abducting young women.",
-      "duration": 147,
+      "_id": "100005",
+      "id": 100005,
+      "title": "Deadpool & Wolverine",
+      "overview": "Wade Wilson's quiet life is interrupted by the Time Variance Authority, plunging him into a multiversal mission alongside Wolverine.",
+      "description": "Wade Wilson's quiet life is interrupted by the Time Variance Authority, plunging him into a multiversal mission alongside Wolverine.",
+      "poster": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg",
+      "trailer": "https://www.youtube.com/watch?v=73_1biulkYk",
+      "trailerUrl": "https://www.youtube.com/watch?v=73_1biulkYk",
       "genre": [
+        "Action",
         "Comedy",
+        "Science Fiction"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action",
+          "_id": "6ac3f32a45bb80c77193f511"
+        },
+        {
+          "id": 2,
+          "name": "Comedy",
+          "_id": "6ac3f32a45bb80c77193f512"
+        },
+        {
+          "id": 3,
+          "name": "Science Fiction",
+          "_id": "6ac3f32a45bb80c77193f513"
+        }
+      ],
+      "language": "English",
+      "duration": 128,
+      "runtime": 128,
+      "rating": 7.9,
+      "vote_average": 7.9,
+      "releaseDate": "2024-07-26",
+      "release_date": "2024-07-26",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100006",
+      "id": 100006,
+      "title": "Oppenheimer",
+      "overview": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
+      "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
+      "poster": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/rLb2cwF3Pazuxaj0sRXQ037tGI1.jpg",
+      "trailer": "https://www.youtube.com/watch?v=uYPbbksJxIg",
+      "trailerUrl": "https://www.youtube.com/watch?v=uYPbbksJxIg",
+      "genre": [
+        "Drama",
+        "History"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Drama",
+          "_id": "6ac3f32a45bb80c77193f514"
+        },
+        {
+          "id": 2,
+          "name": "History",
+          "_id": "6ac3f32a45bb80c77193f515"
+        }
+      ],
+      "language": "English",
+      "duration": 180,
+      "runtime": 180,
+      "rating": 8.3,
+      "vote_average": 8.3,
+      "releaseDate": "2023-07-21",
+      "release_date": "2023-07-21",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100007",
+      "id": 100007,
+      "title": "Spider-Man: Across the Spider-Verse",
+      "overview": "Miles Morales catapults across the Multiverse, encountering a team of Spider-People charged with protecting its very existence.",
+      "description": "Miles Morales catapults across the Multiverse, encountering a team of Spider-People charged with protecting its very existence.",
+      "poster": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
+      "trailer": "https://www.youtube.com/watch?v=cqGjhVJWtEg",
+      "trailerUrl": "https://www.youtube.com/watch?v=cqGjhVJWtEg",
+      "genre": [
+        "Animation",
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Animation",
+          "_id": "6ac3f32a45bb80c77193f516"
+        },
+        {
+          "id": 2,
+          "name": "Action",
+          "_id": "6ac3f32a45bb80c77193f517"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "_id": "6ac3f32a45bb80c77193f518"
+        },
+        {
+          "id": 4,
+          "name": "Science Fiction",
+          "_id": "6ac3f32a45bb80c77193f519"
+        }
+      ],
+      "language": "English",
+      "duration": 140,
+      "runtime": 140,
+      "rating": 8.6,
+      "vote_average": 8.6,
+      "releaseDate": "2023-06-02",
+      "release_date": "2023-06-02",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100008",
+      "id": 100008,
+      "title": "Until Dawn",
+      "overview": "One year after her sister disappeared, Clover and her friends head into a remote valley in search of answers, only to find themselves hunted.",
+      "description": "One year after her sister disappeared, Clover and her friends head into a remote valley in search of answers, only to find themselves hunted.",
+      "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+      "trailer": "https://www.youtube.com/watch?v=-sAOWhvheK8",
+      "trailerUrl": "https://www.youtube.com/watch?v=-sAOWhvheK8",
+      "genre": [
         "Horror",
         "Mystery"
       ],
       "genres": [
         {
           "id": 1,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6b7"
+          "name": "Horror",
+          "_id": "6ac3f32a45bb80c77193f51a"
         },
         {
           "id": 2,
-          "name": "Horror",
-          "_id": "6abf814773f9779ecaa2a6b8"
+          "name": "Mystery",
+          "_id": "6ac3f32a45bb80c77193f51b"
+        }
+      ],
+      "language": "English",
+      "duration": 103,
+      "runtime": 103,
+      "rating": 6.4,
+      "vote_average": 6.4,
+      "releaseDate": "2025-04-23",
+      "release_date": "2025-04-23",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100009",
+      "id": 100009,
+      "title": "Lilo & Stitch",
+      "overview": "The touching story of a lonely Hawaiian girl and the fugitive extraterrestrial creature who helps mend her broken family.",
+      "description": "The touching story of a lonely Hawaiian girl and the fugitive extraterrestrial creature who helps mend her broken family.",
+      "poster": "https://image.tmdb.org/t/p/original/mKKqV23MQ0uakJS8OCE2TfV5jNS.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/mKKqV23MQ0uakJS8OCE2TfV5jNS.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
+      "trailer": "https://www.youtube.com/watch?v=1pHDWnXmK7Y",
+      "trailerUrl": "https://www.youtube.com/watch?v=1pHDWnXmK7Y",
+      "genre": [
+        "Family",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Family",
+          "_id": "6ac3f32a45bb80c77193f51c"
+        },
+        {
+          "id": 2,
+          "name": "Comedy",
+          "_id": "6ac3f32a45bb80c77193f51d"
         },
         {
           "id": 3,
-          "name": "Mystery",
-          "_id": "6abf814773f9779ecaa2a6b9"
+          "name": "Science Fiction",
+          "_id": "6ac3f32a45bb80c77193f51e"
         }
       ],
-      "id": "mov_hn_02",
-      "language": "Hindi",
-      "overview": "The town of Chanderi is terrorized once more, this time by a headless apparition known as Sarkate abducting young women.",
-      "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
-      "rating": 8,
-      "releaseDate": "2025-02-10",
-      "release_date": "2025-02-10",
-      "runtime": 147,
+      "language": "English",
+      "duration": 108,
+      "runtime": 108,
+      "rating": 7.1,
+      "vote_average": 7.1,
+      "releaseDate": "2025-05-17",
+      "release_date": "2025-05-17",
       "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.466Z",
-      "vote_average": 8
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
     },
     {
-      "_id": "6abf81473491cf9e100f49bc",
-      "title": "3 Idiots: Friendship Unlimited",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
-      "createdAt": "2026-10-02T10:02:47.468Z",
-      "description": "Two college friends embark on a nostalgic road trip to track down their lost companion who transformed their lives.",
-      "duration": 170,
+      "_id": "100010",
+      "id": 100010,
+      "title": "Havoc",
+      "overview": "When a drug heist swerves lethally out of control, a jaded detective fights his way through a criminal underworld to rescue a politician's son.",
+      "description": "When a drug heist swerves lethally out of control, a jaded detective fights his way through a criminal underworld to rescue a politician's son.",
+      "poster": "https://image.tmdb.org/t/p/original/ubP2OsF3GlfqYPvXyLw9d78djGX.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/ubP2OsF3GlfqYPvXyLw9d78djGX.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/65MVgDa6YjSdqzh7YOA04mYkioo.jpg",
+      "trailer": "https://www.youtube.com/watch?v=umiKiW4En9g",
+      "trailerUrl": "https://www.youtube.com/watch?v=umiKiW4En9g",
       "genre": [
-        "Comedy",
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action",
+          "_id": "6ac3f32a45bb80c77193f51f"
+        },
+        {
+          "id": 2,
+          "name": "Crime",
+          "_id": "6ac3f32a45bb80c77193f520"
+        },
+        {
+          "id": 3,
+          "name": "Thriller",
+          "_id": "6ac3f32a45bb80c77193f521"
+        }
+      ],
+      "language": "English",
+      "duration": 107,
+      "runtime": 107,
+      "rating": 6.5,
+      "vote_average": 6.5,
+      "releaseDate": "2025-04-25",
+      "release_date": "2025-04-25",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100011",
+      "id": 100011,
+      "title": "A Minecraft Movie",
+      "overview": "Four misfits pulled into the cubic wonderland of the Overworld must master the craft to return home.",
+      "description": "Four misfits pulled into the cubic wonderland of the Overworld must master the craft to return home.",
+      "poster": "https://image.tmdb.org/t/p/original/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
+      "trailer": "https://www.youtube.com/watch?v=wJO_vIDZn-I",
+      "trailerUrl": "https://www.youtube.com/watch?v=wJO_vIDZn-I",
+      "genre": [
         "Family",
+        "Comedy",
+        "Adventure",
+        "Fantasy"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Family",
+          "_id": "6ac3f32a45bb80c77193f522"
+        },
+        {
+          "id": 2,
+          "name": "Comedy",
+          "_id": "6ac3f32a45bb80c77193f523"
+        },
+        {
+          "id": 3,
+          "name": "Adventure",
+          "_id": "6ac3f32a45bb80c77193f524"
+        },
+        {
+          "id": 4,
+          "name": "Fantasy",
+          "_id": "6ac3f32a45bb80c77193f525"
+        }
+      ],
+      "language": "English",
+      "duration": 101,
+      "runtime": 101,
+      "rating": 6.5,
+      "vote_average": 6.5,
+      "releaseDate": "2025-03-31",
+      "release_date": "2025-03-31",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100012",
+      "id": 100012,
+      "title": "Mission: Impossible - The Final Reckoning",
+      "overview": "Ethan Hunt and his IMF team track down a terrifying AI known as the Entity in a perilous global race against time.",
+      "description": "Ethan Hunt and his IMF team track down a terrifying AI known as the Entity in a perilous global race against time.",
+      "poster": "https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg",
+      "trailer": "https://www.youtube.com/watch?v=NOhDyHN4jqc",
+      "trailerUrl": "https://www.youtube.com/watch?v=NOhDyHN4jqc",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action",
+          "_id": "6ac3f32a45bb80c77193f526"
+        },
+        {
+          "id": 2,
+          "name": "Adventure",
+          "_id": "6ac3f32a45bb80c77193f527"
+        },
+        {
+          "id": 3,
+          "name": "Thriller",
+          "_id": "6ac3f32a45bb80c77193f528"
+        }
+      ],
+      "language": "English",
+      "duration": 170,
+      "runtime": 170,
+      "rating": 7.1,
+      "vote_average": 7.1,
+      "releaseDate": "2025-05-17",
+      "release_date": "2025-05-17",
+      "status": "now_showing",
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
+    },
+    {
+      "_id": "100013",
+      "id": 100013,
+      "title": "Thunderbolts*",
+      "overview": "An irreverent team-up of Marvel's most unconventional antiheroes embarking on a covert government mission.",
+      "description": "An irreverent team-up of Marvel's most unconventional antiheroes embarking on a covert government mission.",
+      "poster": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
+      "trailer": "https://www.youtube.com/watch?v=v-b_XQh4VpA",
+      "trailerUrl": "https://www.youtube.com/watch?v=v-b_XQh4VpA",
+      "genre": [
+        "Action",
+        "Science Fiction",
         "Adventure"
       ],
       "genres": [
         {
           "id": 1,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6ba"
+          "name": "Action",
+          "_id": "6ac3f32a45bb80c77193f529"
         },
         {
           "id": 2,
-          "name": "Family",
-          "_id": "6abf814773f9779ecaa2a6bb"
+          "name": "Science Fiction",
+          "_id": "6ac3f32a45bb80c77193f52a"
         },
         {
           "id": 3,
           "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6bc"
+          "_id": "6ac3f32a45bb80c77193f52b"
         }
       ],
-      "id": "mov_hn_03",
-      "language": "Hindi",
-      "overview": "Two college friends embark on a nostalgic road trip to track down their lost companion who transformed their lives.",
-      "poster": "https://image.tmdb.org/t/p/original/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg",
-      "rating": 8.5,
-      "releaseDate": "2024-12-25",
-      "release_date": "2024-12-25",
-      "runtime": 170,
+      "language": "English",
+      "duration": 127,
+      "runtime": 127,
+      "rating": 7.4,
+      "vote_average": 7.4,
+      "releaseDate": "2025-04-30",
+      "release_date": "2025-04-30",
       "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.468Z",
-      "vote_average": 8.5
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.305Z"
     },
     {
-      "_id": "6abf81473491cf9e100f49bd",
-      "title": "Parasite: Director Cut",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-      "createdAt": "2026-10-02T10:02:47.469Z",
-      "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
-      "duration": 132,
+      "_id": "100014",
+      "id": 100014,
+      "title": "Jawan: Extended Cut",
+      "overview": "A high-octane action thriller detailing the emotional journey of a prison guard set on correcting systemic injustices in society.",
+      "description": "A high-octane action thriller detailing the emotional journey of a prison guard set on correcting systemic injustices in society.",
+      "poster": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/Acu32JpD51a1jM7R8G1H7dF6Z.jpg",
+      "trailer": "https://www.youtube.com/watch?v=MWOlnZSnXWE",
+      "trailerUrl": "https://www.youtube.com/watch?v=MWOlnZSnXWE",
       "genre": [
-        "Thriller",
-        "Comedy",
-        "Crime"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Thriller",
-          "_id": "6abf814773f9779ecaa2a6bd"
-        },
-        {
-          "id": 2,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6be"
-        },
-        {
-          "id": 3,
-          "name": "Crime",
-          "_id": "6abf814773f9779ecaa2a6bf"
-        }
-      ],
-      "id": "mov_kr_01",
-      "language": "Korean",
-      "overview": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
-      "poster": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-      "rating": 8.6,
-      "releaseDate": "2025-01-20",
-      "release_date": "2025-01-20",
-      "runtime": 132,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.469Z",
-      "vote_average": 8.6
-    },
-    {
-      "_id": "6abf81473491cf9e100f49be",
-      "title": "Train to Busan: Outbreak",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
-      "createdAt": "2026-10-02T10:02:47.470Z",
-      "description": "As a catastrophic virus ravages South Korea, a father and daughter desperately fight for survival inside a speeding bullet train.",
-      "duration": 118,
-      "genre": [
-        "Horror",
         "Action",
         "Thriller"
       ],
       "genres": [
         {
           "id": 1,
-          "name": "Horror",
-          "_id": "6abf814773f9779ecaa2a6c0"
-        },
-        {
-          "id": 2,
           "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6c1"
-        },
-        {
-          "id": 3,
-          "name": "Thriller",
-          "_id": "6abf814773f9779ecaa2a6c2"
-        }
-      ],
-      "id": "mov_kr_02",
-      "language": "Korean",
-      "overview": "As a catastrophic virus ravages South Korea, a father and daughter desperately fight for survival inside a speeding bullet train.",
-      "poster": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
-      "rating": 8.1,
-      "releaseDate": "2025-03-01",
-      "release_date": "2025-03-01",
-      "runtime": 118,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.470Z",
-      "vote_average": 8.1
-    },
-    {
-      "_id": "6abf81473491cf9e100f49bf",
-      "title": "Sairat: Symphony of Hearts",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
-      "createdAt": "2026-10-02T10:02:47.471Z",
-      "description": "Two courageous college youth defy oppressive caste boundaries to defend their eternal love across Maharashtra.",
-      "duration": 174,
-      "genre": [
-        "Family",
-        "Crime",
-        "Adventure"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Family",
-          "_id": "6abf814773f9779ecaa2a6c3"
-        },
-        {
-          "id": 2,
-          "name": "Crime",
-          "_id": "6abf814773f9779ecaa2a6c4"
-        },
-        {
-          "id": 3,
-          "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6c5"
-        }
-      ],
-      "id": "mov_mr_01",
-      "language": "Marathi",
-      "overview": "Two courageous college youth defy oppressive caste boundaries to defend their eternal love across Maharashtra.",
-      "poster": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
-      "rating": 8.3,
-      "releaseDate": "2025-02-14",
-      "release_date": "2025-02-14",
-      "runtime": 174,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.471Z",
-      "vote_average": 8.3
-    },
-    {
-      "_id": "6abf81473491cf9e100f49c0",
-      "title": "Baipan Bhaari Deva",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
-      "createdAt": "2026-10-02T10:02:47.472Z",
-      "description": "Six estranged sisters discover healing, laughter, and sisterhood when they reunite for an energetic Mangala Gaur contest.",
-      "duration": 142,
-      "genre": [
-        "Family",
-        "Comedy"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Family",
-          "_id": "6abf814773f9779ecaa2a6c6"
-        },
-        {
-          "id": 2,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6c7"
-        }
-      ],
-      "id": "mov_mr_02",
-      "language": "Marathi",
-      "overview": "Six estranged sisters discover healing, laughter, and sisterhood when they reunite for an energetic Mangala Gaur contest.",
-      "poster": "https://image.tmdb.org/t/p/original/mKKqV23MQ0uakJS8OCE2TfV5jNS.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/mKKqV23MQ0uakJS8OCE2TfV5jNS.jpg",
-      "rating": 8.1,
-      "releaseDate": "2025-01-05",
-      "release_date": "2025-01-05",
-      "runtime": 142,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.472Z",
-      "vote_average": 8.1
-    },
-    {
-      "_id": "6abf81473491cf9e100f49c1",
-      "title": "Chaal Jeevi Laiye! (Live Life)",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
-      "createdAt": "2026-10-02T10:02:47.473Z",
-      "description": "A father-son duo takes a spontaneous Himalayan expedition, uncovering humor, life lessons, and emotional bonding.",
-      "duration": 153,
-      "genre": [
-        "Family",
-        "Comedy",
-        "Adventure"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Family",
-          "_id": "6abf814773f9779ecaa2a6c8"
-        },
-        {
-          "id": 2,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6c9"
-        },
-        {
-          "id": 3,
-          "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6ca"
-        }
-      ],
-      "id": "mov_gj_01",
-      "language": "Gujrati",
-      "overview": "A father-son duo takes a spontaneous Himalayan expedition, uncovering humor, life lessons, and emotional bonding.",
-      "poster": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
-      "rating": 8.7,
-      "releaseDate": "2025-02-01",
-      "release_date": "2025-02-01",
-      "runtime": 153,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.473Z",
-      "vote_average": 8.7
-    },
-    {
-      "_id": "6abf81473491cf9e100f49c2",
-      "title": "Hellaro: Desert Drums",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
-      "createdAt": "2026-10-02T10:02:47.474Z",
-      "description": "Suppressed women in a drought-ridden village find an uplifting path to freedom through the power of folk dance and percussion.",
-      "duration": 121,
-      "genre": [
-        "Family",
-        "Mystery",
-        "Fantasy"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Family",
-          "_id": "6abf814773f9779ecaa2a6cb"
-        },
-        {
-          "id": 2,
-          "name": "Mystery",
-          "_id": "6abf814773f9779ecaa2a6cc"
-        },
-        {
-          "id": 3,
-          "name": "Fantasy",
-          "_id": "6abf814773f9779ecaa2a6cd"
-        }
-      ],
-      "id": "mov_gj_02",
-      "language": "Gujrati",
-      "overview": "Suppressed women in a drought-ridden village find an uplifting path to freedom through the power of folk dance and percussion.",
-      "poster": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/2Nti3gYAX513wvhp8IiLL6ZDyOm.jpg",
-      "rating": 8.4,
-      "releaseDate": "2024-11-15",
-      "release_date": "2024-11-15",
-      "runtime": 121,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.474Z",
-      "vote_average": 8.4
-    },
-    {
-      "_id": "6abf81473491cf9e100f49c3",
-      "title": "Sasura Bada Paisawala",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
-      "createdAt": "2026-10-02T10:02:47.475Z",
-      "description": "A charismatic village hero falls for a wealthy heiress, triggering hilarious antics and family drama in rural Bihar.",
-      "duration": 145,
-      "genre": [
-        "Comedy",
-        "Family",
-        "Action"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6ce"
-        },
-        {
-          "id": 2,
-          "name": "Family",
-          "_id": "6abf814773f9779ecaa2a6cf"
-        },
-        {
-          "id": 3,
-          "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6d0"
-        }
-      ],
-      "id": "mov_bj_01",
-      "language": "Bhojpuri",
-      "overview": "A charismatic village hero falls for a wealthy heiress, triggering hilarious antics and family drama in rural Bihar.",
-      "poster": "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
-      "rating": 7.5,
-      "releaseDate": "2025-01-10",
-      "release_date": "2025-01-10",
-      "runtime": 145,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.475Z",
-      "vote_average": 7.5
-    },
-    {
-      "_id": "6abf81473491cf9e100f49c4",
-      "title": "Sher Singh: Roar of Bihar",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg",
-      "createdAt": "2026-10-02T10:02:47.475Z",
-      "description": "A fearless champion fights back against corrupt mafia bosses to safeguard farmland and bring peace to the town.",
-      "duration": 152,
-      "genre": [
-        "Action",
-        "Thriller",
-        "Adventure"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6d1"
+          "_id": "6ac3f32a45bb80c77193f52c"
         },
         {
           "id": 2,
           "name": "Thriller",
-          "_id": "6abf814773f9779ecaa2a6d2"
-        },
-        {
-          "id": 3,
-          "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6d3"
+          "_id": "6ac3f32a45bb80c77193f52d"
         }
       ],
-      "id": "mov_bj_02",
-      "language": "Bhojpuri",
-      "overview": "A fearless champion fights back against corrupt mafia bosses to safeguard farmland and bring peace to the town.",
-      "poster": "https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
+      "language": "Hindi",
+      "duration": 169,
+      "runtime": 169,
       "rating": 7.3,
-      "releaseDate": "2025-03-05",
-      "release_date": "2025-03-05",
-      "runtime": 152,
+      "vote_average": 7.3,
+      "releaseDate": "2023-09-07",
+      "release_date": "2023-09-07",
       "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.475Z",
-      "vote_average": 7.3
-    },
-    {
-      "_id": "6abf81473491cf9e100f49c5",
-      "title": "Kung Fu Hustle: Dragon Masters",
+      "createdAt": "2026-10-05T18:57:46.290Z",
       "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/65MVgDa6YjSdqzh7YOA04mYkioo.jpg",
-      "createdAt": "2026-10-02T10:02:47.476Z",
-      "description": "In 1940s Shanghai, an aspiring mobster accidentally unleashes retired kung fu grandmasters living in hiding.",
-      "duration": 99,
-      "genre": [
-        "Action",
-        "Comedy",
-        "Fantasy"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6d4"
-        },
-        {
-          "id": 2,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6d5"
-        },
-        {
-          "id": 3,
-          "name": "Fantasy",
-          "_id": "6abf814773f9779ecaa2a6d6"
-        }
-      ],
-      "id": "mov_ch_01",
-      "language": "Chinese",
-      "overview": "In 1940s Shanghai, an aspiring mobster accidentally unleashes retired kung fu grandmasters living in hiding.",
-      "poster": "https://image.tmdb.org/t/p/original/65MVgDa6YjSdqzh7YOA04mYkioo.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/65MVgDa6YjSdqzh7YOA04mYkioo.jpg",
-      "rating": 8,
-      "releaseDate": "2025-01-28",
-      "release_date": "2025-01-28",
-      "runtime": 99,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.476Z",
-      "vote_average": 8
+      "updatedAt": "2026-10-05T18:57:46.305Z"
     },
     {
-      "_id": "6abf81473491cf9e100f49c6",
+      "_id": "100015",
+      "id": 100015,
       "title": "The Wandering Earth II",
-      "__v": 0,
+      "overview": "As the sun approaches extinction, mankind constructs enormous planetary thrusters in a desperate bid to navigate Earth to a new star system.",
+      "description": "As the sun approaches extinction, mankind constructs enormous planetary thrusters in a desperate bid to navigate Earth to a new star system.",
+      "poster": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
       "backdrop_path": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
-      "createdAt": "2026-10-02T10:02:47.477Z",
-      "description": "As the sun approaches extinction, human nations construct planetary thrusters in a perilous interstellar relocation mission.",
-      "duration": 173,
+      "trailer": "https://www.youtube.com/watch?v=VlWf8a2t9G4",
+      "trailerUrl": "https://www.youtube.com/watch?v=VlWf8a2t9G4",
       "genre": [
         "Science Fiction",
         "Action",
@@ -946,172 +816,255 @@
         {
           "id": 1,
           "name": "Science Fiction",
-          "_id": "6abf814773f9779ecaa2a6d7"
+          "_id": "6ac3f32a45bb80c77193f52e"
         },
         {
           "id": 2,
           "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6d8"
+          "_id": "6ac3f32a45bb80c77193f52f"
         },
         {
           "id": 3,
           "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6d9"
+          "_id": "6ac3f32a45bb80c77193f530"
         }
       ],
-      "id": "mov_ch_02",
       "language": "Chinese",
-      "overview": "As the sun approaches extinction, human nations construct planetary thrusters in a perilous interstellar relocation mission.",
-      "poster": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
-      "rating": 7.7,
-      "releaseDate": "2025-02-18",
-      "release_date": "2025-02-18",
+      "duration": 173,
       "runtime": 173,
+      "rating": 7.7,
+      "vote_average": 7.7,
+      "releaseDate": "2023-01-22",
+      "release_date": "2023-01-22",
       "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.477Z",
-      "vote_average": 7.7
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.306Z"
     },
     {
-      "_id": "6abf81473491cf9e100f49c7",
-      "title": "Deadpool & Wolverine",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-      "createdAt": "2026-10-02T10:02:47.477Z",
-      "description": "The Time Variance Authority pulls Wade Wilson out of his quiet life into a chaotic mission alongside a grumpy Wolverine.",
-      "duration": 128,
-      "genre": [
-        "Action",
-        "Comedy",
-        "Science Fiction"
-      ],
-      "genres": [
-        {
-          "id": 1,
-          "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6da"
-        },
-        {
-          "id": 2,
-          "name": "Comedy",
-          "_id": "6abf814773f9779ecaa2a6db"
-        },
-        {
-          "id": 3,
-          "name": "Science Fiction",
-          "_id": "6abf814773f9779ecaa2a6dc"
-        }
-      ],
-      "id": "mov_en_01",
-      "language": "English",
-      "overview": "The Time Variance Authority pulls Wade Wilson out of his quiet life into a chaotic mission alongside a grumpy Wolverine.",
-      "poster": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-      "rating": 7.9,
-      "releaseDate": "2025-01-25",
-      "release_date": "2025-01-25",
-      "runtime": 128,
-      "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.477Z",
-      "vote_average": 7.9
-    },
-    {
-      "_id": "6abf81473491cf9e100f49c8",
-      "title": "Oppenheimer: The Secret Tests",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-      "createdAt": "2026-10-02T10:02:47.478Z",
-      "description": "The psychological and ethical odyssey of J. Robert Oppenheimer as he leads the Manhattan Project to change world history.",
-      "duration": 180,
+      "_id": "100016",
+      "id": 100016,
+      "title": "Parasite: Director Cut",
+      "overview": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+      "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+      "poster": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/original/hiKmpZMGZsrkA3cdce8a7Dpos1j.jpg",
+      "trailer": "https://www.youtube.com/watch?v=5xH0RZE7Z4Q",
+      "trailerUrl": "https://www.youtube.com/watch?v=5xH0RZE7Z4Q",
       "genre": [
         "Thriller",
-        "Mystery",
-        "Crime"
+        "Drama",
+        "Comedy"
       ],
       "genres": [
         {
           "id": 1,
           "name": "Thriller",
-          "_id": "6abf814773f9779ecaa2a6dd"
+          "_id": "6ac3f32a45bb80c77193f531"
         },
         {
           "id": 2,
-          "name": "Mystery",
-          "_id": "6abf814773f9779ecaa2a6de"
+          "name": "Drama",
+          "_id": "6ac3f32a45bb80c77193f532"
         },
         {
           "id": 3,
-          "name": "Crime",
-          "_id": "6abf814773f9779ecaa2a6df"
+          "name": "Comedy",
+          "_id": "6ac3f32a45bb80c77193f533"
         }
       ],
-      "id": "mov_en_02",
-      "language": "English",
-      "overview": "The psychological and ethical odyssey of J. Robert Oppenheimer as he leads the Manhattan Project to change world history.",
-      "poster": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-      "rating": 8.3,
-      "releaseDate": "2024-12-01",
-      "release_date": "2024-12-01",
-      "runtime": 180,
+      "language": "Korean",
+      "duration": 132,
+      "runtime": 132,
+      "rating": 8.5,
+      "vote_average": 8.5,
+      "releaseDate": "2019-05-30",
+      "release_date": "2019-05-30",
       "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.478Z",
-      "vote_average": 8.3
+      "createdAt": "2026-10-05T18:57:46.290Z",
+      "__v": 0,
+      "updatedAt": "2026-10-05T18:57:46.306Z"
     },
     {
-      "_id": "6abf81473491cf9e100f49c9",
-      "title": "Spider-Man: Beyond the Multiverse",
-      "__v": 0,
-      "backdrop_path": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-      "createdAt": "2026-10-02T10:02:47.479Z",
-      "description": "Miles Morales traverses kaleidoscopic dimensions across alternate Earths, defying a council of Spider-Heroes to save his family.",
-      "duration": 140,
+      "_id": "1791227067621",
+      "id": 1791227067621,
+      "title": "Piyush The Genzzzzzzz",
+      "overview": "Boringggggg",
+      "description": "Boringggggg",
+      "poster": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+      "backdrop_path": "",
+      "trailer": "",
+      "trailerUrl": "",
       "genre": [
         "Action",
-        "Adventure",
         "Family",
-        "Science Fiction"
+        "Adventure",
+        "Comedy",
+        "Horror",
+        "Fantasy",
+        "Mystery",
+        "Science Fiction",
+        "Crime",
+        "Thriller"
       ],
       "genres": [
         {
           "id": 1,
           "name": "Action",
-          "_id": "6abf814773f9779ecaa2a6e0"
+          "_id": "6ac3f4bb73ba481a8d4b7c5d"
         },
         {
           "id": 2,
-          "name": "Adventure",
-          "_id": "6abf814773f9779ecaa2a6e1"
+          "name": "Family",
+          "_id": "6ac3f4bb73ba481a8d4b7c5e"
         },
         {
           "id": 3,
-          "name": "Family",
-          "_id": "6abf814773f9779ecaa2a6e2"
+          "name": "Adventure",
+          "_id": "6ac3f4bb73ba481a8d4b7c5f"
         },
         {
           "id": 4,
+          "name": "Comedy",
+          "_id": "6ac3f4bb73ba481a8d4b7c60"
+        },
+        {
+          "id": 5,
+          "name": "Horror",
+          "_id": "6ac3f4bb73ba481a8d4b7c61"
+        },
+        {
+          "id": 6,
+          "name": "Fantasy",
+          "_id": "6ac3f4bb73ba481a8d4b7c62"
+        },
+        {
+          "id": 7,
+          "name": "Mystery",
+          "_id": "6ac3f4bb73ba481a8d4b7c63"
+        },
+        {
+          "id": 8,
           "name": "Science Fiction",
-          "_id": "6abf814773f9779ecaa2a6e3"
+          "_id": "6ac3f4bb73ba481a8d4b7c64"
+        },
+        {
+          "id": 9,
+          "name": "Crime",
+          "_id": "6ac3f4bb73ba481a8d4b7c65"
+        },
+        {
+          "id": 10,
+          "name": "Thriller",
+          "_id": "6ac3f4bb73ba481a8d4b7c66"
         }
       ],
-      "id": "mov_en_03",
       "language": "English",
-      "overview": "Miles Morales traverses kaleidoscopic dimensions across alternate Earths, defying a council of Spider-Heroes to save his family.",
-      "poster": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-      "poster_path": "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-      "rating": 8.6,
-      "releaseDate": "2025-03-20",
-      "release_date": "2025-03-20",
-      "runtime": 140,
+      "duration": 120,
+      "runtime": 120,
+      "rating": 7.5,
+      "vote_average": 7.5,
+      "releaseDate": "2026-10-05T00:00:00.000Z",
+      "release_date": "2026-10-05T00:00:00.000Z",
       "status": "now_showing",
-      "updatedAt": "2026-10-02T10:02:47.479Z",
-      "vote_average": 8.6
+      "createdAt": "2026-10-05T19:04:27.627Z",
+      "updatedAt": "2026-10-05T19:04:27.627Z",
+      "__v": 0
+    },
+    {
+      "_id": "1791227149986",
+      "id": 1791227149986,
+      "title": "Kyu nhi hoo rhi padhai",
+      "overview": "sdcfvgh",
+      "description": "sdcfvgh",
+      "poster": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "backdrop_path": "",
+      "trailer": "",
+      "trailerUrl": "",
+      "genre": [
+        "Action",
+        "Family",
+        "Comedy",
+        "Adventure",
+        "Fantasy",
+        "Horror",
+        "Mystery",
+        "Science Fiction",
+        "Crime",
+        "Thriller"
+      ],
+      "genres": [
+        {
+          "id": 1,
+          "name": "Action",
+          "_id": "6ac3f50d73ba481a8d4b7c67"
+        },
+        {
+          "id": 2,
+          "name": "Family",
+          "_id": "6ac3f50d73ba481a8d4b7c68"
+        },
+        {
+          "id": 3,
+          "name": "Comedy",
+          "_id": "6ac3f50d73ba481a8d4b7c69"
+        },
+        {
+          "id": 4,
+          "name": "Adventure",
+          "_id": "6ac3f50d73ba481a8d4b7c6a"
+        },
+        {
+          "id": 5,
+          "name": "Fantasy",
+          "_id": "6ac3f50d73ba481a8d4b7c6b"
+        },
+        {
+          "id": 6,
+          "name": "Horror",
+          "_id": "6ac3f50d73ba481a8d4b7c6c"
+        },
+        {
+          "id": 7,
+          "name": "Mystery",
+          "_id": "6ac3f50d73ba481a8d4b7c6d"
+        },
+        {
+          "id": 8,
+          "name": "Science Fiction",
+          "_id": "6ac3f50d73ba481a8d4b7c6e"
+        },
+        {
+          "id": 9,
+          "name": "Crime",
+          "_id": "6ac3f50d73ba481a8d4b7c6f"
+        },
+        {
+          "id": 10,
+          "name": "Thriller",
+          "_id": "6ac3f50d73ba481a8d4b7c70"
+        }
+      ],
+      "language": "English",
+      "duration": 120,
+      "runtime": 120,
+      "rating": 7.5,
+      "vote_average": 7.5,
+      "releaseDate": "2026-10-05T00:00:00.000Z",
+      "release_date": "2026-10-05T00:00:00.000Z",
+      "status": "upcoming",
+      "createdAt": "2026-10-05T19:05:49.988Z",
+      "updatedAt": "2026-10-05T19:05:49.988Z",
+      "__v": 0
     }
   ],
   "theatres": [
     {
       "_id": "6abb939eb943103a2d8918e0",
-      "name": "SnapSeat Grand Multiplex",
+      "name": "QuickShow Grand Multiplex",
       "city": "Downtown",
       "location": "Downtown Plaza, 4th Floor",
       "createdAt": "2026-09-29T10:31:58.834Z",
@@ -1142,7 +1095,7 @@
       "city": "Downtown",
       "createdAt": "2026-09-29T11:07:05.609Z",
       "location": "Downtown Plaza, 4th Floor",
-      "name": "SnapSeat Grand Multiplex",
+      "name": "QuickShow Grand Multiplex",
       "updatedAt": "2026-09-29T11:07:05.609Z"
     },
     {
@@ -1188,7 +1141,7 @@
       "name": "Screen 1 (Dolby Atmos)",
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1202,7 +1155,7 @@
       "name": "Screen 2 (Gold Class)",
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1247,7 +1200,7 @@
       "name": "Screen 1 (Dolby Atmos)",
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1261,7 +1214,7 @@
       "name": "Screen 2 (Gold Class)",
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1369,7 +1322,7 @@
       },
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1378,7 +1331,7 @@
         "name": "Screen 1 (Dolby Atmos)",
         "theatre": {
           "_id": "th_01",
-          "name": "SnapSeat Grand Multiplex",
+          "name": "QuickShow Grand Multiplex",
           "city": "Downtown",
           "location": "Downtown Plaza, 4th Floor"
         },
@@ -1436,7 +1389,7 @@
       },
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1445,7 +1398,7 @@
         "name": "Screen 2 (Gold Class)",
         "theatre": {
           "_id": "th_01",
-          "name": "SnapSeat Grand Multiplex",
+          "name": "QuickShow Grand Multiplex",
           "city": "Downtown",
           "location": "Downtown Plaza, 4th Floor"
         },
@@ -1637,7 +1590,7 @@
       },
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1646,7 +1599,7 @@
         "name": "Screen 1 (Dolby Atmos)",
         "theatre": {
           "_id": "th_01",
-          "name": "SnapSeat Grand Multiplex",
+          "name": "QuickShow Grand Multiplex",
           "city": "Downtown",
           "location": "Downtown Plaza, 4th Floor"
         },
@@ -1704,7 +1657,7 @@
       },
       "theatre": {
         "_id": "th_01",
-        "name": "SnapSeat Grand Multiplex",
+        "name": "QuickShow Grand Multiplex",
         "city": "Downtown",
         "location": "Downtown Plaza, 4th Floor"
       },
@@ -1713,7 +1666,7 @@
         "name": "Screen 2 (Gold Class)",
         "theatre": {
           "_id": "th_01",
-          "name": "SnapSeat Grand Multiplex",
+          "name": "QuickShow Grand Multiplex",
           "city": "Downtown",
           "location": "Downtown Plaza, 4th Floor"
         },
@@ -1864,6 +1817,274 @@
       "createdAt": "2026-10-02T10:29:37.893Z",
       "updatedAt": "2026-10-02T10:29:37.893Z",
       "__v": 0
+    },
+    {
+      "_id": "6abb939eb943103a2d8918e5",
+      "movie": {
+        "_id": "324544",
+        "id": 324544,
+        "title": "In the Lost Lands",
+        "overview": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+        "description": "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+        "poster": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+        "genre": [
+          "Action",
+          "Fantasy",
+          "Adventure"
+        ],
+        "genres": [
+          {
+            "id": 28,
+            "name": "Action"
+          },
+          {
+            "id": 14,
+            "name": "Fantasy"
+          },
+          {
+            "id": 12,
+            "name": "Adventure"
+          }
+        ],
+        "language": "English",
+        "duration": 102,
+        "runtime": 102,
+        "rating": 6.4,
+        "vote_average": 6.4,
+        "releaseDate": "2025-02-27",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_01",
+        "name": "QuickShow Grand Multiplex",
+        "city": "Downtown",
+        "location": "Downtown Plaza, 4th Floor"
+      },
+      "screen": {
+        "_id": "sc_01",
+        "name": "Screen 1 (Dolby Atmos)",
+        "theatre": {
+          "_id": "th_01",
+          "name": "QuickShow Grand Multiplex",
+          "city": "Downtown",
+          "location": "Downtown Plaza, 4th Floor"
+        },
+        "totalSeats": 90
+      },
+      "showDate": "2026-09-28",
+      "showDateTime": "2026-09-28T10:00:00.000Z",
+      "startTime": "10:00 AM",
+      "endTime": "11:42 AM",
+      "price": 250,
+      "showPrice": 250,
+      "bookedSeats": [
+        "A3",
+        "A4",
+        "B2",
+        "F1",
+        "F2"
+      ],
+      "createdAt": "2026-10-04T08:19:45.898Z",
+      "updatedAt": "2026-10-04T08:19:45.898Z",
+      "__v": 0
+    },
+    {
+      "_id": "6abb939eb943103a2d8918e6",
+      "movie": {
+        "_id": "1232546",
+        "id": 1232546,
+        "title": "Until Dawn",
+        "overview": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+        "description": "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+        "poster": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+        "genre": [
+          "Horror",
+          "Mystery"
+        ],
+        "genres": [
+          {
+            "id": 27,
+            "name": "Horror"
+          },
+          {
+            "id": 9648,
+            "name": "Mystery"
+          }
+        ],
+        "language": "English",
+        "duration": 98,
+        "runtime": 98,
+        "rating": 7.2,
+        "vote_average": 7.2,
+        "releaseDate": "2025-03-10",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_01",
+        "name": "QuickShow Grand Multiplex",
+        "city": "Downtown",
+        "location": "Downtown Plaza, 4th Floor"
+      },
+      "screen": {
+        "_id": "sc_02",
+        "name": "Screen 2 (Gold Class)",
+        "theatre": {
+          "_id": "th_01",
+          "name": "QuickShow Grand Multiplex",
+          "city": "Downtown",
+          "location": "Downtown Plaza, 4th Floor"
+        },
+        "totalSeats": 60
+      },
+      "showDate": "2026-09-28",
+      "showDateTime": "2026-09-28T14:30:00.000Z",
+      "startTime": "02:30 PM",
+      "endTime": "04:08 PM",
+      "price": 300,
+      "showPrice": 300,
+      "bookedSeats": [
+        "C5",
+        "D1",
+        "D2"
+      ],
+      "createdAt": "2026-10-04T08:19:45.906Z",
+      "updatedAt": "2026-10-04T08:19:45.906Z",
+      "__v": 0
+    },
+    {
+      "_id": "6abb939eb943103a2d8918e7",
+      "movie": {
+        "_id": "558449",
+        "id": 558449,
+        "title": "Gladiator II",
+        "overview": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+        "description": "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+        "poster": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/euYIwmwkmz95mnExvufwn49Scu6.jpg",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Drama"
+        ],
+        "genres": [
+          {
+            "id": 28,
+            "name": "Action"
+          },
+          {
+            "id": 12,
+            "name": "Adventure"
+          },
+          {
+            "id": 18,
+            "name": "Drama"
+          }
+        ],
+        "language": "English",
+        "duration": 148,
+        "runtime": 148,
+        "rating": 7.8,
+        "vote_average": 7.8,
+        "releaseDate": "2024-11-22",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_02",
+        "name": "CineStar IMAX & Dolby",
+        "city": "Metro",
+        "location": "Metro Heights Mall, Level 3"
+      },
+      "screen": {
+        "_id": "sc_03",
+        "name": "IMAX Laser Hall",
+        "theatre": {
+          "_id": "th_02",
+          "name": "CineStar IMAX & Dolby",
+          "city": "Metro",
+          "location": "Metro Heights Mall, Level 3"
+        },
+        "totalSeats": 120
+      },
+      "showDate": "2026-09-28",
+      "showDateTime": "2026-09-28T18:00:00.000Z",
+      "startTime": "06:00 PM",
+      "endTime": "08:28 PM",
+      "price": 450,
+      "showPrice": 450,
+      "bookedSeats": [
+        "E8",
+        "F3",
+        "G6"
+      ],
+      "createdAt": "2026-10-04T08:19:45.908Z",
+      "updatedAt": "2026-10-04T08:19:45.908Z",
+      "__v": 0
+    },
+    {
+      "_id": "6abb939eb943103a2d8918e8",
+      "movie": {
+        "_id": "693134",
+        "id": 693134,
+        "title": "Dune: Part Two",
+        "overview": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+        "description": "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+        "poster": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+        "poster_path": "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s520044.jpg",
+        "genre": [
+          "Science Fiction",
+          "Adventure"
+        ],
+        "genres": [
+          {
+            "id": 878,
+            "name": "Science Fiction"
+          },
+          {
+            "id": 12,
+            "name": "Adventure"
+          }
+        ],
+        "language": "English",
+        "duration": 166,
+        "runtime": 166,
+        "rating": 8.5,
+        "vote_average": 8.5,
+        "releaseDate": "2024-03-01",
+        "status": "now_showing"
+      },
+      "theatre": {
+        "_id": "th_02",
+        "name": "CineStar IMAX & Dolby",
+        "city": "Metro",
+        "location": "Metro Heights Mall, Level 3"
+      },
+      "screen": {
+        "_id": "sc_03",
+        "name": "IMAX Laser Hall",
+        "theatre": {
+          "_id": "th_02",
+          "name": "CineStar IMAX & Dolby",
+          "city": "Metro",
+          "location": "Metro Heights Mall, Level 3"
+        },
+        "totalSeats": 120
+      },
+      "showDate": "2026-09-29",
+      "showDateTime": "2026-09-29T20:00:00.000Z",
+      "startTime": "08:00 PM",
+      "endTime": "10:46 PM",
+      "price": 450,
+      "showPrice": 450,
+      "bookedSeats": [],
+      "createdAt": "2026-10-04T08:19:45.910Z",
+      "updatedAt": "2026-10-04T08:19:45.910Z",
+      "__v": 0
     }
   ],
   "bookings": [
@@ -1968,7 +2189,7 @@
         },
         "theatre": {
           "_id": "th_01",
-          "name": "SnapSeat Grand Multiplex",
+          "name": "QuickShow Grand Multiplex",
           "city": "Downtown",
           "location": "Downtown Plaza, 4th Floor"
         },
@@ -1977,7 +2198,7 @@
           "name": "Screen 1 (Dolby Atmos)",
           "theatre": {
             "_id": "th_01",
-            "name": "SnapSeat Grand Multiplex",
+            "name": "QuickShow Grand Multiplex",
             "city": "Downtown",
             "location": "Downtown Plaza, 4th Floor"
           },
@@ -2064,7 +2285,7 @@
         },
         "theatre": {
           "_id": "th_01",
-          "name": "SnapSeat Grand Multiplex",
+          "name": "QuickShow Grand Multiplex",
           "city": "Downtown",
           "location": "Downtown Plaza, 4th Floor"
         },
@@ -2073,7 +2294,7 @@
           "name": "Screen 1 (Dolby Atmos)",
           "theatre": {
             "_id": "th_01",
-            "name": "SnapSeat Grand Multiplex",
+            "name": "QuickShow Grand Multiplex",
             "city": "Downtown",
             "location": "Downtown Plaza, 4th Floor"
           },
@@ -2157,7 +2378,7 @@
         },
         "theatre": {
           "_id": "th_01",
-          "name": "SnapSeat Grand Multiplex",
+          "name": "QuickShow Grand Multiplex",
           "city": "Downtown",
           "location": "Downtown Plaza, 4th Floor"
         },
@@ -2166,7 +2387,7 @@
           "name": "Screen 2 (Gold Class)",
           "theatre": {
             "_id": "th_01",
-            "name": "SnapSeat Grand Multiplex",
+            "name": "QuickShow Grand Multiplex",
             "city": "Downtown",
             "location": "Downtown Plaza, 4th Floor"
           },
@@ -2444,6 +2665,210 @@
       "bookedAt": "2026-10-02T10:23:30.732Z",
       "createdAt": "2026-10-02T10:23:30.737Z",
       "updatedAt": "2026-10-02T10:23:30.737Z",
+      "__v": 0
+    },
+    {
+      "_id": "BK1791227000805",
+      "bookingId": "BK1791227000805",
+      "user": {
+        "_id": "6abb939e118a962097d63ad6",
+        "name": "Piyush Tehalani",
+        "email": "piyush@example.com"
+      },
+      "userId": "6abb939e118a962097d63ad6",
+      "show": {
+        "movie": {
+          "_id": "100001",
+          "id": 100001,
+          "title": "Gladiator II",
+          "poster_path": "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+          "runtime": 148,
+          "genres": [
+            {
+              "id": 1,
+              "name": "Action",
+              "_id": "6ac3f32a45bb80c77193f506"
+            },
+            {
+              "id": 2,
+              "name": "Adventure",
+              "_id": "6ac3f32a45bb80c77193f507"
+            },
+            {
+              "id": 3,
+              "name": "Drama",
+              "_id": "6ac3f32a45bb80c77193f508"
+            }
+          ]
+        },
+        "showDateTime": "2025-07-26T18:30:00.000Z",
+        "price": 200,
+        "showPrice": 200
+      },
+      "seats": [
+        {
+          "seatNumber": "A6"
+        },
+        {
+          "seatNumber": "B6"
+        }
+      ],
+      "bookedSeats": [
+        "A6",
+        "B6"
+      ],
+      "totalAmount": 400,
+      "amount": 400,
+      "isPaid": true,
+      "bookedAt": "2026-10-05T19:03:20.805Z",
+      "createdAt": "2026-10-05T19:03:20.810Z",
+      "updatedAt": "2026-10-05T19:03:20.810Z",
+      "__v": 0
+    },
+    {
+      "_id": "BK1791227199350",
+      "bookingId": "BK1791227199350",
+      "user": {
+        "_id": "6abb939e118a962097d63ad6",
+        "name": "Piyush Tehalani",
+        "email": "piyush@example.com"
+      },
+      "userId": "6abb939e118a962097d63ad6",
+      "show": {
+        "movie": {
+          "_id": "1791227149986",
+          "id": 1791227149986,
+          "title": "Kyu nhi hoo rhi padhai",
+          "poster_path": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+          "runtime": 120,
+          "genres": [
+            {
+              "id": 1,
+              "name": "Action",
+              "_id": "6ac3f50d73ba481a8d4b7c67"
+            },
+            {
+              "id": 2,
+              "name": "Family",
+              "_id": "6ac3f50d73ba481a8d4b7c68"
+            },
+            {
+              "id": 3,
+              "name": "Comedy",
+              "_id": "6ac3f50d73ba481a8d4b7c69"
+            },
+            {
+              "id": 4,
+              "name": "Adventure",
+              "_id": "6ac3f50d73ba481a8d4b7c6a"
+            },
+            {
+              "id": 5,
+              "name": "Fantasy",
+              "_id": "6ac3f50d73ba481a8d4b7c6b"
+            },
+            {
+              "id": 6,
+              "name": "Horror",
+              "_id": "6ac3f50d73ba481a8d4b7c6c"
+            },
+            {
+              "id": 7,
+              "name": "Mystery",
+              "_id": "6ac3f50d73ba481a8d4b7c6d"
+            },
+            {
+              "id": 8,
+              "name": "Science Fiction",
+              "_id": "6ac3f50d73ba481a8d4b7c6e"
+            },
+            {
+              "id": 9,
+              "name": "Crime",
+              "_id": "6ac3f50d73ba481a8d4b7c6f"
+            },
+            {
+              "id": 10,
+              "name": "Thriller",
+              "_id": "6ac3f50d73ba481a8d4b7c70"
+            }
+          ]
+        },
+        "showDateTime": "2025-07-23T18:30:00.000Z",
+        "price": 200,
+        "showPrice": 200
+      },
+      "seats": [
+        {
+          "seatNumber": "B5"
+        },
+        {
+          "seatNumber": "B6"
+        }
+      ],
+      "bookedSeats": [
+        "B5",
+        "B6"
+      ],
+      "totalAmount": 400,
+      "amount": 400,
+      "isPaid": true,
+      "bookedAt": "2026-10-05T19:06:39.350Z",
+      "createdAt": "2026-10-05T19:06:39.353Z",
+      "updatedAt": "2026-10-05T19:06:39.353Z",
+      "__v": 0
+    },
+    {
+      "_id": "BK1791228327078",
+      "bookingId": "BK1791228327078",
+      "user": {
+        "_id": "6abb939e118a962097d63ad6",
+        "name": "Piyush Tehalani",
+        "email": "piyush@example.com"
+      },
+      "userId": "6abb939e118a962097d63ad6",
+      "show": {
+        "movie": {
+          "_id": "100008",
+          "id": 100008,
+          "title": "Until Dawn",
+          "poster_path": "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+          "runtime": 103,
+          "genres": [
+            {
+              "id": 1,
+              "name": "Horror",
+              "_id": "6ac3f32a45bb80c77193f51a"
+            },
+            {
+              "id": 2,
+              "name": "Mystery",
+              "_id": "6ac3f32a45bb80c77193f51b"
+            }
+          ]
+        },
+        "showDateTime": "2025-07-26T18:30:00.000Z",
+        "price": 200,
+        "showPrice": 200
+      },
+      "seats": [
+        {
+          "seatNumber": "A2"
+        },
+        {
+          "seatNumber": "A1"
+        }
+      ],
+      "bookedSeats": [
+        "A2",
+        "A1"
+      ],
+      "totalAmount": 400,
+      "amount": 400,
+      "isPaid": true,
+      "bookedAt": "2026-10-05T19:25:27.078Z",
+      "createdAt": "2026-10-05T19:25:27.083Z",
+      "updatedAt": "2026-10-05T19:25:27.083Z",
       "__v": 0
     }
   ]

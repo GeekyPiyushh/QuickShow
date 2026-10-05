@@ -1,11 +1,9 @@
-// In-memory OTP storage with TTL expiration, attempt tracking, and resend cooldown
 const otpMap = new Map();
 
-const OTP_EXPIRY_MS = 10 * 60 * 1000; // 10 minutes
-const RESEND_COOLDOWN_MS = 30 * 1000; // 30 seconds
+const OTP_EXPIRY_MS = 10 * 60 * 1000;
+const RESEND_COOLDOWN_MS = 30 * 1000;
 const MAX_ATTEMPTS = 5;
 
-// Periodically purge expired records (every 5 minutes)
 setInterval(() => {
   const now = Date.now();
   for (const [key, value] of otpMap.entries()) {

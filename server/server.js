@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-// QuickShow Express Backend Server - 21 Seeded Movies across all Languages & Genres
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
@@ -14,7 +13,6 @@ const { connectDB } = require('./config/db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors({
   origin: true,
   credentials: true,
@@ -24,13 +22,11 @@ app.use(cors({
 
 app.use(express.json());
 
-// Request logger for debugging
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
   next();
 });
 
-// Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/movies', moviesRoutes);
 app.use('/api', theatresRoutes);
@@ -38,16 +34,14 @@ app.use('/api/shows', showsRoutes);
 app.use('/api/bookings', bookingsRoutes);
 app.use('/api/users', usersRoutes);
 
-// Health check
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
-    service: 'SnapSeat Backend API',
+    service: 'QuickShow Backend API',
   });
 });
 
-// 404 Handler
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -55,7 +49,6 @@ app.use((req, res) => {
   });
 });
 
-// Global error handler
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
   res.status(500).json({
@@ -66,7 +59,7 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, async () => {
   console.log(`=========================================`);
-  console.log(` SnapSeat API Server running on port ${PORT}`);
+  console.log(` QuickShow API Server running on port ${PORT}`);
   console.log(` Base URL: http://localhost:${PORT}/api`);
   console.log(`=========================================`);
   await connectDB();

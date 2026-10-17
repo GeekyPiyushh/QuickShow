@@ -32,51 +32,14 @@ const BookingSummary = () => {
     }
 
     setIsSubmitting(true)
-    const bookingId = 'BK' + Date.now()
-    let savedBooking = {
-      _id: bookingId,
-      show: {
-        movie: movie,
-        showDateTime: new Date(`${showDate}T00:00:00`).toISOString(),
-        showPrice: showPrice,
-      },
-      bookedSeats: selectedSeats,
-      amount: totalAmount,
-      isPaid: true,
-      bookedAt: new Date().toISOString(),
-    }
-
     try {
-      const apiRes = await createBooking({
-        show: {
-          movie: movie,
-          showDateTime: new Date(`${showDate}T00:00:00`).toISOString(),
-          price: showPrice,
-          showPrice: showPrice,
-        },
-        seats: selectedSeats,
-      })
-      if (apiRes && apiRes.success && apiRes.booking) {
-        savedBooking = {
-          ...savedBooking,
-          _id: apiRes.booking._id || bookingId,
-        }
-        toast.success('Booking saved to database & confirmed!')
-      }
-    } catch (err) {
-      console.warn('Booking sync notice:', err)
-    } finally {
-      setIsSubmitting(false)
-    }
-
-    const existingBookings = JSON.parse(localStorage.getItem('myBookings') || '[]')
-    existingBookings.unshift(savedBooking)
-    localStorage.setItem('myBookings', JSON.stringify(existingBookings))
-
-    navigate('/booking-success', {
-      state: savedBooking,
-    })
-    scrollTo(0, 0)
+      const apiRes = await createBooking({show:state.showId,seats:selectedSeats});
+      if (!apiRes?.success || !apiRes.booking) throw new Error(apiRes?.message || 'Booking failed. Please retry.');
+      toast.success('Seats reserved successfully');
+      navigate('/booking-success',{state:apiRes.booking});
+      window.scrollTo(0,0);
+    } catch(e) { toast.error(e.message); }
+    finally { setIsSubmitting(false); }
   }
 
   return (
@@ -124,7 +87,7 @@ const BookingSummary = () => {
             </div>
             <div className='flex items-center gap-3'>
               <MapPin className='w-4 h-4 text-primary shrink-0' />
-              <span className='text-gray-300'>QuickShow Cinemas</span>
+              <span className='text-gray-300'>{state.theatre} · {state.screen}</span>
             </div>
             <div className='flex items-start gap-3'>
               <Ticket className='w-4 h-4 text-primary shrink-0 mt-0.5' />
@@ -170,7 +133,7 @@ const BookingSummary = () => {
           </button>
 
           <p className='text-xs text-emerald-400 text-center mt-3'>
-            ✓ Instant Booking Confirmation & Database Sync
+            Your seats will be reserved. No online payment is collected.
           </p>
         </div>
 

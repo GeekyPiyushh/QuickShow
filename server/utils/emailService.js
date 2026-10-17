@@ -92,7 +92,7 @@ async function sendOtpEmail(recipientEmail, otp) {
     console.log('\n============================================================');
     console.log(' [QuickShow OTP Service - DEV MODE / NO SMTP CONFIGURED]');
     console.log(` Target Email : ${normalizedEmail}`);
-    console.log(` OTP Code     : >>> ${otp} <<<`);
+    console.log(' OTP Status   : Generated (delivery requires SMTP credentials)');
     console.log(' Expiration   : 10 minutes');
     console.log(' Tip: Configure EMAIL_USER and EMAIL_PASS in server/.env for real emails');
     console.log('============================================================\n');
@@ -100,7 +100,7 @@ async function sendOtpEmail(recipientEmail, otp) {
       sent: true,
       mode: 'console',
       devOtp: otp,
-      message: 'OTP generated and printed to server terminal (dev mode)',
+      message: 'OTP generated (dev mode)',
     };
   }
 
@@ -108,7 +108,7 @@ async function sendOtpEmail(recipientEmail, otp) {
     const info = await transporter.sendMail({
       from: `"QuickShow Cinemas" <${process.env.EMAIL_USER}>`,
       to: normalizedEmail,
-      subject: `🎬 ${otp} is your QuickShow Verification Code`,
+      subject: `🎬 Verification Code for QuickShow`,
       text: `Your QuickShow verification code is: ${otp}. It will expire in 10 minutes.`,
       html: generateEmailHtml(otp, normalizedEmail),
     });
@@ -124,7 +124,6 @@ async function sendOtpEmail(recipientEmail, otp) {
     console.log('\n============================================================');
     console.log(' [QuickShow OTP Service - SMTP FALLBACK]');
     console.log(` Target Email : ${normalizedEmail}`);
-    console.log(` OTP Code     : >>> ${otp} <<<`);
     console.log(` SMTP Notice  : ${error.message}`);
     console.log('============================================================\n');
 
@@ -132,7 +131,7 @@ async function sendOtpEmail(recipientEmail, otp) {
       sent: true,
       mode: 'console-fallback',
       devOtp: otp,
-      warning: `Email sending failed (${error.message}). Use the OTP code shown in server terminal.`,
+      warning: `Email sending failed (${error.message}).`,
     };
   }
 }

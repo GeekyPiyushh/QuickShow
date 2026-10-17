@@ -17,6 +17,7 @@ import AddShows from './pages/admin/AddShows'
 import ListShows from './pages/admin/ListShows'
 import ListBookings from './pages/admin/ListBookings'
 import AddMovie from './pages/admin/AddMovie'
+import AdminWorkspace from './pages/admin/AdminWorkspace'
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
 
         <Route path='/admin' element={<Layout/>}>
           <Route index element={<Dashboard/>}/>
+          <Route path='movies' element={<AdminWorkspace view='movies'/>}/>
+          <Route path='customers' element={<AdminWorkspace view='customers'/>}/>
           <Route path='add-movie' element={<AddMovie/>}/>
           <Route path='add-shows' element={<AddShows/>}/>
           <Route path='list-shows' element={<ListShows/>}/>

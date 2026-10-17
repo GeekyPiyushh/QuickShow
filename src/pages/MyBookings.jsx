@@ -12,33 +12,10 @@ const MyBookings = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   const loadBookings = async () => {
-    const stored = JSON.parse(localStorage.getItem('myBookings') || '[]')
     try {
-      const apiData = await fetchApiBookings()
-      if (apiData && Array.isArray(apiData) && apiData.length > 0) {
-        const formattedApi = apiData.map((b) => ({
-          _id: b.bookingId || b._id,
-          show: {
-            movie: {
-              title: b.show?.movie?.title || 'Movie',
-              poster_path: b.show?.movie?.poster || b.show?.movie?.poster_path || '',
-              runtime: b.show?.movie?.duration || b.show?.movie?.runtime || 120,
-            },
-            showDateTime: b.show?.showDate || b.show?.showDateTime || b.createdAt,
-          },
-          bookedSeats: Array.isArray(b.seats) ? b.seats.map((s) => s.seatNumber || s) : (b.bookedSeats || []),
-          amount: b.totalAmount ?? b.amount ?? 0,
-        }))
-        const combined = [...formattedApi, ...stored.filter(s => !formattedApi.some(a => a._id === s._id))]
-        setBookings(combined)
-      } else {
-        setBookings(stored)
-      }
-    } catch {
-      setBookings(stored)
-    } finally {
-      setIsLoading(false)
-    }
+      const apiData = await fetchApiBookings();
+      setBookings((apiData || []).map(b=>({...b,show:{...b.show,movie:{...b.show?.movie,poster_path:b.show?.movie?.poster_path||b.show?.movie?.poster,runtime:b.show?.movie?.runtime||b.show?.movie?.duration},showDateTime:b.show?.showDateTime||b.show?.showDate},bookedSeats:b.bookedSeats||(b.seats||[]).map(s=>s.seatNumber||s),amount:b.totalAmount??b.amount??0})));
+    } finally { setIsLoading(false); }
   }
 
   useEffect(() => {
@@ -77,7 +54,7 @@ const MyBookings = () => {
                 className='md:max-w-45 h-auto object-cover object-bottom rounded aspect-video'
               />
               <div className='flex flex-col p-4'>
-                <p className='text-lg font-semibold'>{item.show.movie.title}</p>
+                <p className='text-lg font-semibold'>{item.show.movie.title}</p><p className='text-sm text-primary'>{item.status === 'cancelled' ? 'Cancelled' : 'Confirmed'} · {item.isPaid ? 'Recorded paid' : 'Unpaid'}</p>
                 <p className='text-gray-400 text-sm'>{timeFormat(item.show.movie.runtime)}</p>
                 <p className='text-gray-400 text-sm mt-auto'>{dateFormat(item.show.showDateTime)}</p>
               </div>

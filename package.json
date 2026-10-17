@@ -8,7 +8,9 @@
     "server": "node server/server.js",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:admin": "node server/test_admin.cjs",
+    "lint:admin": "eslint src/pages/admin src/pages/seatLayout.jsx src/components/DateSelect.jsx src/lib/api.js src/lib/showStart.js"
   },
   "dependencies": {
     "@clerk/react": "^6.15.1",

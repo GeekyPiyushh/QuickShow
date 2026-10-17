@@ -93,7 +93,7 @@ router.post('/verify-otp', (req, res) => {
   }
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const { name, email, password, otp, role, theatreName, city, location, screenName, totalSeats } = req.body;
     if (!name || !email || !password) {
@@ -114,7 +114,7 @@ router.post('/register', (req, res) => {
         });
       }
       consumeOtp(normalizedEmail);
-    } else if (process.env.NODE_ENV !== 'test' && !req.headers['x-bypass-otp']) {
+    } else if (process.env.NODE_ENV !== 'test') {
       return res.status(400).json({
         success: false,
         message: 'Email verification code (OTP) is required to register.',
@@ -129,26 +129,13 @@ router.post('/register', (req, res) => {
       });
     }
 
-    const isAdmin = role === 'admin';
+    if (role === 'admin') return res.status(403).json({success:false,message:'Administrator accounts must be provisioned by the project owner.'});
+    const isAdmin = false;
     let newTheatre = null;
     let newScreen = null;
 
-    if (isAdmin && theatreName && theatreName.trim()) {
-      newTheatre = store.createTheatre({
-        name: theatreName.trim(),
-        city: city ? city.trim() : 'Downtown',
-        location: location ? location.trim() : '',
-      });
-
-      newScreen = store.createScreen({
-        name: screenName ? screenName.trim() : `${theatreName.trim()} - Audi 1`,
-        theatre: newTheatre,
-        totalSeats: Number(totalSeats) || 90,
-      });
-    }
-
     const hashedPassword = bcrypt.hashSync(password, 10);
-    const newUser = store.createUser({
+    const newUser = await store.createUser({
       name: name.trim(),
       email: normalizedEmail,
       password: hashedPassword,
@@ -195,15 +182,7 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    let user = null;
-    try {
-      const User = require('../models/User');
-      user = await User.findOne({ email: email.trim().toLowerCase() }).lean();
-    } catch (e) {}
-
-    if (!user) {
-      user = store.findUserByEmail(email);
-    }
+    const user = store.findUserByEmail(email);
 
     if (!user) {
       return res.status(401).json({
@@ -245,17 +224,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/me', authenticate, async (req, res) => {
-  let user = null;
-  try {
-    const User = require('../models/User');
-    user = await User.findOne({
-      $or: [{ _id: req.user._id }, { email: req.user.email?.toLowerCase() }]
-    }).lean();
-  } catch (e) {}
-
-  if (!user) {
-    user = store.findUserById(req.user._id);
-  }
+  const user = store.findUserById(req.user._id);
 
   if (!user) {
     return res.status(404).json({ success: false, message: 'User not found' });

@@ -1,113 +1,37 @@
-const express = require('express');
-const store = require('../data/store');
-const { authenticate, requireAdmin } = require('../middleware/auth');
-
-const router = express.Router();
-
-router.get('/', async (req, res) => {
-  try {
-    const Movie = require('../models/Movie');
-    const movies = await Movie.find().lean();
-    if (movies && movies.length > 0) {
-      return res.json({
-        success: true,
-        movies,
-      });
-    }
-  } catch (err) {
-  }
-  const movies = store.getMovies();
-  return res.json({
+const router = require("express").Router();
+const store = require("../data/store");
+const { authenticate, requireAdmin } = require("../middleware/auth");
+const { movieFields, newId } = require("../utils/adminDomain");
+router.get("/", (req, res) =>
+  res.json({
     success: true,
-    movies,
-  });
-});
-
-router.get('/:id', async (req, res) => {
-  try {
-    const Movie = require('../models/Movie');
-    const mongoose = require('mongoose');
-    const id = req.params.id;
-    let objId = null;
-    try {
-      if (mongoose.Types.ObjectId.isValid(id) && String(new mongoose.Types.ObjectId(id)) === id) {
-        objId = new mongoose.Types.ObjectId(id);
-      }
-    } catch (_) {}
-
-    const conditions = [
-      { _id: id },
-      { id: id },
-      ...(objId ? [{ _id: objId }] : []),
-    ];
-    const numId = Number(id);
-    if (!isNaN(numId)) {
-      conditions.push({ id: numId });
-    }
-
-    const movie = await Movie.findOne({ $or: conditions }).lean();
-    if (movie) {
-      return res.json({
-        success: true,
-        movie,
-      });
-    }
-  } catch (err) {
-  }
+    movies: store.getMovies().filter((m) => m.status !== "archived"),
+  }),
+);
+router.get("/:id", (req, res) => {
   const movie = store.getMovieById(req.params.id);
-  if (!movie) {
-    return res.status(404).json({
-      success: false,
-      message: 'Movie not found',
+  res
+    .status(movie ? 200 : 404)
+    .json({
+      success: !!movie,
+      movie,
+      message: movie ? undefined : "Movie not found",
     });
-  }
-  return res.json({
-    success: true,
-    movie,
-  });
 });
-
-router.post('/', authenticate, requireAdmin, (req, res) => {
+router.post("/", authenticate, requireAdmin, async (req, res, next) => {
   try {
-    const { title, description, genre, language, duration, releaseDate, poster, rating, status } = req.body;
-    if (!title) {
-      return res.status(400).json({
-        success: false,
-        message: 'Title is required',
-      });
-    }
-
-    const genreList = Array.isArray(genre) ? genre : [genre].filter(Boolean);
-    const newMovie = store.createMovie({
-      title: title.trim(),
-      description: description || '',
-      overview: description || '',
-      genre: genreList,
-      genres: genreList.map((g, i) => ({ id: i + 1, name: g })),
-      language: language || 'English',
-      duration: Number(duration) || 120,
-      runtime: Number(duration) || 120,
-      releaseDate: releaseDate || new Date().toISOString().split('T')[0],
-      release_date: releaseDate || new Date().toISOString().split('T')[0],
-      poster: poster || '',
-      poster_path: poster || '',
-      rating: Number(rating) || 7.0,
-      vote_average: Number(rating) || 7.0,
-      status: status || 'now_showing',
+    const movie = await store.mutate((d) => {
+      const m = {
+        ...movieFields(req.body),
+        _id: newId("mv_"),
+        createdAt: new Date().toISOString(),
+      };
+      d.movies.unshift(m);
+      return m;
     });
-
-    return res.status(201).json({
-      success: true,
-      message: 'Movie created successfully',
-      movie: newMovie,
-    });
-  } catch (err) {
-    console.error('Error creating movie:', err);
-    return res.status(500).json({
-      success: false,
-      message: 'Failed to create movie',
-    });
+    res.status(201).json({ success: true, movie });
+  } catch (e) {
+    next(e);
   }
 });
-
 module.exports = router;

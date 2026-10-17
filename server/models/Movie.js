@@ -12,7 +12,7 @@ const movieSchema = new mongoose.Schema({
   trailer: { type: String, default: '' },
   trailerUrl: { type: String, default: '' },
   genre: [{ type: String }],
-  genres: [{ id: mongoose.Schema.Types.Mixed, name: String }],
+  genres: [{ _id: mongoose.Schema.Types.Mixed, id: mongoose.Schema.Types.Mixed, name: String }],
   language: { type: String, default: 'English' },
   duration: { type: Number, default: 120 },
   runtime: { type: Number, default: 120 },

@@ -1,21 +1,31 @@
-const fs = require('fs');
-const path = require('path');
-const bcrypt = require('bcryptjs');
+const fs = require("fs");
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "..", ".env") });
+const bcrypt = require("bcryptjs");
 
-const DB_FILE = path.join(__dirname, 'db.json');
+const DB_FILE = process.env.DATA_FILE || path.join(__dirname, "db.json");
 
 const INITIAL_MOVIES = [
   {
     _id: "324544",
     id: 324544,
     title: "In the Lost Lands",
-    overview: "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
-    description: "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
-    poster: "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
-    poster_path: "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
-    backdrop_path: "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
+    overview:
+      "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+    description:
+      "A queen sends the powerful and feared sorceress Gray Alys to the ghostly wilderness of the Lost Lands in search of a magical power, where she and her guide, the drifter Boyce, must outwit and outfight both man and demon.",
+    poster:
+      "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+    poster_path:
+      "https://image.tmdb.org/t/p/original/dDlfjR7gllmr8HTeN6rfrYhTdwX.jpg",
+    backdrop_path:
+      "https://image.tmdb.org/t/p/original/op3qmNhvwEvyT7UFyPbIfQmKriB.jpg",
     genre: ["Action", "Fantasy", "Adventure"],
-    genres: [{ id: 28, name: "Action" }, { id: 14, name: "Fantasy" }, { id: 12, name: "Adventure" }],
+    genres: [
+      { id: 28, name: "Action" },
+      { id: 14, name: "Fantasy" },
+      { id: 12, name: "Adventure" },
+    ],
     language: "English",
     duration: 102,
     runtime: 102,
@@ -28,13 +38,21 @@ const INITIAL_MOVIES = [
     _id: "1232546",
     id: 1232546,
     title: "Until Dawn",
-    overview: "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
-    description: "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
-    poster: "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
-    poster_path: "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
-    backdrop_path: "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
+    overview:
+      "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+    description:
+      "One year after her sister Melanie mysteriously disappeared, Clover and her friends head into the remote valley where she vanished in search of answers.",
+    poster:
+      "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+    poster_path:
+      "https://image.tmdb.org/t/p/original/juA4IWO52Fecx8lhAsxmDgy3M3.jpg",
+    backdrop_path:
+      "https://image.tmdb.org/t/p/original/icFWIk1KfkWLZnugZAJEDauNZ94.jpg",
     genre: ["Horror", "Mystery"],
-    genres: [{ id: 27, name: "Horror" }, { id: 9648, name: "Mystery" }],
+    genres: [
+      { id: 27, name: "Horror" },
+      { id: 9648, name: "Mystery" },
+    ],
     language: "English",
     duration: 98,
     runtime: 98,
@@ -47,13 +65,22 @@ const INITIAL_MOVIES = [
     _id: "558449",
     id: 558449,
     title: "Gladiator II",
-    overview: "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
-    description: "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
-    poster: "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
-    poster_path: "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
-    backdrop_path: "https://image.tmdb.org/t/p/original/euYIwmwkmz95mnExvufwn49Scu6.jpg",
+    overview:
+      "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+    description:
+      "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius must enter the Colosseum after his home is conquered by the tyrannical Emperors.",
+    poster:
+      "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+    poster_path:
+      "https://image.tmdb.org/t/p/original/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+    backdrop_path:
+      "https://image.tmdb.org/t/p/original/euYIwmwkmz95mnExvufwn49Scu6.jpg",
     genre: ["Action", "Adventure", "Drama"],
-    genres: [{ id: 28, name: "Action" }, { id: 12, name: "Adventure" }, { id: 18, name: "Drama" }],
+    genres: [
+      { id: 28, name: "Action" },
+      { id: 12, name: "Adventure" },
+      { id: 18, name: "Drama" },
+    ],
     language: "English",
     duration: 148,
     runtime: 148,
@@ -66,13 +93,21 @@ const INITIAL_MOVIES = [
     _id: "693134",
     id: 693134,
     title: "Dune: Part Two",
-    overview: "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
-    description: "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
-    poster: "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
-    poster_path: "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
-    backdrop_path: "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s520044.jpg",
+    overview:
+      "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+    description:
+      "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.",
+    poster:
+      "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+    poster_path:
+      "https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg",
+    backdrop_path:
+      "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s520044.jpg",
     genre: ["Science Fiction", "Adventure"],
-    genres: [{ id: 878, name: "Science Fiction" }, { id: 12, name: "Adventure" }],
+    genres: [
+      { id: 878, name: "Science Fiction" },
+      { id: 12, name: "Adventure" },
+    ],
     language: "English",
     duration: 166,
     runtime: 166,
@@ -80,22 +115,47 @@ const INITIAL_MOVIES = [
     vote_average: 8.5,
     releaseDate: "2024-03-01",
     status: "now_showing",
-  }
+  },
 ];
 
 const INITIAL_THEATRES = [
-  { _id: "th_01", name: "QuickShow Grand Multiplex", city: "Downtown", location: "Downtown Plaza, 4th Floor" },
-  { _id: "th_02", name: "CineStar IMAX & Dolby", city: "Metro", location: "Metro Heights Mall, Level 3" }
+  {
+    _id: "th_01",
+    name: "QuickShow Grand Multiplex",
+    city: "Downtown",
+    location: "Downtown Plaza, 4th Floor",
+  },
+  {
+    _id: "th_02",
+    name: "CineStar IMAX & Dolby",
+    city: "Metro",
+    location: "Metro Heights Mall, Level 3",
+  },
 ];
 
 const INITIAL_SCREENS = [
-  { _id: "sc_01", name: "Screen 1 (Dolby Atmos)", theatre: INITIAL_THEATRES[0], totalSeats: 90 },
-  { _id: "sc_02", name: "Screen 2 (Gold Class)", theatre: INITIAL_THEATRES[0], totalSeats: 60 },
-  { _id: "sc_03", name: "IMAX Laser Hall", theatre: INITIAL_THEATRES[1], totalSeats: 120 }
+  {
+    _id: "sc_01",
+    name: "Screen 1 (Dolby Atmos)",
+    theatre: INITIAL_THEATRES[0],
+    totalSeats: 90,
+  },
+  {
+    _id: "sc_02",
+    name: "Screen 2 (Gold Class)",
+    theatre: INITIAL_THEATRES[0],
+    totalSeats: 60,
+  },
+  {
+    _id: "sc_03",
+    name: "IMAX Laser Hall",
+    theatre: INITIAL_THEATRES[1],
+    totalSeats: 120,
+  },
 ];
 
-const today = new Date().toISOString().split('T')[0];
-const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+const today = new Date().toISOString().split("T")[0];
+const tomorrow = new Date(Date.now() + 86400000).toISOString().split("T")[0];
 
 const INITIAL_SHOWS = [
   {
@@ -109,7 +169,7 @@ const INITIAL_SHOWS = [
     endTime: "11:42 AM",
     price: 250,
     showPrice: 250,
-    bookedSeats: ["A3", "A4", "B2"]
+    bookedSeats: ["A3", "A4", "B2"],
   },
   {
     _id: "sh_02",
@@ -122,7 +182,7 @@ const INITIAL_SHOWS = [
     endTime: "04:08 PM",
     price: 300,
     showPrice: 300,
-    bookedSeats: ["C5", "D1", "D2"]
+    bookedSeats: ["C5", "D1", "D2"],
   },
   {
     _id: "sh_03",
@@ -135,7 +195,7 @@ const INITIAL_SHOWS = [
     endTime: "08:28 PM",
     price: 450,
     showPrice: 450,
-    bookedSeats: ["E8", "F3", "G6"]
+    bookedSeats: ["E8", "F3", "G6"],
   },
   {
     _id: "sh_04",
@@ -148,13 +208,13 @@ const INITIAL_SHOWS = [
     endTime: "10:46 PM",
     price: 450,
     showPrice: 450,
-    bookedSeats: []
-  }
+    bookedSeats: [],
+  },
 ];
 
 function seedDefaultData() {
-  const adminPasswordHash = bcrypt.hashSync('admin123', 10);
-  const userPasswordHash = bcrypt.hashSync('password123', 10);
+  const adminPasswordHash = bcrypt.hashSync("admin123", 10);
+  const userPasswordHash = bcrypt.hashSync("password123", 10);
 
   const adminUser = {
     _id: "usr_admin",
@@ -186,12 +246,16 @@ function seedDefaultData() {
       amount: 500,
       isPaid: true,
       bookedAt: new Date(Date.now() - 3600000).toISOString(),
-      createdAt: new Date(Date.now() - 3600000).toISOString()
+      createdAt: new Date(Date.now() - 3600000).toISOString(),
     },
     {
       _id: "BK17275002",
       bookingId: "BK17275002",
-      user: { _id: "usr_guest", name: "Rahul Verma", email: "rahul@example.com" },
+      user: {
+        _id: "usr_guest",
+        name: "Rahul Verma",
+        email: "rahul@example.com",
+      },
       show: INITIAL_SHOWS[1],
       seats: [{ seatNumber: "C5" }],
       bookedSeats: ["C5"],
@@ -199,8 +263,8 @@ function seedDefaultData() {
       amount: 300,
       isPaid: true,
       bookedAt: new Date(Date.now() - 7200000).toISOString(),
-      createdAt: new Date(Date.now() - 7200000).toISOString()
-    }
+      createdAt: new Date(Date.now() - 7200000).toISOString(),
+    },
   ];
 
   return {
@@ -213,323 +277,219 @@ function seedDefaultData() {
   };
 }
 
+const { randomUUID } = require("crypto");
+const models = () =>
+  Object.fromEntries(
+    ["User", "Movie", "Theatre", "Screen", "Show", "Booking"].map((name, i) => [
+      ["users", "movies", "theatres", "screens", "shows", "bookings"][i],
+      require("../models/" + name),
+    ]),
+  );
 class Store {
   constructor() {
-    this.init();
+    this.data = fs.existsSync(DB_FILE)
+      ? JSON.parse(fs.readFileSync(DB_FILE, "utf8"))
+      : seedDefaultData();
+    this.mongo = false;
+    this.isReplicaSet = false;
+    this.rawIds = new Map();
+    this.queue = Promise.resolve();
+    if (!fs.existsSync(DB_FILE)) this.save(this.data);
   }
-
-  init() {
-    if (!fs.existsSync(DB_FILE)) {
-      const initial = seedDefaultData();
-      fs.writeFileSync(DB_FILE, JSON.stringify(initial, null, 2), 'utf-8');
-      this.data = initial;
-    } else {
-      try {
-        const content = fs.readFileSync(DB_FILE, 'utf-8');
-        this.data = JSON.parse(content);
-      } catch (err) {
-        console.error('Error reading db.json, re-seeding:', err.message);
-        this.data = seedDefaultData();
-        fs.writeFileSync(DB_FILE, JSON.stringify(this.data, null, 2), 'utf-8');
+  save(data = this.data) {
+    fs.mkdirSync(path.dirname(DB_FILE), { recursive: true });
+    fs.writeFileSync(DB_FILE + ".tmp", JSON.stringify(data, null, 2));
+    fs.renameSync(DB_FILE + ".tmp", DB_FILE);
+  }
+  async loadFromMongo(isReplicaSet = false) {
+    this.isReplicaSet = Boolean(isReplicaSet);
+    this.rawIds = new Map();
+    const result = {};
+    for (const [key, Model] of Object.entries(models())) {
+      const docs = await Model.find().lean();
+      for (const d of docs) {
+        this.rawIds.set(String(d._id), d._id);
       }
+      result[key] = JSON.parse(JSON.stringify(docs));
     }
+    this.data = result;
+    this.mongo = true;
   }
+  mutate(fn) {
+    const task = this.queue.then(async () => {
+      const next = structuredClone(this.data);
+      const result = fn(next);
+      if (this.mongo) {
+        const mongoose = require("mongoose");
+        if (mongoose.connection.readyState !== 1)
+          throw new Error("Database unavailable. Please retry.");
 
-  save() {
-    try {
-      fs.writeFileSync(DB_FILE, JSON.stringify(this.data, null, 2), 'utf-8');
-    } catch (err) {
-      console.error('Error saving db.json:', err.message);
-    }
+        const diffs = [];
+        for (const [key, Model] of Object.entries(models())) {
+          const oldList = this.data[key];
+          const newList = next[key];
+          const oldMap = new Map(oldList.map((x) => [String(x._id), x]));
+          const newMap = new Map(newList.map((x) => [String(x._id), x]));
+
+          const changed = newList.filter(
+            (x) => JSON.stringify(oldMap.get(String(x._id))) !== JSON.stringify(x),
+          );
+          const deleted = oldList.filter((x) => !newMap.has(String(x._id)));
+
+          if (changed.length || deleted.length) {
+            diffs.push({ key, Model, changed, deleted, oldMap });
+          }
+        }
+
+        if (this.isReplicaSet) {
+          const session = await mongoose.startSession();
+          try {
+            await session.withTransaction(async () => {
+              for (const { Model, changed, deleted } of diffs) {
+                for (const doc of changed) {
+                  const docIdStr = String(doc._id);
+                  const mongoId = this.rawIds.get(docIdStr) || doc._id;
+                  const docToWrite = { ...doc, _id: mongoId };
+                  await Model.replaceOne({ _id: mongoId }, docToWrite, {
+                    upsert: true,
+                    session,
+                    runValidators: true,
+                  });
+                  this.rawIds.set(docIdStr, mongoId);
+                }
+                for (const doc of deleted) {
+                  const docIdStr = String(doc._id);
+                  const mongoId = this.rawIds.get(docIdStr) || doc._id;
+                  await Model.deleteOne({ _id: mongoId }, { session });
+                  this.rawIds.delete(docIdStr);
+                }
+              }
+            });
+          } finally {
+            await session.endSession();
+          }
+        } else {
+          // Standalone MongoDB safe persistence with compensating rollback journal
+          const rollbackActions = [];
+          try {
+            for (const { Model, changed, deleted, oldMap } of diffs) {
+              for (const doc of changed) {
+                const docIdStr = String(doc._id);
+                const isExisting = oldMap.has(docIdStr);
+                const mongoId = this.rawIds.get(docIdStr) || doc._id;
+                const docToWrite = { ...doc, _id: mongoId };
+
+                if (isExisting) {
+                  const oldDoc = oldMap.get(docIdStr);
+                  const oldDocToWrite = { ...oldDoc, _id: mongoId };
+                  rollbackActions.push(async () => {
+                    await Model.replaceOne({ _id: mongoId }, oldDocToWrite, {
+                      upsert: true,
+                    });
+                  });
+                } else {
+                  rollbackActions.push(async () => {
+                    await Model.deleteOne({ _id: mongoId });
+                    this.rawIds.delete(docIdStr);
+                  });
+                }
+
+                await Model.replaceOne({ _id: mongoId }, docToWrite, {
+                  upsert: true,
+                  runValidators: true,
+                });
+                this.rawIds.set(docIdStr, mongoId);
+              }
+
+              for (const doc of deleted) {
+                const docIdStr = String(doc._id);
+                const mongoId = this.rawIds.get(docIdStr) || doc._id;
+                const oldDocToWrite = { ...doc, _id: mongoId };
+
+                rollbackActions.push(async () => {
+                  await Model.replaceOne({ _id: mongoId }, oldDocToWrite, {
+                    upsert: true,
+                  });
+                  this.rawIds.set(docIdStr, mongoId);
+                });
+
+                await Model.deleteOne({ _id: mongoId });
+                this.rawIds.delete(docIdStr);
+              }
+            }
+          } catch (writeErr) {
+            for (let i = rollbackActions.length - 1; i >= 0; i--) {
+              try {
+                await rollbackActions[i]();
+              } catch (rbErr) {
+                console.error("Compensating rollback error:", rbErr.message || rbErr);
+              }
+            }
+            throw writeErr;
+          }
+        }
+      } else {
+        this.save(next);
+      }
+      this.data = next;
+      return result;
+    });
+    this.queue = task.catch(() => {});
+    return task;
   }
-
-  async loadFromMongo() {
-    try {
-      const User = require('../models/User');
-      const Movie = require('../models/Movie');
-      const Theatre = require('../models/Theatre');
-      const Screen = require('../models/Screen');
-      const Show = require('../models/Show');
-      const Booking = require('../models/Booking');
-
-      const [users, movies, theatres, screens, shows, bookings] = await Promise.all([
-        User.find().lean(),
-        Movie.find().lean(),
-        Theatre.find().lean(),
-        Screen.find().lean(),
-        Show.find().lean(),
-        Booking.find().lean(),
-      ]);
-
-      if (users && users.length > 0) this.data.users = users;
-      if (movies && movies.length > 0) this.data.movies = movies;
-      if (theatres && theatres.length > 0) this.data.theatres = theatres;
-      if (screens && screens.length > 0) this.data.screens = screens;
-      if (shows && shows.length > 0) this.data.shows = shows;
-      if (bookings && bookings.length > 0) this.data.bookings = bookings;
-
-      this.save();
-      console.log(`[MongoDB] Loaded live data into memory: ${movies.length} movies, ${users.length} users, ${theatres.length} theatres, ${screens.length} screens, ${shows.length} shows, ${bookings.length} bookings.`);
-    } catch (err) {
-      console.warn('[MongoDB] Notice during loadFromMongo:', err.message);
-    }
-  }
-
   findUserByEmail(email) {
-    if (!email) return null;
-    return this.data.users.find(u => u.email && u.email.toLowerCase() === email.toLowerCase());
+    return this.data.users.find(
+      (x) => x.email?.toLowerCase() === email?.trim().toLowerCase(),
+    );
   }
-
   findUserById(id) {
-    if (!id) return null;
-    const target = String(id);
-    return this.data.users.find(u => String(u._id) === target || String(u.id) === target);
+    return this.data.users.find((x) => String(x._id) === String(id));
   }
-
-  createUser(userData) {
-    const newUser = {
-      _id: 'usr_' + Date.now() + Math.random().toString(36).substring(2, 6),
-      ...userData,
-      createdAt: new Date().toISOString(),
-    };
-    this.data.users.push(newUser);
-    this.save();
-
-    try {
-      const User = require('../models/User');
-      User.create({
-        _id: newUser._id,
-        name: newUser.name,
-        email: newUser.email.toLowerCase(),
-        password: newUser.password,
-        role: newUser.role || 'user',
-        theatreId: newUser.theatreId || null,
-        theatreName: newUser.theatreName || null,
-        createdAt: newUser.createdAt,
-      }).catch(e => console.warn('[MongoDB] User sync notice:', e.message));
-    } catch (e) {
-    }
-
-    return newUser;
-  }
-
   getAllUsers() {
-    return this.data.users.map(({ password, ...rest }) => rest);
+    return this.data.users.map(({ password, ...u }) => u);
   }
-
   getMovies() {
     return this.data.movies;
   }
-
   getMovieById(id) {
-    if (!id) return null;
-    const target = String(id);
-    return this.data.movies.find(m => String(m._id) === target || String(m.id) === target);
+    return this.data.movies.find(
+      (x) => String(x._id) === String(id) || String(x.id) === String(id),
+    );
   }
-
-  createMovie(movieData) {
-    const id = Date.now().toString();
-    const newMovie = {
-      _id: id,
-      id: Number(id) || Date.now(),
-      ...movieData,
-      createdAt: new Date().toISOString(),
-    };
-    this.data.movies.unshift(newMovie);
-    this.save();
-
-    try {
-      const Movie = require('../models/Movie');
-      Movie.create({
-        _id: newMovie._id,
-        id: newMovie.id,
-        title: newMovie.title,
-        overview: newMovie.overview || newMovie.description || '',
-        description: newMovie.description || newMovie.overview || '',
-        poster: newMovie.poster || newMovie.poster_path || '',
-        poster_path: newMovie.poster_path || newMovie.poster || '',
-        backdrop_path: newMovie.backdrop_path || '',
-        genre: newMovie.genre || [],
-        genres: newMovie.genres || [],
-        language: newMovie.language || 'English',
-        duration: newMovie.duration || 120,
-        runtime: newMovie.runtime || 120,
-        rating: newMovie.rating || 7.0,
-        vote_average: newMovie.vote_average || 7.0,
-        releaseDate: newMovie.releaseDate || '2025-01-01',
-        release_date: newMovie.release_date || '2025-01-01',
-        status: newMovie.status || 'now_showing',
-      }).catch(e => console.warn('[MongoDB] Movie sync notice:', e.message));
-    } catch (e) {
-    }
-
-    return newMovie;
-  }
-
-  getTheatres() {
-    return this.data.theatres;
-  }
-
-  createTheatre(theatreData) {
-    const newTheatre = {
-      _id: 'th_' + Date.now(),
-      name: theatreData.name,
-      city: theatreData.city || 'Downtown',
-      location: theatreData.location || '',
-      createdAt: new Date().toISOString(),
-    };
-    this.data.theatres.unshift(newTheatre);
-    this.save();
-
-    try {
-      const Theatre = require('../models/Theatre');
-      Theatre.create(newTheatre).catch(e => console.warn('[MongoDB] Theatre sync notice:', e.message));
-    } catch (e) {
-    }
-
-    return newTheatre;
-  }
-
-  getScreens() {
-    return this.data.screens;
-  }
-
-  createScreen(screenData) {
-    const newScreen = {
-      _id: 'sc_' + Date.now(),
-      name: screenData.name || 'Screen 1 (Dolby Atmos)',
-      theatre: screenData.theatre,
-      totalSeats: Number(screenData.totalSeats) || 90,
-      createdAt: new Date().toISOString(),
-    };
-    this.data.screens.unshift(newScreen);
-    this.save();
-
-    try {
-      const Screen = require('../models/Screen');
-      Screen.create(newScreen).catch(e => console.warn('[MongoDB] Screen sync notice:', e.message));
-    } catch (e) {
-    }
-
-    return newScreen;
-  }
-
   getShows() {
     return this.data.shows;
   }
-
   getShowById(id) {
-    if (!id) return null;
-    const target = String(id);
-    return this.data.shows.find(s => String(s._id) === target || String(s.id) === target);
+    return this.data.shows.find((x) => String(x._id) === String(id));
   }
-
-  createShow(showData) {
-    const movieObj = typeof showData.movie === 'object' ? showData.movie : this.getMovieById(showData.movie);
-    const screenObj = typeof showData.screen === 'object' ? showData.screen : this.data.screens.find(sc => sc._id === showData.screen);
-    const theatreObj = typeof showData.theatre === 'object' ? showData.theatre : this.data.theatres.find(th => th._id === showData.theatre);
-
-    const newShow = {
-      _id: 'sh_' + Date.now() + Math.random().toString(36).substring(2, 6),
-      movie: movieObj || { title: 'Movie' },
-      theatre: theatreObj || { name: 'Cinema' },
-      screen: screenObj || { name: 'Screen 1' },
-      showDate: showData.showDate,
-      showDateTime: showData.showDateTime || showData.showDate,
-      startTime: showData.startTime,
-      endTime: showData.endTime,
-      price: Number(showData.price) || 200,
-      showPrice: Number(showData.price) || 200,
-      bookedSeats: [],
-      createdAt: new Date().toISOString(),
-    };
-    this.data.shows.unshift(newShow);
-    this.save();
-
-    try {
-      const Show = require('../models/Show');
-      Show.create({
-        _id: newShow._id,
-        movie: newShow.movie,
-        theatre: newShow.theatre,
-        screen: newShow.screen,
-        showDate: newShow.showDate,
-        showDateTime: newShow.showDateTime,
-        startTime: newShow.startTime,
-        endTime: newShow.endTime,
-        price: newShow.price,
-        showPrice: newShow.showPrice,
-        bookedSeats: [],
-      }).catch(e => console.warn('[MongoDB] Show sync notice:', e.message));
-    } catch (e) {
-    }
-
-    return newShow;
+  getTheatres() {
+    return this.data.theatres;
   }
-
-  createBooking(bookingData) {
-    const bookingId = 'BK' + Date.now();
-    const newBooking = {
-      _id: bookingId,
-      bookingId: bookingId,
-      ...bookingData,
-      isPaid: true,
-      bookedAt: new Date().toISOString(),
-      createdAt: new Date().toISOString(),
-    };
-
-    const showId = bookingData.show?._id || bookingData.show;
-    const show = this.getShowById(showId);
-    const newSeatIds = Array.isArray(bookingData.seats)
-      ? bookingData.seats.map(s => (typeof s === 'object' ? s.seatNumber : s))
-      : (bookingData.bookedSeats || []);
-
-    if (show) {
-      if (!Array.isArray(show.bookedSeats)) show.bookedSeats = [];
-      show.bookedSeats.push(...newSeatIds);
-    }
-
-    this.data.bookings.unshift(newBooking);
-    this.save();
-
-    try {
-      const Booking = require('../models/Booking');
-      Booking.create({
-        _id: newBooking._id || newBooking.bookingId,
-        bookingId: newBooking.bookingId,
-        user: newBooking.user,
-        userId: newBooking.userId || (newBooking.user && newBooking.user._id),
-        show: newBooking.show,
-        seats: newBooking.seats || [],
-        bookedSeats: newBooking.bookedSeats || newSeatIds,
-        totalAmount: newBooking.totalAmount || newBooking.amount || 0,
-        amount: newBooking.amount || newBooking.totalAmount || 0,
-        isPaid: true,
-        bookedAt: newBooking.bookedAt,
-      }).catch(e => console.warn('[MongoDB] Booking sync notice:', e.message));
-
-      if (show) {
-        const Show = require('../models/Show');
-        Show.updateOne(
-          { $or: [{ _id: show._id }, { 'movie.title': show.movie?.title }] },
-          { $addToSet: { bookedSeats: { $each: newSeatIds } } }
-        ).catch(e => console.warn('[MongoDB] Show seat update notice:', e.message));
-      }
-    } catch (e) {
-    }
-
-    return newBooking;
+  getScreens() {
+    return this.data.screens;
   }
-
-  getUserBookings(userId) {
-    return this.data.bookings.filter(b => b.user?._id === userId || b.userId === userId);
-  }
-
   getAllBookings() {
     return this.data.bookings;
   }
+  getUserBookings(id) {
+    return this.data.bookings.filter(
+      (x) => String(x.userId || x.user?._id) === String(id),
+    );
+  }
+  createUser(input) {
+    return this.mutate((d) => {
+      if (
+        d.users.some((x) => x.email.toLowerCase() === input.email.toLowerCase())
+      )
+        throw new Error("Email already registered");
+      const u = {
+        ...input,
+        _id: "usr_" + randomUUID(),
+        createdAt: new Date().toISOString(),
+      };
+      d.users.push(u);
+      return u;
+    });
+  }
 }
-
-const store = new Store();
-module.exports = store;
-
+module.exports = new Store();

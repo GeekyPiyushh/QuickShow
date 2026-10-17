@@ -47,7 +47,7 @@ const BookingSuccess = () => {
         />
 
         <h2 className='text-xl font-bold text-white mb-1 truncate'>{movie.title}</h2>
-        <p className='text-xs text-primary mb-4'>QuickShow Grand Cinemas • Screen 1</p>
+        <p className='text-xs text-primary mb-4'>{booking.show?.theatre?.name} • {booking.show?.screen?.name}</p>
 
         <div className='border-t border-dashed border-white/20 pt-4 space-y-2.5 text-xs sm:text-sm text-gray-300'>
           <div className='flex justify-between'>
@@ -62,10 +62,10 @@ const BookingSuccess = () => {
           </div>
           <div className='flex justify-between'>
             <span className='text-gray-400'>Status</span>
-            <span className='text-emerald-400 font-semibold'>Paid & Confirmed</span>
+            <span className='text-emerald-400 font-semibold'>{booking.isPaid ? 'Recorded paid' : 'Reserved · Unpaid'}</span>
           </div>
           <div className='flex justify-between border-t border-white/10 pt-2.5 font-semibold text-sm'>
-            <span className='text-gray-300'>Total Paid</span>
+            <span className='text-gray-300'>Booking Amount</span>
             <span className='text-primary text-base font-bold'>{currency}{booking.amount}</span>
           </div>
         </div>

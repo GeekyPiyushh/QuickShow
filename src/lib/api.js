@@ -163,5 +163,11 @@ export async function getMe() {
     logout();
     return null;
   }
-  return getCurrentUser();
+  return null;
+}
+
+export async function adminRequest(path = '/data', method = 'GET', body) {
+  const res = await request('/admin' + path, { method, ...(body ? {body:JSON.stringify(body)} : {}) });
+  if (!res?.success) throw new Error(res?.message || 'Unable to connect. Check the server and retry.');
+  return res;
 }

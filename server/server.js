@@ -1,6 +1,7 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
 const moviesRoutes = require('./routes/movies');
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api/admin', require('./routes/admin'));
 app.use('/api/auth', authRoutes);
 app.use('/api/movies', moviesRoutes);
 app.use('/api', theatresRoutes);
@@ -50,17 +52,20 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({
+  console.error('Unhandled error:', err.message || err);
+  const status = err.status || 500;
+  res.status(status).json({
     success: false,
-    message: 'Internal server error',
+    message: err.message || 'Unable to save. Check database connectivity and retry.',
   });
 });
 
-app.listen(PORT, async () => {
-  console.log(`=========================================`);
-  console.log(` QuickShow API Server running on port ${PORT}`);
-  console.log(` Base URL: http://localhost:${PORT}/api`);
-  console.log(`=========================================`);
-  await connectDB();
-});
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => console.log('QuickShow API listening on port ' + PORT));
+  })
+  .catch((err) => {
+    console.error('Database initialization failed:', err.message || err);
+    process.exit(1);
+  });
+

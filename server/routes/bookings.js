@@ -1,112 +1,56 @@
-const express = require('express');
-const store = require('../data/store');
-const { authenticate, requireAdmin } = require('../middleware/auth');
-
-const router = express.Router();
-
-router.get('/my', authenticate, async (req, res) => {
+const router = require("express").Router();
+const store = require("../data/store");
+const { authenticate, requireAdmin } = require("../middleware/auth");
+const { fail, idOf, startAt, seatIds, newId } = require("../utils/adminDomain");
+router.get("/my", authenticate, (req, res) =>
+  res.json({ success: true, bookings: store.getUserBookings(req.user._id) }),
+);
+router.get("/", authenticate, requireAdmin, (req, res) =>
+  res.json({ success: true, bookings: store.getAllBookings() }),
+);
+router.post("/", authenticate, async (req, res, next) => {
   try {
-    const Booking = require('../models/Booking');
-    const userBookings = await Booking.find({
-      $or: [
-        { userId: req.user._id },
-        { 'user._id': req.user._id },
-        { 'user.email': req.user.email?.toLowerCase() },
-      ]
-    }).sort({ createdAt: -1 }).lean();
-
-    if (userBookings && userBookings.length > 0) {
-      return res.json({
-        success: true,
-        bookings: userBookings,
-      });
-    }
-  } catch (err) {
-  }
-
-  try {
-    const userBookings = store.getUserBookings(req.user._id);
-    return res.json({
-      success: true,
-      bookings: userBookings,
+    const booking = await store.mutate((d) => {
+      const show = d.shows.find((s) => idOf(s) === idOf(req.body.show));
+      if (!show || show.status === "cancelled" || startAt(show) <= Date.now())
+        fail("Select an available future show.");
+      const seats = Array.isArray(req.body.seats)
+        ? req.body.seats.map((s) => s?.seatNumber || s)
+        : [];
+      const valid = new Set(seatIds(show.screen));
+      if (
+        !seats.length ||
+        seats.length > 5 ||
+        new Set(seats).size !== seats.length ||
+        seats.some((s) => !valid.has(s))
+      )
+        fail("Select 1–5 unique valid seats.");
+      if (seats.some((s) => (show.bookedSeats || []).includes(s)))
+        fail("One or more seats were just booked. Please choose again.", 409);
+      show.bookedSeats = [...(show.bookedSeats || []), ...seats];
+      const id = newId("BK"),
+        totalAmount = Number(show.price) * seats.length;
+      const b = {
+        _id: id,
+        bookingId: id,
+        user: { _id: req.user._id, name: req.user.name, email: req.user.email },
+        userId: req.user._id,
+        show: structuredClone(show),
+        seats: seats.map((seatNumber) => ({ seatNumber })),
+        bookedSeats: seats,
+        totalAmount,
+        amount: totalAmount,
+        isPaid: false,
+        status: "confirmed",
+        createdAt: new Date().toISOString(),
+        bookedAt: new Date().toISOString(),
+      };
+      d.bookings.unshift(b);
+      return b;
     });
-  } catch (err) {
-    console.error('Error fetching user bookings:', err);
-    return res.status(500).json({
-      success: false,
-      message: 'Failed to fetch bookings',
-    });
-  }
-});
-
-router.get('/', authenticate, requireAdmin, async (req, res) => {
-  try {
-    const Booking = require('../models/Booking');
-    const allBookings = await Booking.find().sort({ createdAt: -1 }).lean();
-    if (allBookings && allBookings.length > 0) {
-      return res.json({
-        success: true,
-        bookings: allBookings,
-      });
-    }
-  } catch (err) {
-  }
-
-  try {
-    const allBookings = store.getAllBookings();
-    return res.json({
-      success: true,
-      bookings: allBookings,
-    });
-  } catch (err) {
-    console.error('Error fetching all bookings:', err);
-    return res.status(500).json({
-      success: false,
-      message: 'Failed to fetch bookings',
-    });
+    res.status(201).json({ success: true, booking });
+  } catch (e) {
+    next(e);
   }
 });
-
-router.post('/', authenticate, (req, res) => {
-  try {
-    const { show, seats } = req.body;
-    if (!show || !seats || !Array.isArray(seats) || seats.length === 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'Show and seats array are required',
-      });
-    }
-
-    const showObj = typeof show === 'object' ? show : store.getShowById(show);
-    const unitPrice = showObj?.price ?? showObj?.showPrice ?? 200;
-    const totalAmount = unitPrice * seats.length;
-
-    const newBooking = store.createBooking({
-      user: {
-        _id: req.user._id,
-        name: req.user.name,
-        email: req.user.email,
-      },
-      userId: req.user._id,
-      show: showObj || { _id: show, movie: { title: 'Movie' } },
-      seats: seats.map(s => (typeof s === 'object' ? s : { seatNumber: s })),
-      bookedSeats: seats.map(s => (typeof s === 'object' ? s.seatNumber : s)),
-      totalAmount,
-      amount: totalAmount,
-    });
-
-    return res.status(201).json({
-      success: true,
-      message: 'Booking created successfully',
-      booking: newBooking,
-    });
-  } catch (err) {
-    console.error('Error creating booking:', err);
-    return res.status(500).json({
-      success: false,
-      message: 'Failed to create booking',
-    });
-  }
-});
-
 module.exports = router;

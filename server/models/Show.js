@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const showSchema = new mongoose.Schema({
-  _id: { type: String, default: () => 'sh_' + Date.now() + Math.random().toString(36).substring(2, 6) },
+  _id: { type: mongoose.Schema.Types.Mixed, default: () => 'sh_' + Date.now() + Math.random().toString(36).substring(2, 6) },
   movie: { type: mongoose.Schema.Types.Mixed, required: true },
   theatre: { type: mongoose.Schema.Types.Mixed },
   screen: { type: mongoose.Schema.Types.Mixed },
@@ -12,6 +12,7 @@ const showSchema = new mongoose.Schema({
   price: { type: Number, default: 200 },
   showPrice: { type: Number, default: 200 },
   bookedSeats: [{ type: String }],
+  status: {type:String,default:'scheduled'}, turnaroundMinutes: {type:Number,default:15},
   createdAt: { type: Date, default: Date.now },
 }, {
   timestamps: true,

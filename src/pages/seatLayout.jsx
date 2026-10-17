@@ -1,236 +1,193 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { assets, dummyDateTimeData, dummyShowsData } from '../assets/assets'
-import Loading from '../components/Loading'
-import { ArrowRight, Clock2Icon } from 'lucide-react'
-import isoTimeFormat from '../lib/isoTimeFormat'
-import toast from 'react-hot-toast'
-import { getMovieById } from '../lib/api'
-
-const DEFAULT_SHOW_PRICE = 200
-
-const SAMPLE_BOOKED_SEATS = ['A3', 'A4', 'B2', 'C5', 'D1', 'D2', 'E8', 'F3', 'G6']
-
-const SeatLayout = () => {
-
-  const { id, date } = useParams()
-  const [selectedSeats, setSelectedSeats] = useState([])
-  const [selectedTime, setSelectedTime] = useState(null)
-  const [selectedTimeRaw, setSelectedTimeRaw] = useState(null)
-  const [show, setShow] = useState(null)
-  const navigate = useNavigate()
-
-  const groupRows = [['A', 'B'], ['C', 'D'], ['E', 'F'], ['G', 'H'], ['I', 'J']]
-
-  const getShow = async () => {
-    const found = dummyShowsData.find((s) => s._id === id || String(s.id) === String(id))
-    if (found) {
-      setShow({
-        movie: found,
-        dateTime: dummyDateTimeData,
-        showPrice: DEFAULT_SHOW_PRICE,
-      })
-      return
-    }
-
-    try {
-      const apiMovie = await getMovieById(id)
-      if (apiMovie) {
-        setShow({
-          movie: {
-            _id: apiMovie._id || apiMovie.id,
-            id: apiMovie.id || apiMovie._id,
-            title: apiMovie.title,
-            poster_path: apiMovie.poster_path || apiMovie.poster || '',
-            runtime: apiMovie.runtime || apiMovie.duration || 120,
-            genres: Array.isArray(apiMovie.genres) && apiMovie.genres.length > 0
-              ? apiMovie.genres.map((g) => (typeof g === 'string' ? { name: g } : g))
-              : (Array.isArray(apiMovie.genre) ? apiMovie.genre.map((g) => ({ name: g })) : []),
-          },
-          dateTime: dummyDateTimeData,
-          showPrice: DEFAULT_SHOW_PRICE,
-        })
-        return
-      }
-    } catch {
-    }
-
-    if (dummyShowsData.length > 0) {
-      setShow({
-        movie: dummyShowsData[0],
-        dateTime: dummyDateTimeData,
-        showPrice: DEFAULT_SHOW_PRICE,
-      })
-    }
-  }
-
-  useEffect(() => {
-    getShow()
-  }, [])
-
-  const isBooked = (seatId) => SAMPLE_BOOKED_SEATS.includes(seatId)
-
-  const renderSeats = (row, count = 9) => (
-    <div key={row} className='flex gap-2 mt-2'>
-      <div className='flex flex-nowrap items-center justify-center gap-2'>
-        {Array.from({ length: count }, (_, i) => {
-          const seatId = `${row}${i + 1}`
-          const booked = isBooked(seatId)
-          const selected = selectedSeats.includes(seatId)
-          return (
-            <button
-              key={seatId}
-              disabled={booked}
-              onClick={() => handleSeatClick(seatId)}
-              title={booked ? 'Already booked' : seatId}
-              className={`h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded text-xs border transition
-                ${booked
-                  ? 'bg-gray-700 border-gray-600 text-gray-500 cursor-not-allowed'
-                  : selected
-                    ? 'bg-primary border-primary text-white cursor-pointer'
-                    : 'border-primary/60 hover:border-primary cursor-pointer'
-                }`}
-            >
-              {seatId}
-            </button>
-          )
-        })}
-      </div>
-    </div>
-  )
-
-  const handleSeatClick = (seatId) => {
-    if (!selectedTime) {
-      return toast('Please select a show time first.')
-    }
-    if (!selectedSeats.includes(seatId) && selectedSeats.length >= 5) {
-      return toast('You can select up to 5 seats only.')
-    }
-    if (selectedSeats.includes(seatId)) {
-      setSelectedSeats(selectedSeats.filter((s) => s !== seatId))
-    } else {
-      setSelectedSeats([...selectedSeats, seatId])
-    }
-  }
-
-  const handleProceed = () => {
-    if (!selectedTime) {
-      return toast('Please select a show time.')
-    }
-    if (selectedSeats.length === 0) {
-      return toast('Please select at least one seat.')
-    }
-    navigate('/booking-summary', {
-      state: {
-        movie: show.movie,
-        selectedSeats,
-        selectedTime,
-        showDate: date,
-        showPrice: show.showPrice,
-      },
-    })
-    scrollTo(0, 0)
-  }
-
-  const currency = import.meta.env.VITE_CURRENCY
-  const totalAmount = selectedSeats.length * (show?.showPrice || 0)
-
-  return show ? (
-    <div className='flex flex-col xl:flex-row px-4 sm:px-6 md:px-16 lg:px-40 pt-24 md:pt-32 pb-10'>
-
-      <div className='w-full xl:w-60 bg-primary/10 border border-primary/20 rounded-lg py-6 xl:py-10 h-max'>
-        <p className='text-lg font-semibold px-6'>Available Timings</p>
-        <div className='mt-5 space-y-1'>
-          {show.dateTime[date]?.map((item) => (
-            <div
-              key={item.time}
-              onClick={() => {
-                setSelectedTime(isoTimeFormat(item.time))
-                setSelectedTimeRaw(item.time)
-                setSelectedSeats([])
-              }}
-              className={`flex items-center gap-2 px-6 py-2 w-max rounded-r-md cursor-pointer transition
-                ${selectedTime === isoTimeFormat(item.time)
-                  ? 'bg-primary text-white'
-                  : 'hover:bg-primary/20'
-                }`}
-            >
-              <Clock2Icon className='w-4 h-4' />
-              <p>{isoTimeFormat(item.time)}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className='relative flex-1 flex flex-col items-center max-md:mt-16 w-full min-w-0'>
-
-        <h1 className='text-2xl font-semibold mb-4'>Select Your Seat</h1>
-
-        <div className='flex items-center gap-5 text-xs text-gray-400 mb-6'>
-          <span className='flex items-center gap-1'>
-            <span className='h-4 w-4 rounded border border-primary/60 inline-block' /> Available
-          </span>
-          <span className='flex items-center gap-1'>
-            <span className='h-4 w-4 rounded bg-primary inline-block' /> Selected
-          </span>
-          <span className='flex items-center gap-1'>
-            <span className='h-4 w-4 rounded bg-gray-700 inline-block' /> Booked
-          </span>
-        </div>
-
-        <div className='w-full overflow-x-auto'>
-          <div className='w-max min-w-full flex flex-col items-center'>
-            <img src={assets.screenImage} alt='Screen' />
-            <p className='text-gray-400 text-sm mb-6'>SCREEN SIDE</p>
-
-            <div className='flex flex-col items-center mt-10 text-xs text-gray-300'>
-              <div className='gap-2 mb-6'>
-                {groupRows[0].map((row) => renderSeats(row))}
-              </div>
-
-              <div className='grid grid-cols-2 gap-11'>
-                {groupRows.slice(1).map((group, idx) => (
-                  <div key={idx}>
-                    {group.map((row) => renderSeats(row))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {selectedSeats.length > 0 && (
-          <div className='mt-8 w-full max-w-md bg-primary/10 border border-primary/20 rounded-lg px-5 py-4 text-sm'>
-            <div className='flex justify-between mb-2'>
-              <span className='text-gray-400'>Selected Seats</span>
-              <span className='font-medium'>{selectedSeats.join(', ')}</span>
-            </div>
-            <div className='flex justify-between mb-2'>
-              <span className='text-gray-400'>Price per seat</span>
-              <span>{currency}{show.showPrice}</span>
-            </div>
-            <div className='flex justify-between font-semibold border-t border-white/10 pt-2 mt-1'>
-              <span>Total</span>
-              <span className='text-primary'>{currency}{totalAmount}</span>
-            </div>
-          </div>
-        )}
-
-        <div className='flex justify-center w-full mt-10 mb-4'>
-          <button
-            onClick={handleProceed}
-            className='flex items-center justify-center gap-2 px-7 py-3 bg-primary hover:bg-primary-dull transition rounded-full font-medium text-sm cursor-pointer active:scale-95'
-          >
-            <p>Proceed to Checkout</p>
-            <ArrowRight strokeWidth={3} className='w-4 h-4' />
-          </button>
-        </div>
-
-      </div>
-    </div>
-  ) : (
-    <Loading />
-  )
+import { showStart } from "../lib/showStart";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getMovieById, getShows, getShowSeats } from "../lib/api";
+import toast from "react-hot-toast";
+export default function SeatLayout() {
+  const { id, date } = useParams();
+  return <Seats key={id + date} id={id} date={date} />;
 }
-
-export default SeatLayout
+function Seats({ id, date }) {
+  const navigate = useNavigate();
+  const [movie, setMovie] = useState(null),
+    [shows, setShows] = useState([]),
+    [selected, setSelected] = useState(null),
+    [layout, setLayout] = useState(null),
+    [chosen, setChosen] = useState([]),
+    [error, setError] = useState(""),
+    [loading, setLoading] = useState(true),
+    [seatLoading, setSeatLoading] = useState(false);
+  useEffect(() => {
+    let live = true;
+    Promise.all([getMovieById(id), getShows()])
+      .then(([m, r]) => {
+        if (!live) return;
+        if (!m || !r?.success) {
+          setError("Unable to load screenings. Please refresh and try again.");
+          return;
+        }
+        setMovie(m);
+        setShows(
+          r.shows.filter(
+            (s) =>
+              String(s.movie?._id || s.movie?.id) === String(id) &&
+              String(s.showDate).slice(0, 10) === date &&
+              s.status !== "cancelled" &&
+              showStart(s) > Date.now(),
+          ),
+        );
+      })
+      .finally(() => {
+        if (live) setLoading(false);
+      });
+    return () => {
+      live = false;
+    };
+  }, [id, date]);
+  useEffect(() => {
+    if (!selected) return;
+    let live = true;
+    getShowSeats(selected._id)
+      .then((r) => {
+        if (live) {
+          if (!r) setError("Unable to load seats. Select the show again.");
+          else {
+            setError("");
+            setLayout(r);
+          }
+        }
+      })
+      .finally(() => {
+        if (live) setSeatLoading(false);
+      });
+    return () => {
+      live = false;
+    };
+  }, [selected]);
+  function proceed() {
+    if (!selected || !chosen.length)
+      return toast.error("Choose a show and at least one seat.");
+    navigate("/booking-summary", {
+      state: {
+        movie: {
+          ...movie,
+          poster_path: movie.poster_path || movie.poster,
+          runtime: movie.runtime || movie.duration,
+          genres: movie.genres || [],
+        },
+        selectedSeats: chosen,
+        selectedTime: selected.startTime,
+        showDate: date,
+        showPrice: selected.price,
+        showId: selected._id,
+        theatre: selected.theatre?.name,
+        screen: selected.screen?.name,
+      },
+    });
+  }
+  return (
+    <main className="px-6 md:px-24 pt-32 pb-20 min-h-screen">
+      <h1 className="text-2xl font-semibold">
+        {movie?.title || "Select your seats"}
+      </h1>
+      <p className="text-gray-400 mt-2">{date} · Show times in IST</p>
+      {error && (
+        <p className="text-red-300 mt-5" role="alert">
+          {error}
+        </p>
+      )}
+      {loading ? (
+        <p className="mt-8">Loading shows…</p>
+      ) : !shows.length ? (
+        <p className="mt-8">
+          No available screenings on this date. Choose another date from the
+          movie page.
+        </p>
+      ) : (
+        <>
+          <div className="flex flex-wrap gap-3 mt-7">
+            {shows.map((s) => (
+              <button
+                className={
+                  "p-4 rounded-lg border text-left " +
+                  (selected?._id === s._id
+                    ? "bg-primary border-primary"
+                    : "border-white/20")
+                }
+                key={s._id}
+                onClick={() => {
+                  setSeatLoading(true);
+                  setLayout(null);
+                  setChosen([]);
+                  setSelected({ ...s });
+                }}
+              >
+                <strong>
+                  {s.startTime} · ₹{s.price}
+                </strong>
+                <p className="text-xs mt-1">
+                  {s.theatre?.name} · {s.screen?.name}
+                </p>
+              </button>
+            ))}
+          </div>
+          {seatLoading && <p className="mt-8">Loading seats…</p>}
+          {layout && (
+            <div className="max-w-lg mx-auto mt-12">
+              <p className="text-center text-gray-400 border-t-4 border-white/30 rounded-t-[50%] pt-5 mb-8 text-xs tracking-widest">
+                SCREEN THIS WAY
+              </p>
+              <div className="grid grid-cols-9 gap-2">
+                {layout.seats.map((s) => {
+                  const booked = layout.bookedSeats.includes(s),
+                    active = chosen.includes(s);
+                  return (
+                    <button
+                      key={s}
+                      disabled={booked}
+                      aria-label={
+                        s +
+                        (booked
+                          ? " booked"
+                          : active
+                            ? " selected"
+                            : " available")
+                      }
+                      aria-pressed={active}
+                      onClick={() => {
+                        if (active) setChosen(chosen.filter((x) => x !== s));
+                        else if (chosen.length < 5) setChosen([...chosen, s]);
+                        else toast.error("Maximum 5 seats per booking.");
+                      }}
+                      className={
+                        "h-9 text-xs rounded border " +
+                        (booked
+                          ? "bg-gray-700 border-gray-700 text-gray-500"
+                          : active
+                            ? "bg-primary border-primary"
+                            : "border-primary/50")
+                      }
+                    >
+                      {s}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-gray-400 mt-5">
+                Grey: booked · Pink: selected · Outline: available
+              </p>
+              <button
+                className="w-full bg-primary rounded-full py-3 mt-8 disabled:opacity-40"
+                disabled={!chosen.length}
+                onClick={proceed}
+              >
+                Continue · {chosen.length} seats · ₹
+                {chosen.length * selected.price}
+              </button>
+            </div>
+          )}
+        </>
+      )}
+    </main>
+  );
+}

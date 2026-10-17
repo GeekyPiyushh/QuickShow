@@ -14,7 +14,9 @@ function authenticate(req, res, next) {
   const token = authHeader.split(' ')[1];
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded;
+    const user = require('../data/store').findUserById(decoded._id);
+    if (!user) return res.status(401).json({success:false,message:'Account not found'});
+    req.user = {_id:user._id,name:user.name,email:user.email,role:user.role};
     next();
   } catch (err) {
     return res.status(401).json({

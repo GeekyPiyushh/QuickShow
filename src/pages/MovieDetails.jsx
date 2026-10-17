@@ -87,20 +87,6 @@ const MovieDetails = () => {
   }
 
   const getShow = async () => {
-    const localMovie = dummyShowsData.find((s) => String(s._id) === String(id) || String(s.id) === String(id))
-
-    if (localMovie) {
-      setShow({
-        movie: {
-          ...localMovie,
-          trailer: resolveTrailer(localMovie),
-        },
-        dateTime: dummyDateTimeData,
-      })
-      setIsFavourite(checkIsFavourite(localMovie._id || localMovie.id))
-      return
-    }
-
     try {
       const apiMovie = await getMovieById(id)
       if (apiMovie) {

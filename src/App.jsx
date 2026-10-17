@@ -17,6 +17,7 @@ import AddShows from './pages/admin/AddShows'
 import ListShows from './pages/admin/ListShows'
 import ListBookings from './pages/admin/ListBookings'
 import AddMovie from './pages/admin/AddMovie'
+import ComingSoon from './pages/ComingSoon'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/movies' element={<Movies/>}/>
+        <Route path='/upcoming-movies' element={<ComingSoon/>}/>
         <Route path='/movies/:id' element={<MovieDetails/>}/>
         <Route path='/movies/:id/:date' element={<SeatLayout/>}/>
         <Route path='/favourite' element={<Favourite/>}/>

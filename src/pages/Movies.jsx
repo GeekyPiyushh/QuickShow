@@ -2,9 +2,10 @@ import MovieCard from '../components/MovieCard'
 import { dummyShowsData, genres, languages } from '../assets/assets'
 import Filter from '../components/Filter'
 import { useState, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 import { getMovies } from '../lib/api'
+import { ChevronRight } from 'lucide-react'
 
 const normalizeMovie = (m) => {
   const normalizedGenres = Array.isArray(m.genre)
@@ -40,6 +41,8 @@ const Movies = () => {
   const [selectedLanguages, setSelectedLanguages] = useState([])
   const [selectedGenres, setSelectedGenres] = useState([])
   const [searchParams] = useSearchParams()
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function load() {
@@ -78,6 +81,17 @@ const Movies = () => {
         setSelectedGenres={setSelectedGenres}
         totalResults={filteredMovies.length}
       />
+
+      {/* "Coming Soon" Announcement Bar */}
+      <div className='flex justify-between items-start gap-3 bg-white/8 backdrop-blur-md rounded-2xl p-4 sm:px-6 mb-10 transition'>
+
+        <h2 className='text-sm sm:text-base font-medium'>Coming Soon</h2>
+   
+        <div onClick={() => navigate('/upcoming-movies')} className='flex items-center gap-1 text-sm sm:text-base font-medium text-primary hover:text-primary-dull cursor-pointer transition group'>
+          <p>Explore Upcoming Movies</p>
+          <ChevronRight className='w-4 h-4 group-hover:translate-x-1 transition-transform'/>
+        </div>
+      </div>
 
       <div className='flex items-center justify-between my-4'>
         <h1 className='text-xl font-bold tracking-tight text-white'>

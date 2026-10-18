@@ -1,0 +1,39 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "node server/server.js",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test:admin": "node server/test_admin.cjs",
+    "lint:admin": "eslint src/pages/admin src/pages/seatLayout.jsx src/components/DateSelect.jsx src/lib/api.js src/lib/showStart.js"
+  },
+  "dependencies": {
+    "@clerk/react": "^6.15.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^1.41.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-hot-toast": "^2.6.0",
+    "react-player": "^3.4.0",
+    "react-router-dom": "^7.18.3",
+    "react-router-hash-link": "^2.4.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.1.0",
+    "eslint": "^10.9.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.4",
+    "globals": "^17.11.0",
+    "vite": "^8.2.2"
+  }
+}

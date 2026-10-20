@@ -1,0 +1,1 @@
+const router=require('express').Router();const store=require('../data/store');const {authenticate,requireAdmin}=require('../middleware/auth');router.get('/',authenticate,requireAdmin,(q,r)=>r.json({success:true,users:store.getAllUsers(),count:store.getAllUsers().length}));module.exports=router;

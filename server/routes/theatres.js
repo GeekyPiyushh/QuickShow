@@ -1,0 +1,1 @@
+const router=require('express').Router();const store=require('../data/store');router.get('/theatres',(q,r)=>r.json({success:true,theatres:store.getTheatres()}));router.get('/screens',(q,r)=>r.json({success:true,screens:store.getScreens()}));module.exports=router;
